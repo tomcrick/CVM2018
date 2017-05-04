@@ -178,3 +178,9 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
+
+# Some weird thing TexWorks generates
+*.spl
+
+# Output (for now)
+*.pdf
