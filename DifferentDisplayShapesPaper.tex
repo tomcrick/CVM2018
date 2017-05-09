@@ -430,14 +430,13 @@ Being implemented at the framework level allows any of the supported application
 
 To utilise the technique the software needs to be informed of the dimensions of the display shape being used.
 This is done through the creation of virtual counterparts to the display shapes utilised by the system.
-% TODO Discussion of vector files here
+These virtual counterparts are represented as vector files which are loaded into applications through the framework's configuration interface.
 The approach of using virtual counterparts allows each display shape representation to store information on the positioning of their maximal rectangle, or polygon.
 The maximal rectangle can be used by the virtual projection stage of the technique because all the SynergyNet applications are currently built using a rectangular environment.
 
 The technique is implemented in such a way that it is always employed when an application attempts to transform a content item using absolute values.
 This means that, in addition to the initial positioning of content, the technique is employed when an application needs to transform an item to a specific position.
-% TODO Better example here
-For example, this may be when an app developer desires an item to be moved to a specific location, irrespective of its previous location.
+For example, if a new item is to be added to the `centre' of the visual content the technique would be applied to ensure it appears in the middle of the maximal rectangle, even if the item is added sometime after the application's initialisation.
 The technique does not need to be utilised for relative transformations, such as those used when adjusting an item's position, scale or rotation in response to a user gesture.
 
 The SynergyNet framework was adapted to apply a range of borders which would allow the display to emulate different shapes.
