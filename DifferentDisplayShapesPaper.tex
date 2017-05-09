@@ -303,7 +303,7 @@ This stage is referred to as {\em Position Pulling}.
 For the first stage of the technique, the original shape of the software environment's visual output is treated as a single item.
 This item, referred to as the virtual projection, is translated, rotated and scaled so that it fits within the display shape being used.
 The transformations applied to the virtual projection are applied to any visual content items displayed in the software's original layout.
-% Psuedo code showing how this is applied here.
+% TODO Psuedo code showing how this is applied here.
 
 This stage of the technique has the effect of keeping the visual content items aligned with the virtual projection.
 This ensures that visual contents will not incur occlusion from lying outside the borders of the new display shape.
@@ -353,7 +353,8 @@ The objective of this stage is to move content items into areas of the display w
 The edges of the virtual projection exert a \lq pulling force\rq\ on content items.
 The magnitude of this force is determined by the size of gaps between the display border and the virtual projection edges.
 The magnitudes of these \lq pulling forces\rq\ are also influenced by a content item's proximity to the edge instigating the force.
-% Items are pulled from their centroids to keep calculations simple, ignore the shape and size of the items moved.
+Content Items are pulled from their centroids to keep calculations simple.
+This means the shapes and sizes of the items moved are ignored.
 
 The position pulling stage has the resulting effect of pulling content items into unused regions of the display (see
 Figure~\ref{fig:pullLayout}).
@@ -418,8 +419,7 @@ While the technique does has the ability to counter any \ac{DSDI}, it does have 
 \section{Study}
 \label{sec:study}
 
-% More recent SynergyNet references here.
-The technique discussed in Section~\ref{sec:solution} was implemented into the 2.1 version of the SynergyNet framework~\cite{AlAgha2010}, a multi-touch software framework intended for use with rectangular tabletop interfaces.
+The technique discussed in Section~\ref{sec:solution} was implemented into the 2.1 version of the SynergyNet framework~\cite{McNaughton2017,AlAgha2010}, a multi-touch software framework intended for use with rectangular tabletop interfaces.
 The framework functions by rendering a range of content items, such as images, text and video, which can then be manipulated by users.
 SynergyNet is built in Java allowing it to be run across different operating systems and can accept a wide range of different multi-touch protocols such as TUIO~\cite{Kaltenbrunner2007}.
 This makes the framework capable of being used in a wide range of systems with different displays.
@@ -430,13 +430,13 @@ Being implemented at the framework level allows any of the supported application
 
 To utilise the technique the software needs to be informed of the dimensions of the display shape being used.
 This is done through the creation of virtual counterparts to the display shapes utilised by the system.
-% Discussion of vector files here
+% TODO Discussion of vector files here
 The approach of using virtual counterparts allows each display shape representation to store information on the positioning of their maximal rectangle, or polygon.
 The maximal rectangle can be used by the virtual projection stage of the technique because all the SynergyNet applications are currently built using a rectangular environment.
 
 The technique is implemented in such a way that it is always employed when an application attempts to transform a content item using absolute values.
 This means that, in addition to the initial positioning of content, the technique is employed when an application needs to transform an item to a specific position.
-% Better example here
+% TODO Better example here
 For example, this may be when an app developer desires an item to be moved to a specific location, irrespective of its previous location.
 The technique does not need to be utilised for relative transformations, such as those used when adjusting an item's position, scale or rotation in response to a user gesture.
 
@@ -582,10 +582,10 @@ The need for applications to control the magnitude of a \ac{DSDI}-minimising tec
 There is now a growing drive for software to become ubiquitous with the increased availability of natural user interfaces.
 For a system to become ubiquitous it must fit its environment~\cite{Greenfield2006}.
 Being able to change the display shape of a system would aid in achieving this.
-% More here on need for this work
+% TODO More here on need for this work
 For this reason it is important that software becomes display shape independent.
 
-% Highlight lack of innovation in this area in recent years.
+% TODO Highlight lack of innovation in this area in recent years.
 
 With a system capable of utilising different display shapes, research into the effect of a display shape on the use of the system can be carried out.
 Prototyping can be employed to investigate how the shape of a display influences the interaction between users and the system.
