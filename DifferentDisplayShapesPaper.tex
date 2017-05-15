@@ -601,21 +601,25 @@ Figure~\ref{fig:prototypeTabletop} shows a prototype built by a leasing furnitur
 The lack of readily available software for the interface's circular display meant that if the tabletop was to be used then bespoke software would need to be commissioned at a cost to the manufacturer rather than using any of the readily available off-the-shelf products intended for interactive kiosks.
 This highlights the need for making it a simple as possible for software to support different display shapes.
 
-% TODO Highlight lack of innovation in this area in recent years.
-% Did a structured lit survey so the collection of resources found which are considered to be relative is exhaustive.
-\cite{Kitchenham2004}
-% Only 2 recent pieces of work of relevance:
-\cite{Serrano2016} % Fitting text to non-rectangular displays in legacy: http://dl.acm.org/citation.cfm?id=2858057
-\cite{Serrano2017} % Application to legacy: http://dl.acm.org/citation.cfm?id=3025677
-% These papers don't deal with dynamic adapting much but instead focus on manually adapting content for a specific display shape. It may be worth mentioning the technique presented in our paper is useful for scenarios where the same software may need to be used on many different display shapes - including some in the future which are currently unknown to the developer. This is a likely scenario given current trends where many device manufacturers will use their own standards and designs but use the same foundation for their supporting software (e.g. the many devices of different display form, size and resolution that all use android).
+To inform the research presented, a structured literature review was carried out following an established protocol~\cite{Kitchenham2004}.
+Though the results returned by the review were exhaustive it was evident that there has been little innovation in this area in the past.
+This is likely due to the cyclical nature of dependency between display technology and its supporting software preventing the adoption of non-rectangular displays.
+However, recently the pace of research in this area is starting to increase with research appearing that details investigations on adapting text to non-rectangular displays~\cite{Serrano2016} and how visual content is best presented on legacy interfaces~\cite{Serrano2017}.
+Though these pieces of research focus more on the impact of manually positioning visual content items for specific display shapes rather than the process of dynamically adapting them, they show that there is a growing interest in moving beyond rectangular displays.
 
-With a system capable of utilising different display shapes, research into the effect of a display shape on the use of the system can be carried out.
+With interest in, and support for, non-rectangular displays growing, the argument for methods of dynamically adapting content to any display shape becomes more apparent.
+Being able to adapt to any display shape is useful for scenarios where the same software may be used with many different display shapes.
+The usefulness of this ability increases where the developer may not know what display shapes their software could be used with in the future.
+This is a likely scenario if interest in non-rectangular displays continues to grow as many device manufactures will likely use their own standards and designs but could want to adopt the same foundation for their supporting software.
+This potential scenario strongly resembles the real-life scenario of mobile devices where many use the same underlying operating system (e.g. Android) but utilise displays of varying sizes, aspect-ratios and resolutions that the software must dynamically adapt to.
+
+With a system capable of utilising different display shapes available, research into the effect of a display shape on the use of the system can be carried out.
 Prototyping can be employed to investigate how the shape of a display influences the interaction between users and the system.
 Some shapes may be found better suited to certain users or tasks.
 With this knowledge the design of future systems could utilise display shapes suited to their audiences or purposes.
 
 The technique outlined in Section~\ref{sec:solution} could be used beyond tabletop systems.
-However, it is possible for the \acp{DSDI} in other systems to vary. 
+However, it is possible for the \acp{DSDI} in other systems to vary and differ from those presented in this work~\cite{Serrano2017}. 
 For example, attempts to resolve the initial Cropping \ac{DSDI} may require content items to be rotated.
 If a user is viewing the display from a single perspective, such as with a vertical display, then any change in content item's orientation is undesirable.
 Information displayed by visual content items, such as text, could appear upside down to the user, making it difficult to comprehend.
@@ -655,6 +659,9 @@ The technique produced in this paper is capable of minimising the effect of the 
 Developers using the technique must decide which \acp{DSDI} could not be tolerated by their software and must adapt the technique according.
 Future tabletop software development would benefit greatly from the creation of guidelines to be followed when adapting software to become display shape independent.
 The technique produced in this paper, or another similar \ac{DSDI}-minimising technique, could form part of these guidelines.
+
+
+
 
 %-------------------------------------------------------------------------
 \section*{Acknowledgements}
