@@ -466,17 +466,41 @@ The intersecting circles shape was designed to make further use of multi-touch's
 The larger circle of the display shape can be used for one activity such as displaying content items whereas the smaller circle could be used for another activity such as manipulating the items.
 The triangle was chosen because of its regular nature, meaning that all its sides and corners are congruent.
 
-With the technique implemented into the SynergyNet framework several applications were used in conjunction with a range of different display shapes.
+With the technique implemented into the SynergyNet framework four applications were used in conjunction with the range of different display shapes.
+These applications were created by the primary author and other developers for previous studies in the SynergyNet project~\cite{higgins2011}
+The applications were chosen because of their differing methods of organising their visual content items and the varying significance of the layout of their items.
+The four applications used in this study were:
+
+\begin{itemize}
+  \item \textbf{XML Puzzle}: 
+  Reads XML files to generate questions and answers that are randomly placed on screen which the user then has to pair up. 
+  \begin{itemize}
+    \item  All the content in this application is positioned randomly. 
+    \item There is no significance to the layout of any of the contents.
+  \end{itemize}
+  \item \textbf{Collage}: 
+  Users move visual content items about on top of a large background image to make a scrapbook type collage which they can then save a snapshot of. 
+    \begin{itemize}
+    \item  All the content in this application is positioned randomly except for the background which is specifically located in the centre.
+    \item There is no significance to the layout of the contents other than the background which must be central.
+  \end{itemize}
+  \item \textbf{Grid}: 
+  Nine items are positioned in a grid layout which users can reposition, rotate and scale through multi-touch gestures.
+  This is one of the applications supported by the SynergyNet framework which help familiarise users to interacting with a large multi-touch interface. 
+    \begin{itemize}
+    \item  All the content in this application is specifically positioned.
+    \item The locational relation between all the items in this application is strong.
+  \end{itemize}
+    \item \textbf{Simple Map}: 
+  Users supply countries in a configuration file and the application will show a world map when started with the specified countries' flags positioned on top of them. 
+  Users can then move the flag items around the map.
+    \begin{itemize}
+    \item  All the content in this application is specifically positioned.
+    \item The locational relation between the flag items and the background image is strong.
+  \end{itemize}
+\end{itemize}
+
 The different display shapes were emulated by covering parts of the screen used.
-
-% Application's from SynergyNet's library used - written by the primary but intended for other purposes.
-% Applications chosen all had different methods of organising their visual contents and significance to their layout.
-% Applications: 
-% - XML Puzzle: Users pair together questions and their relevant answers. 100% randomly positioned content. No layout significance.
-% - Collage: Users move visual items about on top of a large background image to make a scrapbook type collage to screenshot and save. Mix of random and a single instance of specifically positioned content. No layout relations other than the background.
-% - Grid: 9 items in a grid layout which users can manipulate the orientation, scale and location of through multi-touch gestures - used to help familiarise users to large multi-touch interfaces. Bares most similarity to legacy software (maybe mention in observations section). 100% specifically positioned visual content. There is a strong layout relation between all of them.
-% - Simple Map: Users supply countries in a config file and the app when started shows a world map with the specified counties' flags on top of them on the map - users can then move the flags around. All content in this application is specifically positioned. There is a strong layout relation between the flag items and the background image.
-
 Figure~\ref{fig:study} shows some of the applications in use with the various display shapes applied.
 From the use of these applications observations were made on how the adaptation of their content to fit the new display shapes affected their initial usability.
 Applications where the layout of content was significant in some way were focussed on.
@@ -485,10 +509,15 @@ Applications where the layout of content was significant in some way were focuss
 \section{Observations}
 \label{sec:observations}
 
-The majority of the applications were able to be utilised as normal with the \acp{DSDI} totally resolved.
-Many of these involved randomly positioned content to which there was little or no significance to their layout.
-However, two applications reliant on their visual contents highlighted a number of complexities to applying the technique.
+After the application of the technique the the XML Puzzle and Collage applications were able to be utilised as normal with the \acp{DSDI} totally resolved without any observable issues or additional complexities arising.
+This is likely because there is little-to-no significance to the layout of both applications' visual content items.
+The background image in the Collage application was the only non-randomly positioned item in either.
+This background image effectively represented the maximal rectangle as only the virtual projection stage of the technique was applied to it.
+
+However, the two applications reliant on the layout of their visual contents highlighted a number of complexities to applying the technique.
 These were the Grid and Simple Map applications.
+The complexities arising from these two applications are important to consider due to the fact that the Grid and Simple Map applications bare the strongest similarities to most legacy software.
+The entirety of the contents of these two applications are specifically positioned, much like how the contents of traditional Graphic User Interfaces in legacy software are.
 
 \begin{figure*}[t!] 
 	\centerline{\includegraphics[width=1\textwidth]{figures/grid_app.png}}
@@ -496,7 +525,6 @@ These were the Grid and Simple Map applications.
 	\label{fig:gridApp}
 \end{figure*}
 
-Figure~\ref{fig:gridApp} shows the Grid application which consists of nine items arranged in a grid so that the arrows, displayed by the items, point away from the centre of the display.  
 As can be seen in Figure~\ref{fig:gridApp}, all the items are visible and there is no cropping in the initial layout.
 However, when any of the four example display shapes are applied, several content items are occluded to varying extents.
 When the virtual projection stage of the technique is applied the cropping is resolved.
@@ -506,21 +534,17 @@ The position pulling stage of the technique can be seen in Figure~\ref{fig:gridA
 However, the layout of the content items is deformed as a result of this stage.
 While acceptable for the Grid application, this is problematic for software which cannot tolerate the influence of the Layout \ac{DSDI}.
 
-\begin{figure*}[t!] 
-	\centerline{\includegraphics[width=1\textwidth]{figures/map_app.png}}
-	\caption{Influence of the implemented technique on SynergyNet's Simple Map application.}
-	\label{fig:mapApp}
-\end{figure*}
-
-Figure~\ref{fig:mapApp} shows the Simple Map application which consists of an item displaying a map which fills the background of the software environment.
-On top of the map flags or images relating to specific countries are generated.
-The application positions these items to appear on top of their respective countries.
-
 It was observed during the study that developers may wish for some content items to be affected by it in different ways.
 For example, a content item may be intended to act as a background to an application.
 If the implemented \ac{DSDI}-minimising technique a system uses to adapt to different display shapes is unaware of this, the item would be scaled with the virtual projection.
 This would have the effect of the background being constrained to a single region of the display, leaving other areas of the interface blank without a background.
 In the implemented system, a method of making content item exempt from the influence of specific stages of the technique was made available.
+
+\begin{figure*}[t!] 
+	\centerline{\includegraphics[width=1\textwidth]{figures/map_app.png}}
+	\caption{Influence of the implemented technique on SynergyNet's Simple Map application.}
+	\label{fig:mapApp}
+\end{figure*}
 
 In Figure~\ref{fig:mapApp} the map was made exempt from the influence of the position pulling stage of the technique.
 If the map item was made exempt from both stages of the technique, the map would remain in the same position for all display shapes.
@@ -667,9 +691,6 @@ The technique produced in this paper is capable of minimising the effect of the 
 Developers using the technique must decide which \acp{DSDI} could not be tolerated by their software and must adapt the technique according.
 Future tabletop software development would benefit greatly from the creation of guidelines to be followed when adapting software to become display shape independent.
 The technique produced in this paper, or another similar \ac{DSDI}-minimising technique, could form part of these guidelines.
-
-
-
 
 %-------------------------------------------------------------------------
 \section*{Acknowledgements}
