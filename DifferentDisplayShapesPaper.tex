@@ -69,7 +69,7 @@
 
 \address[durham]{Technology Enhanced Learning Special Interest Group, School of Education, Durham University, South Road, Durham, DH1 3LE, UK}
 \address[cardiff]{Department of Computing \& Information Systems, Cardiff Metropolitan University, Cardiff, CF5 2YB, UK}
-\address[newcastleEng]{ES248, Callaghan, University Drive, Callaghan NSW 2308, Australia}
+\address[newcastleEng]{School of Electrical Engineering and Computing, The University of Newcastle, Callaghan NSW 2308, Australia}
 
 
 \begin{abstract}
@@ -85,7 +85,7 @@ Observations on the technique explore how it can be used to adapt the layout of 
 
 
 \begin{keyword}
-Visual content management \sep irregular displays \sep screen design
+Visual content management \sep irregular displays \sep screen design \sep multi-touch surfaces \sep tabletop displays
 \end{keyword}
 
 
@@ -129,7 +129,6 @@ This means that the software is constrained by the specifications of the hardwar
 This is also true for software built for circular dashboard~\cite{Boyd2007} and phone~\cite{Finney2009} displays.
 As a result, such software could not be used easily with other display shapes.
 Therefore, applications used with these circular displays would not be suitable for use with typical rectangular displays.
-The trend is for custom interface solutions, such as tabletop systems, on non-rectangular display shapes.
 
 The DiamondSpin framework~\cite{Shen2004} offers support for circular tabletop multi-touch displays.
 Instances of a circular display used by the framework are achieved through either projecting the system's visual output onto a circular surface or occluding sections of the output.
@@ -140,7 +139,7 @@ Using the framework's features the applications are able to appropriately arrang
 However, this adaptive ability is limited to two display shapes, rectangular and circular.
 
 The circular dashboard liquid crystal display~\cite{Boyd2007} is a typical example of a technology designed with the intention of supporting ubiquitous computing~\cite{Weiser1999}.
-It can be argued that an era of ubiquitous computing is beginning, where more systems will be designed to naturally fit into their surroundings~\cite{Greenfield2006}.
+In an era of ubiquitous computing, more systems will be designed to naturally fit into their surroundings~\cite{Greenfield2006}.
 For computer systems to be ubiquitous they are required to be designed around typical user environments.
 This differs from having user environments tailored around systems as has previously been the case.
 The implication of this is that many previous standard elements of typical computing systems will need to be reconsidered, for example the shape of a system's interface.
@@ -151,21 +150,21 @@ Vernier et al.~\cite{Vernier2002} propose a circular tabletop interface which wi
 Though focused on a circular tabletop displays, they highlight the effect that a different display shape could have on the use of an interface.
 Benefits noted in the work include the improved management of users' personal space.
 One of the strengths of tabletop systems are their ubiquitous nature~\cite{Smith2012}.
-The ability for a tabletop system to manage different display shapes enhances this strength allowing the interfaces to better fit its environment.
+The ability for a tabletop system to manage different display shapes enhances this strength allowing interfaces to better fit their environment.
 
 It is evident that the visual contents of systems will need to accommodate the use of different display shapes.
 An obvious way to achieve this is to define specific layouts in software's visual content for each potential display shape it may be used with.
-This is the approach used with the software systems discussed in this section thus far~\cite{Hansen2009,Shen2004}.
-However, for software which may have a wide range of potential interface shapes this would require a significant amount of time.
-A potential method to reduce this time is to use a tool which can adapt the layout of visual contents to different platforms, such as GUMMY~\cite{Meskens2008}.
+This is the approach used with the software systems discussed thus far~\cite{Hansen2009,Shen2004}.
+However, for software which may have a wide range of potential interface shapes this would require extra development work.
+A potential method to reduce this would be to use a tool which can adapt the layout of visual contents to different platforms, such as GUMMY~\cite{Meskens2008}.
 This tool can take an existing layout, defined by a software developer, and can quickly adapt it to the parameters of a specific platform, including the restrictions of the display.
 For example, the spacing of a predefined layout may be reduced by the tool when the target platform is known to use a small display.
-By implementing a method which allows the tool to dynamically adapt a layout of content items to different display shapes, software developers could produce multiple layouts for a piece of software to use with different display shapes relatively quickly.
+By implementing a method which allows the tool to dynamically adapt a layout of content items to different display shapes, software developers could produce multiple layouts for a piece of software to use with different display shapes relatively easily.
 
 As opposed to using predefined layouts for each potential display shape, software could be designed to use a single layout which is adapted to fit different display shapes automatically.
-For example, SUPPLE~\cite{Gajos2004} is a system which can automatically adapt the layout of contents to fit the parameters of the display.
+For example, SUPPLE~\cite{Gajos2004} is a system which can automatically adapt the layout of contents to fit the parameters of a display.
 Content is arranged by the system to fit various display sizes and resolutions.
-SUPPLE~\cite{Gajos2004} also has the ability to adapt its visual contents based on the type of input used by the system.
+SUPPLE~\cite{Gajos2004} also has the ability to adapt its visual contents based on input type.
 However, the system assumes that despite the changes in an interface's size, resolution, input type and colour support, it will always be rectangular.
 Changes to layout adapting systems, like SUPPLE~\cite{Gajos2004}, will be needed to allow them to adapt their layouts to non-rectangular displays.
 
@@ -184,11 +183,11 @@ This is beneficial as no visual content is obscured.
 
 The technique of Waldner et al. \cite{Waldner2011} appears to be beneficial for use with windows which have no layout defined between each other.
 The technique could be employed in other systems to manage the placement of visual content items when used with different display shapes.
-However, for visual content which may have a significant locational relationship this technique could be considered unsuitable.
+However, for visual content which may have a significant locational relation this technique could be considered unsuitable.
 The order in which windows are created will influence where the technique positions them.
-Therefore, the technique currently has no method to accommodate for any locational relationships which are intended to exist between windows.
+Therefore, the technique currently has no method to accommodate for any locational relation which are intended to exist between windows.
 If two visual content items are intended to be in close proximity to each other, there is no guarantee that the technique will position them together.
-As the positioning of content items can imply their functional relationships to the user~\cite{Constantine1999}, the loss of these intended locational relationships could be undesirable for some systems.
+As the positioning of content items can imply their functional relations to the user~\cite{Constantine1999}, the loss of these intended locational relations could be undesirable for some systems.
 
 The potential benefits~\cite{Greenfield2006,Vernier2002} and growing supporting technologies~\cite{Boyd2007,Finney2009} of non-rectangular displays indicate that there is an increasing demand for systems to support them.
 Specifically there is a growing demand for these different display shapes in tabletop systems~\cite{Hansen2009,Shen2004}.
@@ -207,21 +206,19 @@ Cropping can have an effect of making the effected visual content items unfit fo
 This is because the visual information they convey is lost.
 Users may also be unable to interact directly with cropped items.
 The cropping of visual content items outside the display area was also noted by Waldner et al. \cite{Waldner2011}.
-This influence could result in content becoming unfit for purpose which may result in software becoming unusable.
 Therefore, methods of resolving this cropping would be required to make software capable of adapting to different display shapes.
 Attempts made to resolve this cropping can result in secondary \acp{DSDI}.
 
  \begin{figure*}[t]
  \centering
    \includegraphics[width=1\textwidth]{figures/dsdi_flow.png}
-   \caption{A flow chat mapping the causality of \acp{DSDI}.}
+   \caption{A flow chat mapping the causality of Display Shape Dependence Issues (DSDIs).}
    \label{fig:dsdiFlow}
 \end{figure*}
 
 \begin{quote}\emph{\textbf{Overlapping \ac{DSDI}:} Occlusion from other visual content items.}\end{quote}
 
 Attempts to resolve the Cropping \ac{DSDI} can result in further issues such as the movement of content items, which did not previously overlap, to locations where they cover each other.
-However, this can result in content items, which previously did not overlap, covering each other.
 This overlapping of content items can result in regions of the visual content item becoming obscured.
 This has the same negative impact as the Cropping \ac{DSDI}.
 Overlapping content items is not always an issue since the obscuring items could be moved by the user, but in systems where these items are immovable the occlusion would be irreparable.
@@ -229,7 +226,7 @@ Overlapping content items is not always an issue since the obscuring items could
 \begin{quote}\emph{\textbf{Layout \ac{DSDI}:} The loss of layout relations between visual content items.}\end{quote}
 
 The changing of content item positions could be an issue in applications where layout is important.
-This is because the positioning of content items can imply their functional relationships to the user~\cite{Constantine1999}.
+This is because the positioning of content items can imply their functional relations to the user~\cite{Constantine1999}.
 For example, controls in an application may be placed next to the items they influence.
 If this layout relation is lost then it may become users what items the set of controls will influence. 
 The loss of layout may not make content unfit for purpose but could be very undesirable for software where the layout is intended to aid the user.
@@ -239,7 +236,7 @@ However, loss of layout is not always considered an issue meaning this \ac{DSDI}
 
 Scaling, when a content item is resized while maintain its aspect ratio, a visual element may be performed to avoid the cropping of content.
 If this scaling is performed to an excessive magnitude, the visual information displayed by a content item may become incommunicable.
-For example, if a content item displaying text is scaled down to an extreme value the characters it displays become too small and may appear illegible to users.
+For example, if a content item displaying text is scaled down to an extreme value the characters it displays may become too small and be illegible to users.
 
 \begin{quote}\emph{\textbf{Warping \ac{DSDI}:} The warping of visual content items.}\end{quote}
 
@@ -314,7 +311,7 @@ The transformations applied to the virtual projection are applied to any visual 
 
 Algorithm~\ref{algo:virtualProjection} shows how the virtual project transformation is applied to visual content items.
 The translation, scaling and rotation fed into the algorithm relate to the virtual projection.
-These can obtained be either being recorded when the maximal rectangle is found or calculated on the fly by comparing it to the maximal rectangle of a typical rectangular display.
+These can be obtained by either being recorded when the maximal rectangle is found or calculated on the fly by comparing it to the maximal rectangle of a typical rectangular display.
 The algorithm is applied to each visual content item with the transformations being relative to the item's initial absolute positioning.
 
 This stage of the technique has the effect of keeping the visual content items aligned with the virtual projection.
@@ -341,7 +338,7 @@ To counter this the virtual projection technique adheres to scaling limits.
 For systems where content items cannot be scaled to extremes, its content items should only be scaled to a predetermined limit.
 This may result in sections of the content items becoming occluded from overlapping each other or from the display edge because they cannot be made small enough.
 Without scale limits, the Cropping and Overlapping \acp{DSDI} are guaranteed not to occur but the Scaling \ac{DSDI} remains a risk.
-With scale limits the potential \acp{DSDI} are reversed.
+With scale limits the potential risk of \acp{DSDI} are reversed.
 When utilising this technique, developers must decide on \ac{DSDI} trade-offs in their software.
 
 This stage of the technique is similar to previously presented methods of dynamically adapting content to different displays which entails constricting the placement of content to a specific region of the displays used~\cite{Cotting2006,Raskar2003}.
@@ -365,10 +362,10 @@ The objective of this stage is to move content items into areas of the display w
 The edges of the virtual projection exert a \lq pulling force\rq\ on content items.
 The magnitude of this force is determined by the size of gaps between the display border and the virtual projection edges.
 The magnitudes of these \lq pulling forces\rq\ are also influenced by a content item's proximity to the edge instigating the force.
-Content Items are pulled from their centroids to keep calculations simple.
+Content items are pulled from their centroids to keep calculations simple.
 This means the shapes and sizes of the items moved are ignored.
 
-The position pulling stage has the resulting effect of pulling content items into unused regions of the display (see
+The position pulling stage results in pulling content items into unused regions of the display (see
 Figure~\ref{fig:pullLayout}).
 Items positioned near large gaps between the virtual projection and the display borders are pulled into these areas.
 The left hand side of Figure~\ref{fig:pullLayout} shows the \lq pulling forces\rq\ which result from the gaps between the virtual projection area edges adjacent to the content items.
@@ -382,7 +379,7 @@ Figure~\ref{fig:pullLayout}'s right hand side shows the translation of the conte
 \end{figure}
 
 \begin{algorithm}[h]
-\caption{Calculating the \lq pulling force\rq vectors.}
+\caption{Calculating the \lq pulling force\rq~vectors.}
 \label{algo:pullLayoutOne}
 \begin{algorithmic}
 \STATE \textbf{getPullVectors}($O,\ A_{1},\ A_{2},\ B_{1},\ B_{2},\ C_{1},\ C_{2},\ D_{1},\ D_{2}$)
@@ -395,7 +392,7 @@ Figure~\ref{fig:pullLayout}'s right hand side shows the translation of the conte
 \end{algorithm}
 
 \begin{algorithm}[h!]
-\caption{Applying the \lq pulling force\rq vectors.}
+\caption{Applying the \lq pulling force\rq~vectors.}
 \label{algo:pullLayoutTwo}
 \begin{algorithmic}
 \STATE \textbf{applyPull}($item,\ \theta,\ \overrightarrow{LEFT},\ \overrightarrow{RIGHT},\ \overrightarrow{UP},\ \overrightarrow{DOWN}$)
@@ -407,11 +404,11 @@ Figure~\ref{fig:pullLayout}'s right hand side shows the translation of the conte
 \end{algorithm}
 
 Algorithm~\ref{algo:pullLayoutOne} shows how each vector representing the individual \lq pulling force\rq\ is calculated and made proportional to the item's proximity to the corresponding edge.
-Algorithm~\ref{algo:pullLayoutTwo} details how the resulting vector is attained from these values then applied where $\theta$ represents the orientation of the virtual projection.
+Algorithm~\ref{algo:pullLayoutTwo} details how pulling force vectors are attained, where $\theta$ represents the orientation of the virtual projection.
 The existing values used in Algorithm~\ref{algo:pullLayoutOne} and Algorithm~\ref{algo:pullLayoutTwo} correspond to those shown in Figure~\ref{fig:pullLayoutExp}.
 
 This stage of the technique effectively deforms the layout of the content items by warping~\cite{Milliron2002} it to fit the display shape.
-Though the layout is warped, the content items are not deformed in any way by this stage of the technique technique.
+Though the layout is warped, the content items are not deformed in any way by this stage of the technique.
 The deformation of the layout ensures that more of the display's real estate is utilised and that the layout is not constrained to a small region of the display.
 This minimises the potential effects of the Display Use \ac{DSDI}.
 The shape of the item does not influence the pull vectors, only the point it uses for translation.
@@ -451,28 +448,36 @@ This means that, in addition to the initial positioning of content, the techniqu
 For example, if a new item is to be added to the `centre' of the visual content the technique would be applied to ensure it appears in the middle of the maximal rectangle, even if the item is added sometime after the application's initialisation.
 The technique does not need to be utilised for relative transformations, such as those used when adjusting an item's position, scale or rotation in response to a user gesture.
 
-The SynergyNet framework was adapted to apply a range of borders which would allow the display to emulate different shapes.
-These shapes were chosen after consultation with a furniture manufacturer who had experience with designing multi-touch tables.
-The manufacturer was in a good position for making predictions concerning the likely design features of future multi-touch tabletops, including their display shapes.
-The shapes chosen are shown in Figure~\ref{fig:study} and Figure~\ref{fig:gridApp} in Section~\ref{sec:observations}.
-
-Some of these shapes were derived from common table shapes which could be used with tabletop interfaces, such as the semi-circle design.
-This allows for users positioned around the display in various places to have an equal share of the interface which can be beneficial to collaboration.
-The circle shape was also chosen for its ability to allow users to have equal shares of the display.
-The intersecting circles shape was designed to make further use of multi-touch's facilitation of collaboration by providing focal points and areas to share content items in.
-The larger circle of the display shape can be used for one activity such as displaying content items whereas the smaller circle could be used for another activity such as manipulating the items.
-The triangle was chosen because of its regular nature, meaning that all its sides and corners are congruent \cite{coxeter_1969}.
-The other shapes used were identified as likely to aid collaboration which is beneficial to multi-touch systems~\cite{higgins2011}.
-
 \begin{figure*}[t!] 
 	\centerline{\includegraphics[width=1\textwidth]{figures/study.png}}
 	\caption{Several applications in use with different display shapes during the study.}
 	\label{fig:study}
 \end{figure*}
 
+The SynergyNet framework was adapted to apply a range of borders which would allow the display to emulate different shapes.
+These shapes were chosen after consultation with a furniture manufacturer who had experience with designing multi-touch tables.
+The manufacturer was in a good position for making predictions concerning the likely design features of future multi-touch tabletops, including their display shapes.
+The shapes chosen are shown in Figure~\ref{fig:study}.
+
+Some of these shapes were derived from common table shapes which could be used with tabletop interfaces, such as the semi-circle design.
+This allows for users positioned around the display in various places to have an equal share of the interface which can be beneficial to collaboration.
+The circle shape was also chosen for its ability to allow users to have equal shares of the display.
+The intersecting circles shape was designed to make further use of multi-touch's facilitation of collaboration by providing focal points and areas to share content items in.
+The larger circle of the display shape can be used for one activity such as displaying content items whereas the smaller circle could be used for another activity such as manipulating the items.
+The triangle was chosen because of its regular nature, meaning that all its sides and corners are congruent.
+
 With the technique implemented into the SynergyNet framework several applications were used in conjunction with a range of different display shapes.
 The different display shapes were emulated by covering parts of the screen used.
-Figure~\ref{fig:study} shows some of these applications in use with the various display shapes applied.
+
+% Application's from SynergyNet's library used - written by the primary but intended for other purposes.
+% Applications chosen all had different methods of organising their visual contents and significance to their layout.
+% Applications: 
+% - XML Puzzle: Users pair together questions and their relevant answers. 100% randomly positioned content. No layout significance.
+% - Collage: Users move visual items about on top of a large background image to make a scrapbook type collage to screenshot and save. Mix of random and a single instance of specifically positioned content. No layout relations other than the background.
+% - Grid: 9 items in a grid layout which users can manipulate the orientation, scale and location of through multi-touch gestures - used to help familiarise users to large multi-touch interfaces. Bares most similarity to legacy software (maybe mention in observations section). 100% specifically positioned visual content. There is a strong layout relation between all of them.
+% - Simple Map: Users supply countries in a config file and the app when started shows a world map with the specified counties' flags on top of them on the map - users can then move the flags around. All content in this application is specifically positioned. There is a strong layout relation between the flag items and the background image.
+
+Figure~\ref{fig:study} shows some of the applications in use with the various display shapes applied.
 From the use of these applications observations were made on how the adaptation of their content to fit the new display shapes affected their initial usability.
 Applications where the layout of content was significant in some way were focussed on.
 
@@ -567,7 +572,8 @@ However, application developers using the framework have the option to override 
 Application developers can apply changes to the technique, such as applying scale limits to the virtual projection, to all content in an application or to individual items.
 The ability to choose which stages of the technique affect a content item gives developers control over it's influence.
 Without this ability there is still a danger of intolerable \acp{DSDI} occurring in software despite the presence of the implemented technique.
-This highlights the importance of any technique intended to minimise the influence of the potential \acp{DSDI} in a system not only to be capable of adapting to different display shapes, but to be also capable of adapting to the needs of the developer.
+This highlights the importance of any technique intended to minimise the influence of the potential \acp{DSDI} in a system not only to be capable of adapting to different display shapes, but to be also capable of adapting to the needs of the developer. 
+This allows developers to make informed design and implementation decisions on how content should be displayed.
 
 %-------------------------------------------------------------------------
 \section{Conclusions and Future Work}
@@ -601,6 +607,7 @@ Figure~\ref{fig:prototypeTabletop} shows a prototype built by a leasing furnitur
 The lack of readily available software for the interface's circular display meant that if the tabletop was to be used then bespoke software would need to be commissioned at a cost to the manufacturer rather than using any of the readily available off-the-shelf products intended for interactive kiosks.
 This highlights the need for making it a simple as possible for software to support different display shapes.
 
+% vvv Trim down vvv
 To inform the research presented, a structured literature review was carried out following an established protocol~\cite{Kitchenham2004}.
 Though the results returned by the review were exhaustive it was evident that there has been little innovation in this area in the past.
 This is likely due to the cyclical nature of dependency between display technology and its supporting software preventing the adoption of non-rectangular displays.
@@ -617,6 +624,7 @@ With a system capable of utilising different display shapes available, research 
 Prototyping can be employed to investigate how the shape of a display influences the interaction between users and the system.
 Some shapes may be found better suited to certain users or tasks.
 With this knowledge the design of future systems could utilise display shapes suited to their audiences or purposes.
+% ^^^ Trim down ^^^
 
 The technique outlined in Section~\ref{sec:solution} could be used beyond tabletop systems.
 However, it is possible for the \acp{DSDI} in other systems to vary and differ from those presented in this work~\cite{Serrano2017}. 
@@ -667,6 +675,7 @@ The technique produced in this paper, or another similar \ac{DSDI}-minimising te
 \section*{Acknowledgements}
 
 This work was partially funded by the EPSRC ERSC TLRP SynergyNet project (Grant RES-139-25-0400).
+% Thank Liz and Andy here.
 
 %-------------------------------------------------------------------------
 
