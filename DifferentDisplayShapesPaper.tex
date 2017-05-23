@@ -265,9 +265,8 @@ In the next section, using this list of \acp{DSDI}, we present a technique to ad
 \section{Minimising Display Shape Dependence Issues}
 \label{sec:solution}
 
-A technique was developed that would resolve the Cropping \ac{DSDI} and would minimise the effect of any secondary \acp{DSDI}.
-This technique is a method of adapting visual content items dynamically to different display shapes.
-The technique comprises of two stages.
+A technique was developed that would resolve the {\emph{Cropping \ac{DSDI}}} and would minimise the effect of any secondary \acp{DSDI}.
+This technique is a method of adapting visual content items dynamically to different display shapes and comprises of two stages.
 The first stage of the technique is built on the concept of taking the original visual output of the software and transforming it to fit within the borders of a new display shape.
 This stage is referred to as {\em Virtual Projection}.
 The second stage of the technique uses the difference between the shape of virtual projection and the display shape to ensure that the layout can, if needed, utilise all regions of the display.
@@ -301,7 +300,7 @@ The transformations applied to the virtual projection are applied to any visual 
 
 Algorithm~\ref{algo:virtualProjection} shows how the virtual project transformation is applied to visual content items.
 The translation, scaling and rotation fed into the algorithm relate to the virtual projection.
-These can be obtained by either being recorded when the maximal rectangle is found or calculated on the fly by comparing it to the maximal rectangle of a typical rectangular display.
+These can be obtained by either being recorded when the maximal rectangle is found, or calculated on the fly by comparing it to the maximal rectangle of a typical rectangular display.
 The algorithm is applied to each visual content item with the transformations being relative to the item's initial absolute positioning.
 
 This stage of the technique has the effect of keeping the visual content items aligned with the virtual projection.
@@ -311,23 +310,22 @@ Figure~\ref{fig:virtualRectangle} demonstrates how the virtual projection and it
 
 As the original visual output of most current software is likely to be rectangular, the virtual projection for most systems can assumed to be a rectangle.
 Finding the largest rectangle which can be placed within the display is required for this technique to utilise as much of the display as possible.
-The concept of finding the largest rectangle inside a shape is a known as the \lq largest empty rectangle problem\rq\ or the \lq maximal rectangle problem\rq .
+The concept of finding the largest rectangle inside a shape is a known as the \lq {\emph{largest empty rectangle problem}}\rq or the \lq {\emph{maximal rectangle problem}}\rq .
 There are several existing solutions to finding the maximal rectangle which can be utilised~\cite{Aggarwal1987,Naamad1984}.
 
-Methods also exist for finding the largest of any specific polygon in the display shape~\cite{Toussaint1983}. 
+Methods also exist for finding the largest of any specific polygon in the display shape~\cite{Toussaint1983}.
 This allows for the adaptation of any software environment which may not have originally been rectangular.
 Therefore the technique can be used to adapt software originally designed for any specific display shape to other display shapes.
+As all the content items are translated, rotated and scaled by the same values their layout relations are preserved preventing the {\emph{Overlapping \ac{DSDI}}}.
+As no warping deformations are used in this technique there can be no occurrence of the {\emph{Warping \ac{DSDI}}}.
 
-As all the content items are translated, rotated and scaled by the same values their layout relations are preserved preventing the Overlapping \ac{DSDI}.
-As no warping deformations are used in this technique there can be no occurrence of the Warping \ac{DSDI}.
-
-There is the potential occurrence of the Scaling \ac{DSDI}.
-If the virtual projection is significantly smaller than the initial layout's environment, then the contained content items will be scaled to an extreme value.
-It is possible that the content items may be scaled to an extent that they become unfit for purpose.
+There is the potential for issues with the {\emph{Scaling \ac{DSDI}}}.
+If the virtual projection is significantly smaller than the initial
+layout's environment, then the contained content items will be scaled to an extreme value; indeed, it is possible that the content items may be scaled to an extent that they become unfit for purpose.
 To counter this the virtual projection technique adheres to scaling limits.
 For systems where content items cannot be scaled to extremes, its content items should only be scaled to a predetermined limit.
 This may result in sections of the content items becoming occluded from overlapping each other or from the display edge because they cannot be made small enough.
-Without scale limits, the Cropping and Overlapping \acp{DSDI} are guaranteed not to occur but the Scaling \ac{DSDI} remains a risk.
+Without scale limits, the {\emph{Cropping}} and {\emph{Overlapping \acp{DSDI}}} are guaranteed not to occur but the {\emph{Scaling \ac{DSDI}}} remains a risk.
 With scale limits the potential risk of \acp{DSDI} are reversed.
 When utilising this technique, developers must decide on \ac{DSDI} trade-offs in their software.
 
@@ -335,7 +333,7 @@ This stage of the technique is similar to previously presented methods of dynami
 This region is recreated for every display shape using the same dimensions, ensuring the contained content is kept relative to the region in layout, scale and orientation.
 
 This stage of the technique does have the potential to minimise the effects of most of the \acp{DSDI}.
-However, this stage of the technique does not counter the occurrence of the Display Use \ac{DSDI} since only a single region of the display, the virtual projection, is used.
+However, this stage of the technique does not counter the occurrence of the {\emph{Display Use \ac{DSDI}}} since only a single region of the display, the virtual projection, is used.
 
 \subsection{Position Pulling}
 \label{subsec:positionpulling} 
@@ -352,8 +350,7 @@ The objective of this stage is to move content items into areas of the display w
 The edges of the virtual projection exert a \lq pulling force\rq\ on content items.
 The magnitude of this force is determined by the size of gaps between the display border and the virtual projection edges.
 The magnitudes of these \lq pulling forces\rq\ are also influenced by a content item's proximity to the edge instigating the force.
-Content items are pulled from their centroids to keep calculations simple.
-This means the shapes and sizes of the items moved are ignored.
+Content items are pulled from their centroids to keep calculations simple; this means the shapes and sizes of the items moved are ignored.
 
 The position pulling stage results in pulling content items into unused regions of the display (see
 Figure~\ref{fig:pullLayout}).
@@ -397,10 +394,10 @@ Algorithm~\ref{algo:pullLayoutOne} shows how each vector representing the indivi
 Algorithm~\ref{algo:pullLayoutTwo} details how pulling force vectors are attained, where $\theta$ represents the orientation of the virtual projection.
 The existing values used in Algorithm~\ref{algo:pullLayoutOne} and Algorithm~\ref{algo:pullLayoutTwo} correspond to those shown in Figure~\ref{fig:pullLayoutExp}.
 
-This stage of the technique effectively deforms the layout of the content items by warping~\cite{Milliron2002} it to fit the display shape.
+This stage of the technique effectively deforms the layout of the content items by warping it to fit the display shape.
 Though the layout is warped, the content items are not deformed in any way by this stage of the technique.
 The deformation of the layout ensures that more of the display's real estate is utilised and that the layout is not constrained to a small region of the display.
-This minimises the potential effects of the Display Use \ac{DSDI}.
+This minimises the potential effects of the {\emph{Display Use \ac{DSDI}}}.
 The shape of the item does not influence the pull vectors, only the point it uses for translation.
 Taking the shape into account would require significantly more processing and would only result in a marginally more accurate pull vector.
 
