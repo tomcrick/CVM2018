@@ -588,7 +588,7 @@ This allows developers to make informed design and implementation decisions on h
 \section{Conclusions and Future Work}
 \label{sec:conclusion}
 
-The development of the technique discussed in Section~\ref{sec:solution} has shown that when designing software for use on differently shaped tabletop displays, the Cropping \ac{DSDI} must be considered.
+The development of the techniques presented in Section~\ref{sec:solution} has shown that when designing software for use on differently shaped tabletop displays, the {\emph{Cropping \ac{DSDI}}} must be considered.
 In addition to this, secondary \acp{DSDI} which can result from attempts to resolve the initial cropping must also be accounted for.
 Developers should also consider which \acp{DSDI} their software can tolerate and which must be handled by a \ac{DSDI}-minimising technique.
 Choices must be made between whether to preserve the layout of content items or to maximise the display usage.
@@ -606,11 +606,10 @@ The need for applications to control the magnitude of a \ac{DSDI}-minimising tec
 \end{figure}
 
 There are a number of reasons why it is important that software becomes display shape independent.
-There is now a growing drive for software to become ubiquitous with the increased availability of natural user interfaces.
-For a system to become ubiquitous it must fit its environment~\cite{Greenfield2006}.
+There is now a growing drive for software systems to become ubiquitous with the increased availability of natural user interfaces; for a system to become ubiquitous it must fit its environment~\cite{Greenfield2006}.
 Being able to change the display shape of a system would aid in achieving this.
 
-The examples of non-rectangular displays discussed in Section~\ref{sec:related} highlight the need for their support.
+The examples of non-rectangular displays discussed in Section~\ref{sec:related} reinforces the need for their support.
 In addition to these, many devices brought to market in the recent growth of wearable devices utilise non-rectangular displays, specifically smart watches~\cite{Jung2016}.
 Figure~\ref{fig:prototypeTabletop} shows a prototype built by a leasing furniture manufacturer featuring a circular tabletop interface intended for use as an interactive kiosk for public spaces.
 The lack of readily available software for the interface's circular display meant that if the tabletop was to be used then bespoke software would need to be commissioned at a cost to the manufacturer rather than using any of the readily available off-the-shelf products intended for interactive kiosks.
@@ -618,32 +617,31 @@ This highlights the need for making it a simple as possible for software to supp
 
 The structured literature review~\cite{Kitchenham2004} that informed the background to this research highlighted that there has been little innovation in utilising different display shapes in the past.
 This is likely due to the cyclical nature of dependency between display technology and its supporting software.
-However, recently the pace of research in this area is starting to increase with research appearing that details investigations on adapting text to non-rectangular displays~\cite{Serrano2016} and how visual content is best presented on legacy interfaces~\cite{Serrano2017}.
-Though these pieces of research focus more on legacy systems and specific display shapes, they show that there is a growing interest in moving beyond rectangular displays.
+However, recently the research activity in this area has started to increase, with research appearing that details investigations on adapting text to non-rectangular displays~\cite{Serrano2016} and how visual content is best presented on legacy interfaces~\cite{Serrano2017}.
+Though this research focuses more on legacy systems and specific display shapes, they show that there is a growing interest in moving beyond traditional rectangular displays.
 
-The technique outlined in Section~\ref{sec:solution} could be used beyond tabletop systems.
+Furthermore, the technique outlined in Section~\ref{sec:solution} could be used beyond tabletop systems.
 However, it is possible for the \acp{DSDI} in other systems to vary and differ from those presented in this work~\cite{Serrano2017}. 
-For example, attempts to resolve the initial Cropping \ac{DSDI} may require content items to be rotated.
+For example, attempts to resolve the initial {\emph{Cropping \ac{DSDI}}} may require content items to be rotated.
 If a user is viewing the display from a single perspective, such as with a vertical display, then any change in content item's orientation is undesirable.
 Information displayed by visual content items, such as text, could appear upside down to the user, making it difficult to comprehend.
 However, it is not an issue for systems which allow users to view from multiple perspectives around the display, such as those which utilise horizontal interfaces.
 Future work could entail the outlining of \ac{DSDI} for other sets of systems and the production of techniques to minimise their influences.
 
-The technique produced in this paper can be used in several scenarios.
-One such use of the technique is its implementation into the application layer of a piece of software.
-This would allow a specific layout of visual content items to be dynamically adapted to different display shapes.
+The techniques presented in this paper can be used in several scenarios.
+One such use of the technique is its implementation into the application layer of a piece of software; this would allow a specific layout of visual content items to be dynamically adapted to different display shapes.
 As this implementation of the technique would be customised to the application's specific layout, it would ensure the best results.
 However, this does have the drawback that the technique would need to be redefined for every unique application.
 
-Another use for the technique is its implementation into a framework.
-In a framework level implementation, the same technique can be employed by various applications to adapt their visual contents to different display shapes.
-This is similar to how systems like SUPPLE~\cite{Gajos2004} adapt contents to display parameters.
+Another use for the technique is its implementation into an adaptable and extensible framework.
+In a framework-level implementation, the same technique can be
+employed by various applications to adapt their visual contents to different display shapes; this is similar to how systems like SUPPLE~\cite{Gajos2004} adapt contents to display parameters.
 However, a drawback to this approach is that the technique's implementation may not be suitable for some applications.  
-For example, if the technique implementation does not enforce scale limits the Scaling \ac{DSDI} may occur.
+For example, if the technique implementation does not enforce scale limits the {\emph{Scaling \ac{DSDI}}} may occur.
 This may be acceptable for some applications, such as those intended to use content which can still communicate information to the user at any size.
-However, it would be intolerable for other applications, such as those using text.
+However, it would be unacceptable for other applications, such as those using text.
 Therefore, it is important when implementing this technique at a framework level that applications can change how the technique influences them.
-The technique's use of higher level functions, such as the ray firing used in the position pulling stage, make it unsuitable for implementation in lower level software.
+The technique's use of higher-level functions, such as the ray firing used in the position pulling stage, make it unsuitable for implementation in lower level software.
 
 The technique could also be implemented as part of a design tool which is used to adapt the layout of visual contents, similar to GUMMY~\cite{Meskens2008}.
 Using this implementation, software developers can use the resulting tool to adapt a layout of content items to a specific display shape.
@@ -652,21 +650,21 @@ Once a developer is satisfied with the software layout they can then specify for
 This approach has the advantage of allowing developers to check that the layout will be suitable for a specific shape.
 However, it does limit the display shapes the system can use to those the developer has input into the tool.
 
-The technique could be transformed into a set of guidelines for developers to follow when creating software interfaces without the use of a design tool.
+Furthermore, the technique could be transformed into a set of guidelines for developers to follow when creating software interfaces without the use of a design tool.
 The guidelines could also incorporate the decisions to be made concerning the trade-offs in which \acp{DSDI} are minimised.
 These guidelines could then be formalised~\cite{Ngo2000} allowing their application to software to be automated in places.
 This would aid with the technique integrations into with frameworks and design tools.
 With the technique implemented in a tool used to design a wider range of software its influence can be tested on a wider range of user interfaces with varying complexities in future studies.
 
-The technique produced in this paper is capable of minimising the effect of the identified \acp{DSDI} but requires trade-offs.
+In summary, the techniques presented in this paper are capable of minimising the effect of the identified \acp{DSDI}, but require trade-offs.
 Developers using the technique must decide which \acp{DSDI} could not be tolerated by their software and must adapt the technique according.
 Future tabletop software development would benefit greatly from the creation of guidelines to be followed when adapting software to become display shape independent.
-The technique produced in this paper, or another similar \ac{DSDI}-minimising technique, could form part of these guidelines.
+The technique produced in this paper, or another similar \ac{DSDI}-minimising technique, should form part of these guidelines.
 
 %-------------------------------------------------------------------------
 \section*{Acknowledgements}
 
-This work was partially funded by the EPSRC ERSC TLRP SynergyNet project (Grant RES-139-25-0400).
+This work was partially funded under the UK EPSRC/ERSC TLRP {\emph{SynergyNet} project (Grant RES-139-25-0400).
 % Thank Liz and Andy here.
 
 %-------------------------------------------------------------------------
