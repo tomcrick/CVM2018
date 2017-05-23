@@ -415,20 +415,20 @@ While the technique does has the ability to counter any \ac{DSDI}, it does have 
 \section{Study}
 \label{sec:study}
 
-The technique discussed in Section~\ref{sec:solution} was implemented into the 2.1 version of the SynergyNet framework~\cite{McNaughton2017,AlAgha2010}, a multi-touch software framework intended for use with rectangular tabletop interfaces.
+The technique discussed in Section~\ref{sec:solution} was implemented into the 2.1 version of the {\emph{SynergyNet}} framework~\cite{McNaughton2017,AlAgha2010}, a multi-touch software framework intended for use with rectangular tabletop interfaces.
 The framework functions by rendering a range of content items, such as images, text and video, which can then be manipulated by users.
-SynergyNet is built in Java allowing it to be run across different operating systems and can accept a wide range of different multi-touch protocols such as TUIO~\cite{Kaltenbrunner2007}.
+{\emph{SynergyNet}} is built in Java allowing it to be run across different operating systems and can accept a wide range of different multi-touch protocols such as TUIO~\cite{Kaltenbrunner2007}.
 This makes the framework capable of being used in a wide range of systems with different displays.
 The framework's ability to adapt to different systems makes it a suitable candidate for use with different display shapes.
 Another reason for this choice in framework was due to its easily accessed library of supported open-source applications.
 Since the applications are produced by a number of different developers for different purposes, there is a wide range of content items and layouts available.
 Being implemented at the framework level allows any of the supported applications to potentially utilise different display shapes.
 
-To utilise the technique the software needs to be informed of the dimensions of the display shape being used.
+To utilise the technique the software needs to be informed of the dimensions of the display shape currently available.
 This is done through the creation of virtual counterparts to the display shapes utilised by the system.
 These virtual counterparts are represented as vector files which are loaded into applications through the framework's configuration interface.
 The approach of using virtual counterparts allows each display shape representation to store information on the positioning of their maximal rectangle, or polygon.
-The maximal rectangle can be used by the virtual projection stage of the technique because all the SynergyNet applications are currently built using a rectangular environment.
+The maximal rectangle can be used by the virtual projection stage of the technique because all the {\emph{SynergyNet}} applications are currently built using a rectangular environment.
 
 The technique is implemented in such a way that it is always employed when an application attempts to transform a content item using absolute values.
 This means that, in addition to the initial positioning of content, the technique is employed when an application needs to transform an item to a specific position.
@@ -441,10 +441,10 @@ The technique does not need to be utilised for relative transformations, such as
 	\label{fig:study}
 \end{figure*}
 
-The SynergyNet framework was adapted to apply a range of borders which would allow the display to emulate different shapes.
+The {\emph{SynergyNet}} framework was adapted to apply a range of borders which would allow the display to emulate different shapes.
 These shapes were chosen after consultation with a furniture manufacturer who had experience with designing multi-touch tables.
-The manufacturer was in a good position for making predictions concerning the likely design features of future multi-touch tabletops, including their display shapes.
-The shapes chosen are shown in Figure~\ref{fig:study}.
+The manufacturer was in a strong industry position for making
+predictions concerning the likely design features of future multi-touch tabletops, including their display shapes; the shapes chosen are shown in Figure~\ref{fig:study}.
 
 Some of these shapes were derived from common table shapes which could be used with tabletop interfaces, such as the semi-circle design.
 This allows for users positioned around the display in various places to have an equal share of the interface which can be beneficial to collaboration.
@@ -453,8 +453,8 @@ The intersecting circles shape was designed to make further use of multi-touch's
 The larger circle of the display shape can be used for one activity such as displaying content items whereas the smaller circle could be used for another activity such as manipulating the items.
 The triangle was chosen because of its regular nature, meaning that all its sides and corners are congruent.
 
-With the technique implemented into the SynergyNet framework four applications were used in conjunction with the range of different display shapes.
-These applications were created by the primary author and other developers for previous studies in the SynergyNet project~\cite{higgins2011}
+With the technique implemented into the {\emph{SynergyNet}} framework four applications were used in conjunction with the range of different display shapes.
+These applications were created by the primary author and other developers for previous studies in the {\emph{SynergyNet}} project~\cite{higgins2011}
 The applications were chosen because of their differing methods of organising their visual content items and the varying significance of the layout of their items.
 The four applications used in this study were:
 
@@ -489,8 +489,8 @@ The four applications used in this study were:
 
 The different display shapes were emulated by covering parts of the screen used.
 Figure~\ref{fig:study} shows some of the applications in use with the various display shapes applied.
-From the use of these applications observations were made on how the adaptation of their content to fit the new display shapes affected their initial usability.
-Applications where the layout of content was significant in some way were focussed on.
+In the next section, observations from the use of these applications were made on how the adaptation of their content to fit the new display shapes affected their initial usability.
+We focus on applications in which the layout of content was significant in some way.
 
 %-------------------------------------------------------------------------
 \section{Observations}
