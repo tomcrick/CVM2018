@@ -496,15 +496,15 @@ We focus on applications in which the layout of content was significant in some 
 \section{Observations}
 \label{sec:observations}
 
-After the application of the technique the the XML Puzzle and Collage applications were able to be utilised as normal with the \acp{DSDI} totally resolved without any observable issues or additional complexities arising.
+After the application of the technique the the {\emph{XML Puzzle}} and {\emph{Collage}} applications were able to be utilised as normal with the \acp{DSDI} totally resolved without any observable issues or additional complexities arising.
 This is likely because there is little-to-no significance to the layout of both applications' visual content items.
-The background image in the Collage application was the only non-randomly positioned item in either.
+The background image in the {\emph{Collage}} application was the only non-randomly positioned item in either.
 This background image effectively represented the maximal rectangle as only the virtual projection stage of the technique was applied to it.
 
-However, the two applications reliant on the layout of their visual contents highlighted a number of complexities to applying the technique.
-These were the Grid and Simple Map applications.
-The complexities arising from these two applications are important to consider due to the fact that the Grid and Simple Map applications bare the strongest similarities to most legacy software.
-The entirety of the contents of these two applications are specifically positioned, much like how the contents of traditional Graphic User Interfaces in legacy software are.
+However, the two applications reliant on the layout of their visual
+contents highlighted a number of complexities to applying the technique; these were the {\emph{Grid}} and {\emph{Simple Map}} applications.
+The complexities arising from these two applications are important to consider due to the fact that the {\emph{Grid}} and {\emph{Simple Map}} applications bear the strongest similarities to most legacy software.
+The entirety of the contents of these two applications are specifically positioned, much like how the contents of traditional GUIs in legacy software are.
 
 \begin{figure*}[t!] 
 	\centerline{\includegraphics[width=1\textwidth]{figures/grid_app.png}}
@@ -515,11 +515,11 @@ The entirety of the contents of these two applications are specifically position
 As can be seen in Figure~\ref{fig:gridApp}, all the items are visible and there is no cropping in the initial layout.
 However, when any of the four example display shapes are applied, several content items are occluded to varying extents.
 When the virtual projection stage of the technique is applied the cropping is resolved.
-At this stage of the technique, the Display Use \ac{DSDI} can be observed due to the presence of unused regions of the display.
+At this stage of the technique, the {\emph{Display Use \ac{DSDI}}} can be observed due to the presence of unused regions of the display.
 
 The position pulling stage of the technique can be seen in Figure~\ref{fig:gridApp} to pull the content out into these previously unused regions of the display.
 However, the layout of the content items is deformed as a result of this stage.
-While acceptable for the Grid application, this is problematic for software which cannot tolerate the influence of the Layout \ac{DSDI}.
+While acceptable for the Grid application, this is problematic for software which cannot tolerate the influence of the {\emph{Layout \ac{DSDI}}}.
 
 It was observed during the study that developers may wish for some content items to be affected by it in different ways.
 For example, a content item may be intended to act as a background to an application.
@@ -539,8 +539,7 @@ Though this would guarantee that the map would remain a background to the entire
 Therefore the map item was made to adhere to the virtual projection stage of the technique, but not the position pulling stage.
 As a result of this, the map effectively represents the virtual projection on each display shape.
 The placement of the virtual projection on the circle and intersecting circles display highlights how the contents may be rotated to fit the display shape.
-Since the software is intended for use on a tabletop display this is not an issue.
-This is because the horizontal nature of the display signifies that there is no single vantage point that the interface will be viewed from.
+Since the software is intended for use on a tabletop display this is not an issue, because the horizontal nature of the display signifies that there is no single vantage point that the interface will be viewed from.
 
 \begin{figure*}[t] 
  \centering
@@ -555,12 +554,11 @@ However, the position pulling stage deforms the layout of the flags in such a wa
 If it is important for this alignment to be kept then it is best if the flags are made exempt from the position pulling stage of the technique.
 As a consequence of this however, areas of the display will be left unused by the layout.
 It therefore becomes a choice developers must make between whether to preserve the layout of content items or to maximise the usage of the display's real estate.
-A clear example of this choice can be seen in the technique's influence on the Intersecting Circles display shape in Figure~\ref{fig:mapApp}.
-Without the influence of the position pulling stage of the technique, a large region of the display is left unused by the initial layout.
-This results in the Display Use \ac{DSDI} occurring.
-However, with the influence of the position pulling stage of the technique, several of the flag items appear off the map, away from their respective positions, indicating the Layout \ac{DSDI} has occurred.
+A clear example of this choice can be seen in the technique's influence on the {\emph{Intersecting Circles}} display shape in Figure~\ref{fig:mapApp}.
+Without the influence of the position pulling stage of the technique, a large region of the display is left unused by the initial layout, resulting in the {\emph{Display Use \ac{DSDI}}} occurring.
+However, with the influence of the position pulling stage of the technique, several of the flag items appear off the map, away from their respective positions, indicating the {\emph{Layout \ac{DSDI}}} has occurred.
 
-From the use of the implemented technique it was noted that in some scenarios the limits imposed on the scaling of content items by the technique could cause the Overlapping \ac{DSDI} to occur.
+From the use of the implemented technique it was noted that in some scenarios the limits imposed on the scaling of content items by the technique could cause the {\emph{Overlapping \ac{DSDI}}} to occur.
 If content items positioned close to each other are scaled to their predetermined limits but the virtual projection, and therefore their layout, is scaled beyond this then occlusion may occur.
 This occlusion is caused by the content items overlapping.
 A potential adaptation of the virtual projection stage of the technique could resolve this.  
@@ -575,14 +573,14 @@ Figure~\ref{fig:flowchart} shows the options available to developers utilising t
 Choices made in its implementation, such as which stages of the technique are employed and the constraints placed on these stages, can influence which \acp{DSDI} it prevents and counters.
 For example, if a developer wishes a content item to act as the background to the entire display, and its cropping is not an issue, then both stages of the technique can be circumvented.
 For content items not set aside to be background images developers can choose whether or not to apply the position pulling stage of the technique.
-If applied the content items will maximise the use of the display shape's real estate by being pulled into previously unused areas of the display.
+If applied, the content items will maximise the use of the display shape's real estate by being pulled into previously unused areas of the display.
 However, if the layout of the content items is of a greater importance than the maximisation of display usage, the developer can choose to disregard the position pulling stage for any content items in the layout.
 
-In the SynergyNet implementation both stages of the technique are, by default, applied to content items whenever they are transformed using absolute values.
+In the {\emph{SynergyNet}} implementation, both stages of the technique are, by default, applied to content items whenever they are transformed using absolute values.
 However, application developers using the framework have the option to override this for specific content items.
-Application developers can apply changes to the technique, such as applying scale limits to the virtual projection, to all content in an application or to individual items.
-The ability to choose which stages of the technique affect a content item gives developers control over it's influence.
-Without this ability there is still a danger of intolerable \acp{DSDI} occurring in software despite the presence of the implemented technique.
+For example, they can apply changes to the technique, such as applying scale limits to the virtual projection, to all content in an application or to individual items.
+The ability to choose which stages of the technique affect a content item gives developers control over its influence.
+Without this ability there is still a danger of unacceptable \acp{DSDI} occurring in software despite the presence of the implemented technique.
 This highlights the importance of any technique intended to minimise the influence of the potential \acp{DSDI} in a system not only to be capable of adapting to different display shapes, but to be also capable of adapting to the needs of the developer. 
 This allows developers to make informed design and implementation decisions on how content should be displayed.
 
