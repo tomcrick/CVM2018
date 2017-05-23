@@ -117,81 +117,70 @@ Section~\ref{sec:observations} discusses the implications that arise
 from the technique use, with future developments and our conclusions presented in Section~\ref{sec:conclusion}.
 
 %-------------------------------------------------------------------------
-\section{Background}
+\section{Domain Context}
 \label{sec:related}
 
-Traditional displays used in computer systems are mostly rectangular.
-However, there is an increasing number of non-rectangular displays becoming available.
-One such instance of a non-rectangular display is Toshiba's circular thin film transistor liquid crystal display~\cite{Boyd2007}.
-This display is employed in vehicles to show typical dashboard information.
-The display is made to look similar to a typical dial on a car dashboard.
-This requires the display to be circular.
-The Motorola Aura~\cite{Finney2009} is a phone that showcases another example of a non-rectangular display and in this case is another circular screen.
+Traditional displays used in computer systems are overwhelmingly rectangular.
+However, an increasing number of non-rectangular displays are becoming available, for a variety of real-world applications.
+One such instance of a non-rectangular display is Toshiba's circular
+thin film transistor liquid crystal display~\cite{Boyd2007}; this display is typically employed in vehicles to show dashboard and operating information.
+The display is designed to look similar to a typical dial on a car dashboard, thus requiring the display to be circular.
+The Motorola Aura~\cite{Finney2009} is a mobile phone that showcases another example of a non-rectangular (circular) display.
 
-A non-rectangular display is utilised in the PyMT (Python Multi-touch)~\cite{Hansen2009} project.
+A non-rectangular display is utilised in PyMT -- A Multitouch Framework for Python~\cite{Hansen2009} project.
 A circular display is made by projecting the system's output onto a circular surface.
-The \lq Puddle of Life\rq\ application is designed to tailor its visual output to this circular display shape.
-This means that the software is constrained by the specifications of the hardware.
+The \lq Puddle of Life\rq\ application is designed to tailor its visual output to this circular display shape; meaning that the software is constrained by the specifications of the hardware.
 This is also true for software built for circular dashboard~\cite{Boyd2007} and phone~\cite{Finney2009} displays.
-As a result, such software could not be used easily with other display shapes.
+As a result, such software could not be used easily with other non-traditional display shapes.
 Therefore, applications used with these circular displays would not be suitable for use with typical rectangular displays.
 
 The DiamondSpin framework~\cite{Shen2004} offers support for circular tabletop multi-touch displays.
 Instances of a circular display used by the framework are achieved through either projecting the system's visual output onto a circular surface or occluding sections of the output.
-DiamondSpin~\cite{Shen2004} supports these displays through several applications which are designed specifically for use on a circular tabletop interface.
-The framework provides several features to support applications intended for circular interfaces, such as the ability to orientate items towards the nearest edge of the display.
-Some of the example applications for the DiamondSpin framework~\cite{Shen2004} can be used with both rectangular and circular interfaces.
+DiamondSpin supports these displays through several applications which are designed specifically for use on a circular tabletop interface; the framework provides several features to support applications intended for circular interfaces, such as the ability to orientate items towards the nearest edge of the display.
+Some of the example applications for this framework can be used with both rectangular and circular interfaces.
 Using the framework's features the applications are able to appropriately arrange the layout of content to the display shape used.
-However, this adaptive ability is limited to two display shapes, rectangular and circular.
+However, this adaptive ability is limited to only two regular display shapes: rectangular and circular.
 
 The circular dashboard liquid crystal display~\cite{Boyd2007} is a typical example of a technology designed with the intention of supporting ubiquitous computing~\cite{Weiser1999}.
-In an era of ubiquitous computing, more systems will be designed to naturally fit into their surroundings~\cite{Greenfield2006}.
-For computer systems to be ubiquitous they are required to be designed around typical user environments.
-This differs from having user environments tailored around systems as has previously been the case.
-The implication of this is that many previous standard elements of typical computing systems will need to be reconsidered, for example the shape of a system's interface.
+In an era of ubiquitous and pervasive computing, more systems are being designed to fit naturally into their surroundings~\cite{Greenfield2006}.
+Thus, for computer systems to be ubiquitous they are required to be designed around typical user environments, not vice versa.
+The implication of this is that many previous standard elements of typical computing systems need to be reconsidered, such as the shape of a system's interface.
+One of the strengths of tabletop systems are their ubiquitous nature~\cite{Smith2012}; the ability for a tabletop system to manage different display shapes enhances this strength allowing interfaces to better fit their environment.
 
-Work that discusses the possible effects of displays with non-rectangular display shapes~\cite{Vernier2002} highlights the benefits it may offer.
+Previous work that discusses the possible effects of displays with non-rectangular display shapes~\cite{Vernier2002} highlights the benefits it may offer.
 These benefits include potential improvements to collaboration around the display between users.
-Vernier et al.~\cite{Vernier2002} propose a circular tabletop interface which will allow each user to have an equal share of the display.
-Though focused on a circular tabletop displays, they highlight the effect that a different display shape could have on the use of an interface.
-Benefits noted in the work include the improved management of users' personal space.
-One of the strengths of tabletop systems are their ubiquitous nature~\cite{Smith2012}.
-The ability for a tabletop system to manage different display shapes enhances this strength allowing interfaces to better fit their environment.
+Vernier et al.~\cite{Vernier2002} propose a circular tabletop interface which would allow each user to have an equal share of the display.
+Though focused on a circular tabletop displays, they highlight the effect that a different display shape could have on the use of an interface; benefits noted in the work include the improved management of users' personal space.
 
-It is evident that the visual contents of systems will need to accommodate the use of different display shapes.
-An obvious way to achieve this is to define specific layouts in software's visual content for each potential display shape it may be used with.
-This is the approach used with the software systems discussed thus far~\cite{Hansen2009,Shen2004}.
-However, for software which may have a wide range of potential interface shapes this would require extra development work.
+It is evident that the visual content of systems will need to accommodate the use of different display shapes.
+A natural way to achieve this is to define specific layouts in software's visual content for each potential display shape it may be used with.
+This is the approach used with the software systems discussed thus far~\cite{Hansen2009,Shen2004}; however, for software which may have a wide range of potential interface shapes this would require significant extra development work.
 A potential method to reduce this would be to use a tool which can adapt the layout of visual contents to different platforms, such as GUMMY~\cite{Meskens2008}.
-This tool can take an existing layout, defined by a software developer, and can quickly adapt it to the parameters of a specific platform, including the restrictions of the display.
+This tool can take an existing layout, defined by a developer, and can quickly adapt it to the parameters of a specific platform, including the restrictions of the display.
 For example, the spacing of a predefined layout may be reduced by the tool when the target platform is known to use a small display.
 By implementing a method which allows the tool to dynamically adapt a layout of content items to different display shapes, software developers could produce multiple layouts for a piece of software to use with different display shapes relatively easily.
 
 As opposed to using predefined layouts for each potential display shape, software could be designed to use a single layout which is adapted to fit different display shapes automatically.
-For example, SUPPLE~\cite{Gajos2004} is a system which can automatically adapt the layout of contents to fit the parameters of a display.
-Content is arranged by the system to fit various display sizes and resolutions.
-SUPPLE~\cite{Gajos2004} also has the ability to adapt its visual contents based on input type.
+For example, SUPPLE~\cite{Gajos2004} is a system which can
+automatically adapt the layout of contents to fit the parameters of a display, with the content automatically arranged by the system to fit various display sizes and resolutions.
+Furthermore, SUPPLE has the ability to adapt its visual contents based on input type.
 However, the system assumes that despite the changes in an interface's size, resolution, input type and colour support, it will always be rectangular.
-Changes to layout adapting systems, like SUPPLE~\cite{Gajos2004}, will be needed to allow them to adapt their layouts to non-rectangular displays.
+Changes to layout adapting systems, like SUPPLE, will be needed to allow them to adapt their layouts to non-rectangular displays.
 
 There exists initial research into software capable of adapting its visual contents to different display shapes.
-Waldner et al. \cite{Waldner2011} discuss work carried out concerning the development of a system which allows windows to be adapted to make use of unusual display shapes.
-The unusual display shapes discussed by Waldner et al. consist of a series of overlapping projections which form the system's output.
-These overlapping projections will not always form a rectangular shape.
+Waldner et al.~\cite{Waldner2011} discuss work carried out concerning the development of a system which allows windows to be adapted to make use of unusual display shapes.
+The unusual display shapes discussed by Waldner et al. consist of a series of overlapping projections which form the system's output, with these overlapping projections not always forming a rectangular shape.
 Therefore, it is important for the software used not to be dependent on a rectangular visual output.
-The technique works by finding the best location for new windows.
+The technique presented works by automatically identifying the best location for new windows.
 An importance value is used for each pixel of the output and the magnitude of this value is used to assess its suitability to displaying a new window.
-The higher the value is, the less suitable the pixel is.
-Pixels outside the output's shape are given a maximal importance value.
+The higher the value is, the less suitable the pixel is; pixels outside the output's shape are given a maximal importance value.
 This means that no window can be placed anywhere which will result in it occupying these pixels.
-This prevents content windows being placed where they may be partially occluded due to some of their regions existing outside the display area.
-This is beneficial as no visual content is obscured.
+This prevents content windows being placed where they may be partially occluded due to some of their regions existing outside the display area, ensuring that no visual content is obscured.
 
-The technique of Waldner et al. \cite{Waldner2011} appears to be beneficial for use with windows which have no layout defined between each other.
+Waldner et al.'s technique appears to be beneficial for use with windows which have no layout defined between each other.
 The technique could be employed in other systems to manage the placement of visual content items when used with different display shapes.
-However, for visual content which may have a significant locational relation this technique could be considered unsuitable.
-The order in which windows are created will influence where the technique positions them.
-Therefore, the technique currently has no method to accommodate for any locational relation which are intended to exist between windows.
+However, for visual content which may have a significant locational relation this technique could be considered unsuitable; for example, the order in which windows are created will influence where the technique positions them.
+Therefore, the technique currently has no method to accommodate for any locational relationship which are intended to exist between windows.
 If two visual content items are intended to be in close proximity to each other, there is no guarantee that the technique will position them together.
 As the positioning of content items can imply their functional relations to the user~\cite{Constantine1999}, the loss of these intended locational relations could be undesirable for some systems.
 
