@@ -187,6 +187,7 @@ As the positioning of content items can imply their functional relations to the 
 The potential benefits~\cite{Greenfield2006,Vernier2002} and growing supporting technologies~\cite{Boyd2007,Finney2009} of non-rectangular displays indicate that there is an increasing demand for systems to support them.
 Specifically there is a growing demand for these different display shapes in tabletop systems~\cite{Hansen2009,Shen2004}.
 For tools which are used to design the layout of software~\cite{Meskens2008} or systems which dynamically update the layout of visual content items~\cite{Gajos2004}, a method of adapting visual content layouts to different tabletop display shapes will be needed.
+
 %-------------------------------------------------------------------------
 \section{Identifying Display Shape Dependence Issues}
 \label{sec:problem}
@@ -195,10 +196,9 @@ For developing a method of adapting visual content layouts to different display 
 Issues can occur when a display shape which differs from the shape of a display assumed by the software is used.
 In this section we define six of these \acp{DSDI}.
 
-\begin{quote}\emph{\textbf{Cropping \ac{DSDI}} Content items appear cropped as regions of them become positioned outside the display area.}\end{quote}
+\begin{quote}\emph{i) \textbf{Cropping \ac{DSDI}} Content items appear cropped as regions of them become positioned outside the display area.}\end{quote}
 
-Cropping can have an effect of making the effected visual content items unfit for purpose.
-This is because the visual information they convey is lost.
+Cropping can have an effect of making the effected visual content items unfit for purpose; this is because the visual information they convey is lost.
 Users may also be unable to interact directly with cropped items.
 The cropping of visual content items outside the display area was also noted by Waldner et al. \cite{Waldner2011}.
 Therefore, methods of resolving this cropping would be required to make software capable of adapting to different display shapes.
@@ -211,40 +211,37 @@ Attempts made to resolve this cropping can result in secondary \acp{DSDI}.
    \label{fig:dsdiFlow}
 \end{figure*}
 
-\begin{quote}\emph{\textbf{Overlapping \ac{DSDI}:} Occlusion from other visual content items.}\end{quote}
+\begin{quote}\emph{ii) \textbf{Overlapping \ac{DSDI}:} Occlusion from other visual content items.}\end{quote}
 
-Attempts to resolve the Cropping \ac{DSDI} can result in further issues such as the movement of content items, which did not previously overlap, to locations where they cover each other.
+Attempts to resolve the {\emph{Cropping \ac{DSDI}}} can result in further issues such as the movement of content items, which did not previously overlap, to locations where they cover each other.
 This overlapping of content items can result in regions of the visual content item becoming obscured.
-This has the same negative impact as the Cropping \ac{DSDI}.
+This has the same negative impact as the {\emph{Cropping \ac{DSDI}}}.
 Overlapping content items is not always an issue since the obscuring items could be moved by the user, but in systems where these items are immovable the occlusion would be irreparable.
 
-\begin{quote}\emph{\textbf{Layout \ac{DSDI}:} The loss of layout relations between visual content items.}\end{quote}
+\begin{quote}\emph{iii) \textbf{Layout \ac{DSDI}:} The loss of layout relations between visual content items.}\end{quote}
 
-The changing of content item positions could be an issue in applications where layout is important.
-This is because the positioning of content items can imply their functional relations to the user~\cite{Constantine1999}.
+The changing of content item positions could be an issue in applications where layout is important; this is because the positioning of content items can imply their functional relations to the user~\cite{Constantine1999}.
 For example, controls in an application may be placed next to the items they influence.
 If this layout relation is lost then it may become users what items the set of controls will influence. 
-The loss of layout may not make content unfit for purpose but could be very undesirable for software where the layout is intended to aid the user.
+The loss of layout may not make content unfit for purpose but could be highly undesirable for software where the layout is intended to aid the user.
 However, loss of layout is not always considered an issue meaning this \ac{DSDI} will only apply to specific content, tasks or applications.
 
-\begin{quote}\emph{\textbf{Scaling \ac{DSDI}:} The scaling of visual content items to an extreme.}\end{quote}
+\begin{quote}\emph{iv) \textbf{Scaling \ac{DSDI}:} The scaling of visual content items to an extreme.}\end{quote}
 
-Scaling, when a content item is resized while maintain its aspect ratio, a visual element may be performed to avoid the cropping of content.
+Scaling -- when a content item is resized while maintain its aspect ratio -- a visual element may be performed to avoid the cropping of content.
 If this scaling is performed to an excessive magnitude, the visual information displayed by a content item may become incommunicable.
 For example, if a content item displaying text is scaled down to an extreme value the characters it displays may become too small and be illegible to users.
 
-\begin{quote}\emph{\textbf{Warping \ac{DSDI}:} The warping of visual content items.}\end{quote}
+\begin{quote}\emph{v) \textbf{Warping \ac{DSDI}:} The warping of visual content items.}\end{quote}
 
 Warping is where the contents of a system are stretched and/or squashed in a non-uniform manner~\cite{Milliron2002}.
 This could be applied to the entire visual output of a system to make it fit a particular display shape.
 However, this results in content items being stretched and squashed non-uniformly.
 Even when the magnitude of this deformation is relatively small it can make any visual information a content item displays incommunicable to the user.
-However, this \ac{DSDI} may not apply in all circumstances.
-Some visual content items may display visual information which is communicable to the user no matter how extremely it is deformed.
-For example, if a content item's visual information is its colour; if the item can be seen then it is successfully communicating its visual information to the user.
+However, this \ac{DSDI} may not apply in all circumstances; some visual content items may display visual information which is communicable to the user no matter how extremely it is deformed.
+For example, if a content item's visual information is its colour -- if the item can be seen then it is successfully communicating its visual information to the user.
 
-\begin{quote}\emph{\textbf{Display Use \ac{DSDI}:} Display regions unused by the layout of visual content items.}\end{quote}
-
+\begin{quote}\emph{vi) \textbf{Display Use \ac{DSDI}:} Display regions unused by the layout of visual content items.}\end{quote}
 
 As a result of attempting to resolve the initial cropping, visual content items can often be translated to the same regions of the display.
 This can leave large areas of an interface unused.
@@ -253,18 +250,16 @@ This is due to the fact that on larger interfaces some regions of the display ma
 If the display uses direct touch interaction, then items in these regions become isolated from the user's influence.
 There are solutions to this problem, such as users changing their positions around the interface or controls which can be used to indirectly manipulate out of reach items~\cite{Ryall2006a}.
 However, if all the content items are constrained to a single region of the display beyond a user's reach, the need to repeatedly use these solutions is undesirable.
-Changing positions to access remote content may not be possible in some environments due to the placement of the interface.
-Multi-touch interfaces may have several users positioned around them.
+Changing positions to access remote content may not be possible in some environments due to the placement of the interface, for example, multi-touch interfaces may have several users positioned around them.
 Users interacting simultaneously with a single interface often have a tendency to establish territories~\cite{scott2004}.
 A user wishing to move with these types of interfaces may disrupt others interacting with the system.
 Solutions involving the remote control of out of reach content items result in users manipulating content items through a proxy~\cite{Smith11}.
-This means that their interaction would no longer be direct.
-This can be undesirable because it counteracts the benefits of direct touch interaction~\cite{Schoning2008}.
+This means that their interaction would no longer be direct, which can be undesirable because it counteracts the benefits of direct touch interaction~\cite{Schoning2008}.
 Ensuring content items are capable of being spread out across the interface when possible reduces the likelihood that all the items will be placed beyond the reach of the users.
 
-For a tabletop software system to be capable of dynamically adapting its visual content to different display shapes, the Cropping \ac{DSDI} needs to be resolved in such a manner that will minimise the influence of any of the potential secondary \acp{DSDI}.
+For a tabletop software system to be capable of dynamically adapting its visual content to different display shapes, the {\emph{Cropping \ac{DSDI}}} needs to be resolved in such a manner that will minimise the influence of any of the potential secondary \acp{DSDI}.
 Figure~\ref{fig:dsdiFlow} maps the causality of the \acp{DSDI} and notes the circumstances in which they may have undesirable consequences on a system's visual content.
-With this list of \acp{DSDI}, a technique to adapt software to different display shapes in such a way that reduces the possibility of software becoming unusable due to these issues has been developed.
+In the next section, using this list of \acp{DSDI}, we present a technique to adapt software to different display shapes in such a way that reduces the possibility of software becoming unusable due to these issues has been developed.
 
 %-------------------------------------------------------------------------
 \section{Minimising Display Shape Dependence Issues}
