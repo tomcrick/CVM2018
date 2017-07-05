@@ -1,13 +1,90 @@
-\documentclass[review,5p,times,twocolumn]{elsarticle}
+%% BioMed_Central_Tex_Template_v1.06
+%%                                      %
+%  bmc_article.tex            ver: 1.06 %
+%                                       %
 
+%%IMPORTANT: do not delete the first line of this template
+%%It must be present to enable the BMC Submission system to
+%%recognise this template!!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                     %%
+%%  LaTeX template for BioMed Central  %%
+%%     journal article submissions     %%
+%%                                     %%
+%%          <8 June 2012>              %%
+%%                                     %%
+%%                                     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% For instructions on how to fill out this Tex template           %%
+%% document please refer to Readme.html and the instructions for   %%
+%% authors page on the biomed central website                      %%
+%% http://www.biomedcentral.com/info/authors/                      %%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%% BioMed Central currently use the MikTex distribution of         %%
+%% TeX for Windows) of TeX and LaTeX.  This is available from      %%
+%% http://www.miktex.org                                           %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% additional documentclass options:
+%  [doublespacing]
+%  [linenumbers]   - put the line numbers on margins
+
+%%% loading packages, author definitions
+
+%\documentclass[twocolumn]{bmcart}% uncomment this for twocolumn layout and comment line below
+\documentclass{bmcart}
+
+%%% Load packages
+\usepackage{amsthm,amsmath,amssymb,amsfonts}
 \usepackage{algorithm,algorithmic}
-\usepackage{amssymb}
-\setcounter{tocdepth}{3}
+%\RequirePackage{natbib}
+%\RequirePackage[authoryear]{natbib}% uncomment this for author-year bibliography
 \usepackage{graphicx}
-\usepackage{amsmath}
 \usepackage[printonlyused]{acronym}
 \usepackage{tabularx}
-\usepackage{url}
+\usepackage{multirow}
+\usepackage{paralist}
+\usepackage{gensymb}
+\RequirePackage{hyperref}
+\usepackage[utf8]{inputenc} %unicode support
+%\usepackage[applemac]{inputenc} %applemac support if unicode package fails
+%\usepackage[latin1]{inputenc} %UNIX support if unicode package fails
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                             %%
+%%  If you wish to display your graphics for   %%
+%%  your own use using includegraphic or       %%
+%%  includegraphics, then comment out the      %%
+%%  following two lines of code.               %%
+%%  NB: These line *must* be included when     %%
+%%  submitting to BMC.                         %%
+%%  All figure files must be submitted as      %%
+%%  separate graphics through the BMC          %%
+%%  submission process, not included in the    %%
+%%  submitted article.                         %%
+%%                                             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\def\includegraphic{}
+%\def\includegraphics{}
+
+
+%%% Put your definitions there:
+\startlocaldefs
+
+\newcommand{\tickYes}{\checkmark}
 
 \newcommand\markerlessfootnote[1]{%
   \begingroup
@@ -24,59 +101,121 @@
 
 \newacro{DSDI}{Display Shape Dependence Issue}
 
-\journal{Displays}
+\endlocaldefs
 
-% Document starts
+
+%%% Begin ...
 \begin{document}
 
+%%% Start of article front matter
 \begin{frontmatter}
 
-%% Title, authors and addresses
+\begin{fmbox}
+\dochead{Research}
 
-%% use the tnoteref command within \title for footnotes;
-%% use the tnotetext command for the associated footnote;
-%% use the fnref command within \author or \address for footnotes;
-%% use the fntext command for the associated footnote;
-%% use the corref command within \author for corresponding author footnotes;
-%% use the cortext command for the associated footnote;
-%% use the ead command for the email address,
-%% and the form \ead[url] for the home page:
-%%
-%% \title{Title\tnoteref{label1}}
-%% \tnotetext[label1]{}
-%% \author{Name\corref{cor1}\fnref{label2}}
-%% \ead{email address}
-%% \ead[url]{home page}
-%% \fntext[label2]{}
-%% \cortext[cor1]{}
-%% \address{Address\fnref{label3}}
-%% \fntext[label3]{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the title of your article here     %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\title{Repositioning Visual Content To Fit Different Tabletop\\Display Shapes}
 \title{Resolving Display Shape Dependence Issues on Tabletops}
 
-%% use optional labels to link authors explicitly to addresses:
-%% \author[label1,label2]{<author name>}
-%% \address[label1]{<address>}
-%% \address[label2]{<address>}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the authors here                   %%
+%%                                          %%
+%% Specify information, if available,       %%
+%% in the form:                             %%
+%%   <key>={<id1>,<id2>}                    %%
+%%   <key>=                                 %%
+%% Comment or delete the keys which are     %%
+%% not used. Repeat \author command as much %%
+%% as required.                             %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\author[durham]{James McNaughton\corref{correspondent}}
-\ead{j.a.mcnaughton@durham.ac.uk}
-\author[cardiff]{Tom Crick}
-\ead{tcrick@cardiffmet.ac.uk}
-\author[newcastle]{Shamus P. Smith}
-\ead{Shamus.Smith@newcastle.edu.au}
+\author[
+   addressref={aff1},                   % id's of addresses, e.g. {aff1,aff2}
+   corref={aff1},                       % id of corresponding address, if any
+%   noteref={n1},                        % id's of article notes, if any
+   email={j.a.mcnaughton@durham.ac.uk, tcrick@cardiffmet.ac.uk, Shamus.Smith@newcastle.edu.au}   % All email addresses.
+]{\inits{JM}\fnm{James} \snm{McNaughton}}
+\author[
+   addressref={aff2},
+   email={tcrick@cardiffmet.ac.uk}
+]{\inits{TC}\fnm{Tom} \snm{Crick}}
+\author[
+   addressref={aff3},
+   email={Shamus.Smith@newcastle.edu.au}
+]{\inits{SS}\fnm{Shamus} \snm{Smith}}
 
-\cortext[correspondent]{Corresponding author. Phone: +44 (0) 191 33 44312}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the authors' addresses here        %%
+%%                                          %%
+%% Repeat \address commands as much as      %%
+%% required.                                %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\address[durham]{Technology Enhanced Learning Special Interest Group,
-  School of Education, Durham University, South Road, Durham DH1 3LE, UK}
-\address[cardiff]{Department of Computing \& Information Systems,
-  Cardiff Metropolitan University, Cardiff CF5 2YB, UK}
-\address[newcastle]{School of Electrical Engineering and Computing, University of Newcastle, Callaghan NSW 2308, Australia}
 
+\address[id=aff1]{%                           % unique id
+  \orgname{School of Education, Durham University}, % university, etc
+  \street{South Road},                     %
+  \postcode{DH1 3LE}                                % post or zip code
+  \city{Durham},                              % city
+  \cny{UK}                                    % country
+}
+\address[id=aff2]{%
+  \orgname{Department of Computing \& Information Systems, Cardiff Metropolitan University},
+  \street{Western Avenue},
+  \postcode{CF5 2YB}
+  \city{Cardiff},
+  \cny{UK}
+}
+\address[id=aff3]{%
+  \orgname{School of Electrical Engineering \& Computing, University of Newcastle},
+  \postcode{NSW 2308}
+  \city{Callaghan},
+  \cny{Australia}
+}
 
-\begin{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter short notes here                   %%
+%%                                          %%
+%% Short notes will be after addresses      %%
+%% on first page.                           %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{artnotes}
+%\note{Sample of title note}     % note to the article
+%\note[id=n1]{Equal contributor} % note, connected to author
+\end{artnotes}
+
+\end{fmbox}% comment this for two column layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The Abstract begins here                 %%
+%%                                          %%
+%% Please refer to the Instructions for     %%
+%% authors on http://www.biomedcentral.com  %%
+%% and include the section headings         %%
+%% accordingly for your article type.       %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstractbox}
+
+\begin{abstract} % abstract
+% \parttitle{First part title} %if any
+% Text for this section.
+% \parttitle{Second part title} %if any
+% Text for this section.
+
 Advances in display technologies are transforming the capabilities of system interfaces.
 Previously, the majority of systems have utilised rectangular
 displays; this may soon change with the pervasive nature of digital devices.
@@ -92,16 +231,57 @@ layout of tabletop software to different display shapes, identifying a
 range of potential applications and research priorities.
 \end{abstract}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The keywords begin here                  %%
+%%                                          %%
+%% Put each keyword in separate \kwd{}.     %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{keyword}
-Visual content management \sep irregular displays \sep screen design \sep multi-touch surfaces \sep tabletop displays
+\kwd{Visual content management, irregular displays, screen design, multi-touch surfaces, tabletop displays}
 \end{keyword}
 
+% MSC classifications codes, if any
+%\begin{keyword}[class=AMS]
+%\kwd[Primary ]{}
+%\kwd{}
+%\kwd[; secondary ]{}
+%\end{keyword}
+
+\end{abstractbox}
+%
+%\end{fmbox}% uncomment this for twcolumn layout
 
 \end{frontmatter}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The Main Body begins here                %%
+%%                                          %%
+%% Please refer to the instructions for     %%
+%% authors on:                              %%
+%% http://www.biomedcentral.com/info/authors%%
+%% and include the section headings         %%
+%% accordingly for your article type.       %%
+%%                                          %%
+%% See the Results and Discussion section   %%
+%% for details on how to create sub-sections%%
+%%                                          %%
+%% use \cite{...} to cite references        %%
+%%  \cite{koon} and                         %%
+%%  \cite{oreg,khar,zvai,xjon,schn,pond}    %%
+%%  \nocite{smith,marg,hunn,advi,koha,mouse}%%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% start of article main body
+% <put your article body there>
+
+
 %-------------------------------------------------------------------------
-\section{Introduction}
+\section*{Introduction}
 \label{sec:intro}
 
 The majority of tabletop software systems that provide visual feedback to a user are normally designed to do so with a particular display shape, with the most common of these display shapes being rectangular.
@@ -111,15 +291,15 @@ Developers thus need to consider how to make their software flexible enough to a
 
 The work presented in this paper explores a novel technique that would allow developers to adapt tabletop software to different display shapes.
 The remainder of this paper is structured as follows: 
-Section~\ref{sec:related} outlines the current development and drive for non-traditional display shapes with tabletop systems;
-Section~\ref{sec:problem} identifies the issues arising from the use of different display shapes on a system;
-A technique to minimise the influence of the identified issues is proposed in Section~\ref{sec:solution};
-the implementation of the technique into a software framework is discussed in Section~\ref{sec:study}.
-Section~\ref{sec:observations} discusses the implications that arise
-from the technique use, with future developments and our conclusions presented in Section~\ref{sec:conclusion}.
+The \nameref{sec:related} section outlines the current development and drive for non-traditional display shapes with tabletop systems;
+Tthe \nameref{sec:problem} section identifies the issues arising from the use of different display shapes on a system;
+A technique to minimise the influence of the identified issues is proposed in the \nameref{sec:solution} section;
+the implementation of the technique into a software framework is discussed in the \nameref{sec:study} section.
+The \nameref{sec:observations} section discusses the implications that arise
+from the technique use, with future developments and our conclusions presented in the \nameref{sec:conclusion} section.
 
 %-------------------------------------------------------------------------
-\section{Domain Context}
+\section*{Background}
 \label{sec:related}
 
 Traditional displays used in computer systems are overwhelmingly rectangular.
@@ -191,8 +371,10 @@ Specifically there is a growing demand for these different display shapes in tab
 For tools which are used to design the layout of software~\cite{Meskens2008} or systems which dynamically update the layout of visual content items~\cite{Gajos2004}, a method of adapting visual content layouts to different tabletop display shapes will be needed.
 
 %-------------------------------------------------------------------------
-\section{Identifying Display Shape Dependence Issues}
+\section*{Identifying Display Shape Dependence Issues}
 \label{sec:problem}
+
+% TODO Clearly state that the DSDIs presented are novel.
 
 For developing a method of adapting visual content layouts to different display shapes, the effects of applying a new display shape to a system's visual output need to be considered.
 Issues can occur when a display shape which differs from the shape of a display assumed by the software is used.
@@ -206,12 +388,7 @@ The cropping of visual content items outside the display area was also noted by 
 Therefore, methods of resolving this cropping would be required to make software capable of adapting to different display shapes.
 Attempts made to resolve this cropping can result in secondary \acp{DSDI}.
 
- \begin{figure*}[t]
- \centering
-   \includegraphics[width=1\textwidth]{figures/dsdi_flow.png}
-   \caption{A flow chat mapping the causality of Display Shape Dependence Issues (DSDIs).}
-   \label{fig:dsdiFlow}
-\end{figure*}
+% fig:dsdiFlow
 
 \begin{quote}\emph{ii) \textbf{Overlapping \ac{DSDI}:} Occlusion from other visual content items.}\end{quote}
 
@@ -264,7 +441,7 @@ Figure~\ref{fig:dsdiFlow} maps the causality of the \acp{DSDI} and notes the cir
 In the next section, using this list of \acp{DSDI}, we present a technique to adapt software to different display shapes in such a way that reduces the possibility of software becoming unusable due to these issues has been developed.
 
 %-------------------------------------------------------------------------
-\section{Minimising Display Shape Dependence Issues}
+\section*{Minimising Display Shape Dependence Issues}
 \label{sec:solution}
 
 A technique was developed that would resolve the {\emph{Cropping \ac{DSDI}}} and would minimise the effect of any secondary \acp{DSDI}.
@@ -275,30 +452,16 @@ The second stage of the technique uses the difference between the shape of virtu
 This stage is referred to as {\em Position Pulling}.
 
 
-\subsection{Virtual Projection}
+\subsection*{Virtual Projection}
 \label{subsec:virtualprojection}
 
-\begin{figure}[h]
- \centering
-   \includegraphics[width=0.45\textwidth]{figures/virtual_rectangle.png}
-   \caption{An example of the Virtual Projection stage.}
-   \label{fig:virtualRectangle}
-\end{figure}
+% fig:virtualRectangle
 
 For the first stage of the technique, the original shape of the software environment's visual output is treated as a single item.
 This item, referred to as the virtual projection, is translated, rotated and scaled so that it fits within the display shape being used.
 The transformations applied to the virtual projection are applied to any visual content items displayed in the software's original layout.
 
-\begin{algorithm}[h]
-\caption{Applying virtual projection transformation.}
-\label{algo:virtualProjection}
-\begin{algorithmic}
-\STATE \textbf{virtualProjection}(item, $\overrightarrow{translation}$, rotation, scale)
-\INDSTATE[2]$item.rotateBy(rotation)$
-\INDSTATE[2]$item.translateBy(\overrightarrow{translation})$
-\INDSTATE[2]$item.scaleBy(scale)$
-\end{algorithmic}
-\end{algorithm}
+% algo:virtualProjection
 
 Algorithm~\ref{algo:virtualProjection} shows how the virtual project transformation is applied to visual content items.
 The translation, scaling and rotation fed into the algorithm relate to the virtual projection.
@@ -337,15 +500,10 @@ This region is recreated for every display shape using the same dimensions, ensu
 This stage of the technique does have the potential to minimise the effects of most of the \acp{DSDI}.
 However, this stage of the technique does not counter the occurrence of the {\emph{Display Use \ac{DSDI}}} since only a single region of the display, the virtual projection, is used.
 
-\subsection{Position Pulling}
+\subsection*{Position Pulling}
 \label{subsec:positionpulling} 
 
-\begin{figure}[h] 
- \centering
-   \includegraphics[width=0.45\textwidth]{figures/virtual_rectangle_pull_example.png}
-   \caption{An example of the Position Pulling stage.}
-   \label{fig:pullLayout}
-\end{figure}
+% fig:pullLayout
 
 For the second stage of the technique, the gaps between the virtual projection and the display edges are utilised.
 The objective of this stage is to move content items into areas of the display which are left unused by the virtual projection.
@@ -360,37 +518,11 @@ Items positioned near large gaps between the virtual projection and the display 
 The left hand side of Figure~\ref{fig:pullLayout} shows the \lq pulling forces\rq\ which result from the gaps between the virtual projection area edges adjacent to the content items.
 Figure~\ref{fig:pullLayout}'s right hand side shows the translation of the content items resulting from the combined influence of the \lq pulling forces\rq .
 
-\begin{figure}[h] 
- \centering
-   \includegraphics[width=0.45\textwidth]{figures/virtual_rectangle_pull_example_detailed.png}
-   \caption{Detailed view of the information used in Position Pulling.}
-   \label{fig:pullLayoutExp}
-\end{figure}
+% fig:pullLayoutExp
 
-\begin{algorithm}[h]
-\caption{Calculating the \lq pulling force\rq~vectors.}
-\label{algo:pullLayoutOne}
-\begin{algorithmic}
-\STATE \textbf{getPullVectors}($O,\ A_{1},\ A_{2},\ B_{1},\ B_{2},\ C_{1},\ C_{2},\ D_{1},\ D_{2}$)
-\INDSTATE[2]$\overrightarrow{LEFT}\hspace{0.5cm} \leftarrow \hspace{0.25cm}(\overrightarrow{D_{1}D_{2}}\ *\ ( |\overrightarrow{OD_{1}}|\  /\ |\overrightarrow{B_{1}D_{1}}| )$
-\INDSTATE[2]$\overrightarrow{RIGHT}\hspace{0.25cm} \leftarrow \hspace{0.25cm}(\overrightarrow{B_{1}B_{2}}\ *\ ( |\overrightarrow{OB_{1}}|\  /\ |\overrightarrow{B_{1}D_{1}}| )$
-\INDSTATE[2]$\overrightarrow{UP}\hspace{1cm} \leftarrow \hspace{0.25cm}(\overrightarrow{A_{1}A_{2}}\ *\ ( |\overrightarrow{OC_{1}}|\  /\ |\overrightarrow{A_{1}C_{1}}| )$
-\INDSTATE[2]$\overrightarrow{DOWN}\hspace{0.3cm} \leftarrow \hspace{0.25cm}(\overrightarrow{C_{1}C_{2}}\ *\ ( |\overrightarrow{OA_{1}}|\  /\ |\overrightarrow{A_{1}C_{1}}| )$
-\STATE \textit{return}\ $\overrightarrow{LEFT},\ \overrightarrow{RIGHT},\ \overrightarrow{UP},\ \overrightarrow{DOWN}$
-\end{algorithmic}
-\end{algorithm}
+% algo:pullLayoutOne
 
-\begin{algorithm}[h!]
-\caption{Applying the \lq pulling force\rq~vectors.}
-\label{algo:pullLayoutTwo}
-\begin{algorithmic}
-\STATE \textbf{applyPull}($item,\ \theta,\ \overrightarrow{LEFT},\ \overrightarrow{RIGHT},\ \overrightarrow{UP},\ \overrightarrow{DOWN}$)
-\INDSTATE[2]$\overrightarrow{PULL} \leftarrow \overrightarrow{LEFT} + \overrightarrow{RIGHT} + \overrightarrow{UP} + \overrightarrow{DOWN}$
-\INDSTATE[2]$\overrightarrow{PULL}.rotateBy(\theta)$
-\INDSTATE[2]$item.translateBy(\overrightarrow{PULL})$
-\STATE \textit{return}
-\end{algorithmic}
-\end{algorithm}
+% algo:pullLayoutTwo
 
 Algorithm~\ref{algo:pullLayoutOne} shows how each vector representing the individual \lq pulling force\rq\ is calculated and made proportional to the item's proximity to the corresponding edge.
 Algorithm~\ref{algo:pullLayoutTwo} details how pulling force vectors are attained, where $\theta$ represents the orientation of the virtual projection.
@@ -414,10 +546,11 @@ After employing the two stages discussed, the resulting technique has the potent
 While the technique does has the ability to counter any \ac{DSDI}, it does have the drawback of requiring trade-offs in its implementation between which \acp{DSDI} it minimises the consequences of.
 
 %-------------------------------------------------------------------------
-\section{Study}
+% TODO Restructure Study to `Observations'
+\section*{Study}
 \label{sec:study}
 
-The technique discussed in Section~\ref{sec:solution} was implemented into the 2.1 version of the {\emph{SynergyNet}} framework~\cite{McNaughton2017,AlAgha2010}, a multi-touch software framework intended for use with rectangular tabletop interfaces.
+The technique discussed in the \nameref{sec:solution} section was implemented into the 2.1 version of the {\emph{SynergyNet}} framework~\cite{McNaughton2017,AlAgha2010}, a multi-touch software framework intended for use with rectangular tabletop interfaces.
 The framework functions by rendering a range of content items, such as images, text and video, which can then be manipulated by users.
 {\emph{SynergyNet}} is built in Java allowing it to be run across different operating systems and can accept a wide range of different multi-touch protocols such as TUIO~\cite{Kaltenbrunner2007}.
 This makes the framework capable of being used in a wide range of systems with different displays.
@@ -437,11 +570,7 @@ This means that, in addition to the initial positioning of content, the techniqu
 For example, if a new item is to be added to the `centre' of the visual content the technique would be applied to ensure it appears in the middle of the maximal rectangle, even if the item is added sometime after the application's initialisation.
 The technique does not need to be utilised for relative transformations, such as those used when adjusting an item's position, scale or rotation in response to a user gesture.
 
-\begin{figure*}[t!] 
-	\centerline{\includegraphics[width=1\textwidth]{figures/study.png}}
-	\caption{Several applications in use with different display shapes during the study.}
-	\label{fig:study}
-\end{figure*}
+% fig:study
 
 The {\emph{SynergyNet}} framework was adapted to apply a range of borders which would allow the display to emulate different shapes.
 These shapes were chosen after consultation with a furniture manufacturer who had experience with designing multi-touch tables.
@@ -495,7 +624,8 @@ In the next section, observations from the use of these applications were made o
 We focus on applications in which the layout of content was significant in some way.
 
 %-------------------------------------------------------------------------
-\section{Observations}
+% TODO Restructure Study to `Discussion'
+\section*{Observations}
 \label{sec:observations}
 
 After the application of the technique, the {\emph{XML Puzzle}} and {\emph{Collage}} applications were able to be utilised as normal with the \acp{DSDI} totally resolved without any observable issues or additional complexities arising.
@@ -508,11 +638,7 @@ contents highlighted a number of complexities to applying the technique; these w
 The complexities arising from these two applications are important to consider due to the fact that the {\emph{Grid}} and {\emph{Simple Map}} applications bear the strongest similarities to most legacy software.
 The entirety of the contents of these two applications are specifically positioned, much like how the contents of traditional GUIs in legacy software are.
 
-\begin{figure*}[t!] 
-	\centerline{\includegraphics[width=1\textwidth]{figures/grid_app.png}}
-	\caption{Influence of the implemented technique on SynergyNet's Grid application.}
-	\label{fig:gridApp}
-\end{figure*}
+% fig:gridApp
 
 As can be seen in Figure~\ref{fig:gridApp}, all the items are visible and there is no cropping in the initial layout.
 However, when any of the four example display shapes are applied, several content items are occluded to varying extents.
@@ -529,11 +655,7 @@ If the implemented \ac{DSDI}-minimising technique a system uses to adapt to diff
 This would have the effect of the background being constrained to a single region of the display, leaving other areas of the interface blank without a background.
 In the implemented system, a method of making content item exempt from the influence of specific stages of the technique was made available.
 
-\begin{figure*}[t!] 
-	\centerline{\includegraphics[width=1\textwidth]{figures/map_app.png}}
-	\caption{Influence of the implemented technique on SynergyNet's Simple Map application.}
-	\label{fig:mapApp}
-\end{figure*}
+% fig:mapApp
 
 In Figure~\ref{fig:mapApp} the map was made exempt from the influence of the position pulling stage of the technique.
 If the map item was made exempt from both stages of the technique, the map would remain in the same position for all display shapes.
@@ -543,12 +665,7 @@ As a result of this, the map effectively represents the virtual projection on ea
 The placement of the virtual projection on the circle and intersecting circles display highlights how the contents may be rotated to fit the display shape.
 Since the software is intended for use on a tabletop display this is not an issue, because the horizontal nature of the display signifies that there is no single vantage point that the interface will be viewed from.
 
-\begin{figure*}[t] 
- \centering
-   \includegraphics[width=1\textwidth]{figures/solution_flow.png}
-   \caption{Flowchart demonstrating navigation of the technique.}
-   \label{fig:flowchart}
-\end{figure*}
+% fig:flowchart
 
 Figure~\ref{fig:mapApp} demonstrates the importance of the layout of content items.
 Up to the virtual projection stage of the technique the flag items correctly align with the countries on the map.
@@ -587,10 +704,10 @@ This highlights the importance of any technique intended to minimise the influen
 This allows developers to make informed design and implementation decisions on how content should be displayed.
 
 %-------------------------------------------------------------------------
-\section{Conclusions and Future Work}
+\section*{Conclusions and Future Work}
 \label{sec:conclusion}
 
-The development of the techniques presented in Section~\ref{sec:solution} has shown that when designing software for use on differently shaped tabletop displays, the {\emph{Cropping \ac{DSDI}}} must be considered.
+The development of the techniques presented in the \nameref{sec:solution} section has shown that when designing software for use on differently shaped tabletop displays, the {\emph{Cropping \ac{DSDI}}} must be considered.
 In addition to this, secondary \acp{DSDI} which can result from attempts to resolve the initial cropping must also be accounted for.
 Developers should also consider which \acp{DSDI} their software can tolerate and which must be handled by a \ac{DSDI}-minimising technique.
 Choices must be made between whether to preserve the layout of content items or to maximise the display usage.
@@ -600,18 +717,13 @@ The identification, or creation of, an adequate \ac{DSDI}-minimising technique w
 It is important to note that not only the list of \acp{DSDI} for a system should influence the design of a \ac{DSDI}-minimising technique.
 The need for applications to control the magnitude of a \ac{DSDI}-minimising technique's influence is important to consider.
 
-\begin{figure}[h]
- \centering
-   \includegraphics[width=0.45\textwidth]{figures/prototype.png}
-   \caption{A prototype of a circular tabletop display.}
-   \label{fig:prototypeTabletop}
-\end{figure}
+% fig:prototypeTabletop
 
 There are a number of reasons why it is important that software becomes display shape independent.
 There is now a growing drive for software systems to become ubiquitous with the increased availability of natural user interfaces; for a system to become ubiquitous it must fit its environment~\cite{Greenfield2006}.
 Being able to change the display shape of a system would aid in achieving this.
 
-The examples of non-rectangular displays discussed in Section~\ref{sec:related} reinforces the need for their support.
+The examples of non-rectangular displays discussed in the \nameref{sec:related} section reinforces the need for their support.
 In addition to these, many devices brought to market in the recent growth of wearable devices utilise non-rectangular displays, specifically smart watches~\cite{Jung2016}.
 Figure~\ref{fig:prototypeTabletop} shows a prototype built by a leasing furniture manufacturer featuring a circular tabletop interface intended for use as an interactive kiosk for public spaces.
 The lack of readily available software for the interface's circular display meant that if the tabletop was to be used then bespoke software would need to be commissioned at a cost to the manufacturer rather than using any of the readily available off-the-shelf products intended for interactive kiosks.
@@ -622,7 +734,7 @@ This is likely due to the cyclical nature of dependency between display technolo
 However, recently the research activity in this area has started to increase, with research appearing that details investigations on adapting text to non-rectangular displays~\cite{Serrano2016} and how visual content is best presented on legacy interfaces~\cite{Serrano2017}.
 Though this research focuses more on legacy systems and specific display shapes, they show that there is a growing interest in moving beyond traditional rectangular displays.
 
-Furthermore, the technique outlined in Section~\ref{sec:solution} could be used beyond tabletop systems.
+Furthermore, the technique outlined in the \nameref{sec:solution} section could be used beyond tabletop systems.
 However, it is possible for the \acp{DSDI} in other systems to vary and differ from those presented in this work~\cite{Serrano2017}. 
 For example, attempts to resolve the initial {\emph{Cropping \ac{DSDI}}} may require content items to be rotated.
 If a user is viewing the display from a single perspective, such as with a vertical display, then any change in content item's orientation is undesirable.
@@ -663,18 +775,248 @@ Developers using the technique must decide which \acp{DSDI} could not be tolerat
 Future tabletop software development would benefit greatly from the creation of guidelines to be followed when adapting software to become display shape independent.
 The technique produced in this paper, or another similar \ac{DSDI}-minimising technique, should form part of these guidelines.
 
-%-------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Backmatter begins here                   %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{backmatter}
+
+\section*{Funding}
+This work was partially funded under the UK's EPSRC/ERSC Teaching and Learning Research Programme (TLRP) {\emph{SynergyNet}} project (RES-139-25-0400).
+
+\section*{Availability of data and material}
+The implmentation of the technique discussed in this manuscript is openly available here: \url{https://github.com/synergynet/synergynet2.5/releases/tag/v0.1}.
+
+\section*{Ethics approval and consent to participate}
+Not Applicable.
+
 \section*{Acknowledgements}
-
-This work was partially funded under the UK's EPSRC/ERSC Teaching and Learning Research Programme (TLRP) {\emph{SynergyNet} project (RES-139-25-0400).
 The authors would also like to thank Professor Liz Burd and Dr Andrew Hatch for their supervision of the primary author's master's degree from which this work originally stems.
+The authors would also like to thank the members of the Durham University Technology Enhanced Learning Special Interest Group for supporting the redrafting of this manuscript.
 
-%-------------------------------------------------------------------------
+\section*{Competing interests}
+The authors declare that they have no competing interests.
 
-\bibliographystyle{elsarticle-num}
-\bibliography{DifferentDisplayShapesReferences}
+\section*{Consent for publication }
+All authors have approved the final manuscript and fully support its publication.
+
+\section*{Author's contributions}
+JM developed the technique discussed in the manuscript, developed the implementation discussed and was an author in both the initial draft and subsequent redraft.
+TC was an author in the manuscript's redraft, as well as providing technical advice and analysis.
+SS was an author in the manuscript's original draft.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                  The Bibliography                       %%
+%%                                                         %%
+%%  Bmc_mathpys.bst  will be used to                       %%
+%%  create a .BBL file for submission.                     %%
+%%  After submission of the .TEX file,                     %%
+%%  you will be prompted to submit your .BBL file.         %%
+%%                                                         %%
+%%                                                         %%
+%%  Note that the displayed Bibliography will not          %%
+%%  necessarily be rendered by Latex exactly as specified  %%
+%%  in the online Instructions for Authors.                %%
+%%                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% if your bibliography is in bibtex format, use those commands:
+\bibliographystyle{vancouver} % Style BST file (bmc-mathphys, vancouver, spbasic).
+\bibliography{DifferentDisplayShapesReferences}      % Bibliography file (usually '*.bib' )
+% for author-year bibliography (bmc-mathphys or spbasic)
+% a) write to bib file (bmc-mathphys only)
+% @settings{label, options="nameyear"}
+% b) uncomment next line
+%\nocite{label}
+
+% or include bibliography directly:
+% \begin{thebibliography}
+% \bibitem{b1}
+% \end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Figures                       %%
+%%                               %%
+%% NB: this is for captions and  %%
+%% Titles. All graphics must be  %%
+%% submitted separately and NOT  %%
+%% included in the Tex document  %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%
+%% Do not use \listoffigures as most will included as separate files
+\pagebreak
+\section*{Figures}
+
+ \begin{figure}[h!]
+ \centering
+   % \includegraphics[width=1\textwidth]{DSDIFlowChart.png}
+   \caption{\csentence{DSDI Flow Chart.}
+   A flow chat mapping the causality of Display Shape Dependence Issues (DSDIs).}
+   \label{fig:dsdiFlow}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+   % \includegraphics[width=0.45\textwidth]{VirtualProjection.png}
+   \caption{\csentence{Virtual Projection.}
+   An example of the Virtual Projection stage.}
+   \label{fig:virtualRectangle}
+\end{figure}
+
+\begin{figure}[h!] 
+ \centering
+   % \includegraphics[width=0.45\textwidth]{PositionPulling.png}
+   \caption{\csentence{Position Pulling.}
+   An example of the Position Pulling stage.}
+   \label{fig:pullLayout}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+   % \includegraphics[width=0.45\textwidth]{DetailedPositionPulling.png}
+   \caption{\csentence{Detailed Position Pulling.}
+   Detailed view of the information used in Position Pulling.}
+   \label{fig:pullLayoutExp}
+\end{figure}
+
+\begin{figure}[h!] 
+ \centering
+  % \includegraphics[width=0.95\textwidth]{ApplicationsInUse.png}
+  \caption{\csentence{Applications In Use.}
+  Several applications in use with different display shapes.}
+  \label{fig:study}
+\end{figure}
+
+\begin{figure}[h!] 
+ \centering
+  % \includegraphics[width=0.95\textwidth]{GridApplication.png}
+  \caption{\csentence{Grid Application.}
+  Influence of the implemented technique on SynergyNet's Grid application.}
+  \label{fig:gridApp}
+\end{figure}
+
+\begin{figure}[h!] 
+ \centering
+  % \includegraphics[width=1\textwidth]{MapApplication.png}
+  \caption{\csentence{Map Application.}
+  Influence of the implemented technique on SynergyNet's Simple Map application.}
+  \label{fig:mapApp}
+\end{figure}
+
+\begin{figure}[h!] 
+ \centering
+   % \includegraphics[width=1\textwidth]{TechniqueFlowchart.png}
+   \caption{\csentence{Technique Flowchart.}
+   Flowchart demonstrating navigation of the technique.}
+   \label{fig:flowchart}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+   % \includegraphics[width=0.45\textwidth]{PrototypeTabletop.png}
+   \caption{\csentence{Prototype Tabletop.}
+   A prototype of a circular tabletop display.}
+   \label{fig:prototypeTabletop}
+\end{figure}
+
+%   \begin{figure}[h!]
+%   \caption{\csentence{Sample figure title.}
+%       A short description of the figure content
+%       should go here.}
+%       \end{figure}
+
+% \begin{figure}[h!]
+%   \caption{\csentence{Sample figure title.}
+%       Figure legend text.}
+%       \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Tables                        %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Use of \listoftables is discouraged.
+%\section*{Tables}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Algorithms                        %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Use of \listoftables is discouraged.
+\pagebreak
+\section*{Algorithms}
+
+\begin{algorithm}[h!]
+\caption{Applying virtual projection transformation.}
+\label{algo:virtualProjection}
+\begin{algorithmic}
+\STATE \textbf{virtualProjection}(item, $\overrightarrow{translation}$, rotation, scale)
+\INDSTATE[2]$item.rotateBy(rotation)$
+\INDSTATE[2]$item.translateBy(\overrightarrow{translation})$
+\INDSTATE[2]$item.scaleBy(scale)$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\caption{Calculating the \lq pulling force\rq~vectors.}
+\label{algo:pullLayoutOne}
+\begin{algorithmic}
+\STATE \textbf{getPullVectors}($O,\ A_{1},\ A_{2},\ B_{1},\ B_{2},\ C_{1},\ C_{2},\ D_{1},\ D_{2}$)
+\INDSTATE[2]$\overrightarrow{LEFT}\hspace{0.5cm} \leftarrow \hspace{0.25cm}(\overrightarrow{D_{1}D_{2}}\ *\ ( |\overrightarrow{OD_{1}}|\  /\ |\overrightarrow{B_{1}D_{1}}| )$
+\INDSTATE[2]$\overrightarrow{RIGHT}\hspace{0.25cm} \leftarrow \hspace{0.25cm}(\overrightarrow{B_{1}B_{2}}\ *\ ( |\overrightarrow{OB_{1}}|\  /\ |\overrightarrow{B_{1}D_{1}}| )$
+\INDSTATE[2]$\overrightarrow{UP}\hspace{1cm} \leftarrow \hspace{0.25cm}(\overrightarrow{A_{1}A_{2}}\ *\ ( |\overrightarrow{OC_{1}}|\  /\ |\overrightarrow{A_{1}C_{1}}| )$
+\INDSTATE[2]$\overrightarrow{DOWN}\hspace{0.3cm} \leftarrow \hspace{0.25cm}(\overrightarrow{C_{1}C_{2}}\ *\ ( |\overrightarrow{OA_{1}}|\  /\ |\overrightarrow{A_{1}C_{1}}| )$
+\STATE \textit{return}\ $\overrightarrow{LEFT},\ \overrightarrow{RIGHT},\ \overrightarrow{UP},\ \overrightarrow{DOWN}$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[h!]
+\caption{Applying the \lq pulling force\rq~vectors.}
+\label{algo:pullLayoutTwo}
+\begin{algorithmic}
+\STATE \textbf{applyPull}($item,\ \theta,\ \overrightarrow{LEFT},\ \overrightarrow{RIGHT},\ \overrightarrow{UP},\ \overrightarrow{DOWN}$)
+\INDSTATE[2]$\overrightarrow{PULL} \leftarrow \overrightarrow{LEFT} + \overrightarrow{RIGHT} + \overrightarrow{UP} + \overrightarrow{DOWN}$
+\INDSTATE[2]$\overrightarrow{PULL}.rotateBy(\theta)$
+\INDSTATE[2]$item.translateBy(\overrightarrow{PULL})$
+\STATE \textit{return}
+\end{algorithmic}
+\end{algorithm}
+
+% \begin{table}[h!]
+% \caption{Sample table title. This is where the description of the table should go.}
+%       \begin{tabular}{cccc}
+%         \hline
+%            & B1  &B2   & B3\\ \hline
+%         A1 & 0.1 & 0.2 & 0.3\\
+%         A2 & ... & ..  & .\\
+%         A3 & ..  & .   & .\\ \hline
+%       \end{tabular}
+% \end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Additional Files              %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section*{Additional Files}
+%   \subsection*{Additional file 1 --- Sample additional file title}
+%     Additional file descriptions text (including details of how to
+%     view the file, if it is in a non-standard format or the file extension).  This might
+%     refer to a multi-page table or a figure.
+
+%   \subsection*{Additional file 2 --- Sample additional file title}
+%     Additional file descriptions text.
 
 
-%-------------------------------------------------------------------------
-
+\end{backmatter}
 \end{document}
