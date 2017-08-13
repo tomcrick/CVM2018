@@ -337,6 +337,13 @@ Though focused on a circular tabletop displays, they highlight the effect that a
 It is evident that the visual content of systems will need to accommodate the use of different display shapes.
 A natural way to achieve this is to define specific layouts in software's visual content for each potential display shape it may be used with.
 This is the approach used with the software systems discussed thus far~\cite{Hansen2009,Shen2004}; however, for software which may have a wide range of potential interface shapes this would require significant extra development work.
+
+The structured literature review~\cite{Kitchenham2004} that informed this research highlighted that there has been little innovation in utilising different display shapes in the past.
+This is likely due to the cyclical nature of dependency between display technology and its supporting software.
+However, recently the research activity in this area has started to increase, with research appearing that details investigations on adapting text to non-rectangular displays~\cite{Serrano2016} and how visual content is best presented on legacy interfaces~\cite{Serrano2017}.
+% TODO More discussion of these papers and note how they present guidelines which place more responsibility on software and content-designers.
+This, much like designing for unique content configurations for specific display shapes, will result in potentially significant additional development and design work.
+
 A potential method to reduce this would be to use a tool which can adapt the layout of visual contents to different platforms, such as GUMMY~\cite{Meskens2008}.
 This tool can take an existing layout, defined by a developer, and can quickly adapt it to the parameters of a specific platform, including the restrictions of the display.
 For example, the spacing of a predefined layout may be reduced by the tool when the target platform is known to use a small display.
@@ -374,11 +381,13 @@ For tools which are used to design the layout of software~\cite{Meskens2008} or 
 \section*{Identifying Display Shape Dependence Issues}
 \label{sec:problem}
 
-% TODO Clearly state that the DSDIs presented are novel.
-
 For developing a method of adapting visual content layouts to different display shapes, the effects of applying a new display shape to a system's visual output need to be considered.
 Issues can occur when a display shape which differs from the shape of a display assumed by the software is used.
 In this section we define six of these \acp{DSDI}.
+
+% TODO Clearly state that the DSDIs presented are novel and that they were derived from first-hand observations on earlier attempts by the authors to manually fit content to different display shapes. Also discuss the difference between the primary and secondary DSDIs (primary - can happen when displaying content without modification on a different display shape, secondary - can happen when attempting to resolve initial DSDIs) - refer to dsdiFlow. Additionally, note the DSDIs were numbered by the order they were noted by the authors and bare no significance beyond identification. 
+
+% fig:dsdiFlow
 
 \begin{quote}\emph{i) \textbf{Cropping \ac{DSDI}} Content items appear cropped as regions of them become positioned outside the display area.}\end{quote}
 
@@ -387,8 +396,6 @@ Users may also be unable to interact directly with cropped items.
 The cropping of visual content items outside the display area was also noted by Waldner et al. \cite{Waldner2011}.
 Therefore, methods of resolving this cropping would be required to make software capable of adapting to different display shapes.
 Attempts made to resolve this cropping can result in secondary \acp{DSDI}.
-
-% fig:dsdiFlow
 
 \begin{quote}\emph{ii) \textbf{Overlapping \ac{DSDI}:} Occlusion from other visual content items.}\end{quote}
 
@@ -451,9 +458,14 @@ This stage is referred to as {\em Virtual Projection}.
 The second stage of the technique uses the difference between the shape of virtual projection and the display shape to ensure that the layout can, if needed, utilise all regions of the display.
 This stage is referred to as {\em Position Pulling}.
 
+% TODO Link each stage to guidelines from ~\cite{Serrano2016} and ~\cite{Serrano2017}.
 
 \subsection*{Virtual Projection}
 \label{subsec:virtualprojection}
+
+% TODO Trim discussion of this stage of the algorithm and cut algo:virtualProjection.
+
+% TODO Need to note in here somewhere that rotating content is not an issue because tabletop interfaces are by definition horizontal. 
 
 % fig:virtualRectangle
 
@@ -587,6 +599,7 @@ The triangle was chosen because of its regular nature, meaning that all its side
 With the technique implemented into the {\emph{SynergyNet}} framework four applications were used in conjunction with the range of different display shapes.
 These applications were created by the primary author and other developers for previous studies in the {\emph{SynergyNet}} project~\cite{higgins2011}
 The applications were chosen because of their differing methods of organising their visual content items and the varying significance of the layout of their items.
+% TODO Explain applications chosen from those available in the SynergyNet framework.
 The four applications used in this study were:
 
 \begin{itemize}
@@ -618,6 +631,7 @@ The four applications used in this study were:
   \end{itemize}
 \end{itemize}
 
+% TODO Image with all the application in.
 The different display shapes were emulated by covering parts of the screen used.
 Figure~\ref{fig:study} shows some of the applications in use with the various display shapes applied.
 In the next section, observations from the use of these applications were made on how the adaptation of their content to fit the new display shapes affected their initial usability.
@@ -627,6 +641,8 @@ We focus on applications in which the layout of content was significant in some 
 % TODO Restructure Study to `Discussion'
 \section*{Observations}
 \label{sec:observations}
+
+% TODO Drop any discussion of 'randomly positioned content' with the algorithm and refer to it as content whose layout has no significance (because it is random).
 
 After the application of the technique, the {\emph{XML Puzzle}} and {\emph{Collage}} applications were able to be utilised as normal with the \acp{DSDI} totally resolved without any observable issues or additional complexities arising.
 This is likely because there is little-to-no significance to the layout of both applications' visual content items.
@@ -717,11 +733,13 @@ The identification, or creation of, an adequate \ac{DSDI}-minimising technique w
 It is important to note that not only the list of \acp{DSDI} for a system should influence the design of a \ac{DSDI}-minimising technique.
 The need for applications to control the magnitude of a \ac{DSDI}-minimising technique's influence is important to consider.
 
-% fig:prototypeTabletop
+%TODO Need to clearly state this is a solution, likely not always the maximal solution but one which can be easily automated and allow developers some control over its execution.
 
 There are a number of reasons why it is important that software becomes display shape independent.
 There is now a growing drive for software systems to become ubiquitous with the increased availability of natural user interfaces; for a system to become ubiquitous it must fit its environment~\cite{Greenfield2006}.
 Being able to change the display shape of a system would aid in achieving this.
+
+% fig:prototypeTabletop
 
 The examples of non-rectangular displays discussed in the \nameref{sec:related} section reinforces the need for their support.
 In addition to these, many devices brought to market in the recent growth of wearable devices utilise non-rectangular displays, specifically smart watches~\cite{Jung2016}.
@@ -729,10 +747,7 @@ Figure~\ref{fig:prototypeTabletop} shows a prototype built by a leasing furnitur
 The lack of readily available software for the interface's circular display meant that if the tabletop was to be used then bespoke software would need to be commissioned at a cost to the manufacturer rather than using any of the readily available off-the-shelf products intended for interactive kiosks.
 This highlights the need for making it a simple as possible for software to support different display shapes.
 
-The structured literature review~\cite{Kitchenham2004} that informed the background to this research highlighted that there has been little innovation in utilising different display shapes in the past.
-This is likely due to the cyclical nature of dependency between display technology and its supporting software.
-However, recently the research activity in this area has started to increase, with research appearing that details investigations on adapting text to non-rectangular displays~\cite{Serrano2016} and how visual content is best presented on legacy interfaces~\cite{Serrano2017}.
-Though this research focuses more on legacy systems and specific display shapes, they show that there is a growing interest in moving beyond traditional rectangular displays.
+% TODO Discuss how the technique on this paper has some parallels with the guidelines presented in the ~\cite{Serrano2016} and ~\cite{Serrano2017} - however, the reasons for the differences and the novel contribution of the technique presented in this paper is that it can function with minimal input from developers - therefore less consideration needs to go into supporting different display shapes saving on time and resources + more freedom in design if not constrained at this level by additional guidelines.
 
 Furthermore, the technique outlined in the \nameref{sec:solution} section could be used beyond tabletop systems.
 However, it is possible for the \acp{DSDI} in other systems to vary and differ from those presented in this work~\cite{Serrano2017}. 
@@ -741,6 +756,8 @@ If a user is viewing the display from a single perspective, such as with a verti
 Information displayed by visual content items, such as text, could appear upside down to the user, making it difficult to comprehend.
 However, it is not an issue for systems which allow users to view from multiple perspectives around the display, such as those which utilise horizontal interfaces.
 Future work could entail the outlining of \ac{DSDI} for other sets of systems and the production of techniques to minimise their influences.
+
+% TODO Discuss how further investigation could take place with using the technique with more extreme shapes (maybe looking into finding limits on components like the pull content distance. Clearly state intention to carry out a study with the technique in future work.  Need to clearly state scope of the technique (i.e. visual content layout) - but state future work could involve further investigation of other issues like usability and readability (again, adding limits to elements of the technique).
 
 The techniques presented in this paper can be used in several scenarios.
 One such use of the technique is its implementation into the application layer of a piece of software; this would allow a specific layout of visual content items to be dynamically adapted to different display shapes.
