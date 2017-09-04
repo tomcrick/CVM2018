@@ -380,7 +380,7 @@ Issues can occur when a display shape which differs from the shape of a display 
 In this section we define six of these \acp{DSDI}.
 
 The \acp{DSDI} presented in this work are entirely novel.
-They were derived from first-hand observations on attempts by the authors to manually fit visual contents to different display shapes and from observations discussed in related work of Serrano et al~\cite{Serrano2016,Serrano2017}.
+They were derived from first-hand observations on attempts by the authors to manually fit visual contents to different display shapes and from observations discussed in related work of Serrano et al.~\cite{Serrano2016,Serrano2017}.
 Figure~\ref{fig:dsdiFlow} groups the \acp{DSDI} into 2 groups: primary and secondary.
 Primary \acp{DSDI} are issues which can occur when displaying content intended for a particular display shape on a display of another shape with no modification.
 Secondary \acp{DSDI} are issues which can occur when performing modifications when displaying content intended for a particular display shape on a display of another shape, such as when attempting to resolve any primary \ac{DSDI}.
@@ -738,7 +738,11 @@ Figure~\ref{fig:prototypeTabletop} shows a prototype built by a leasing furnitur
 The lack of readily available software for the interface's circular display meant that if the tabletop was to be used then bespoke software would need to be commissioned at a cost to the manufacturer rather than using any of the readily available off-the-shelf products intended for interactive kiosks.
 This highlights the need for making it a simple as possible for software to support different display shapes.
 
-% TODO Discuss how the technique on this paper has some parallels with the guidelines presented in the ~\cite{Serrano2016} and ~\cite{Serrano2017} - however, the reasons for the differences and the novel contribution of the technique presented in this paper is that it can function with minimal input from developers - therefore less consideration needs to go into supporting different display shapes saving on time and resources + more freedom in design if not constrained at this level by additional guidelines.
+The technique presented in this work has several parallels with the guidelines presented in the work of Serrano et al.~\cite{Serrano2016,Serrano2017}.
+% TODO Discuss these parallels - e.g. avoid occlusion, etc.
+However, this technique deviates from the guidelines presented by Serrano et al. to give developers greater freedom.
+Without encumbering software developers and content designers with additional restrictions the technique is able to resolve the \acp{DSDI} with minimal input.
+This allows for development time to be saved on adding support for different display shapes and also offers more freedom in the design of the content.
 
 Furthermore, the technique outlined in the \nameref{sec:solution} section could be used beyond tabletop systems.
 However, it is possible for the \acp{DSDI} in other systems to vary and differ from those presented in this work~\cite{Serrano2017}. 
