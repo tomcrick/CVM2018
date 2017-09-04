@@ -217,18 +217,11 @@
 % Text for this section.
 
 Advances in display technologies are transforming the capabilities of system interfaces.
-Previously, the overwhelming majority of systems have utilised rectangular 
-displays; this may soon change with the ubiquitous and pervasive nature of digital devices that allow human interaction.
+Previously, the overwhelming majority of systems have utilised rectangular displays; this may soon change with the ubiquitous and pervasive nature of digital devices that allow human interaction.
 At present, software is usually designed assuming it will be used with a display of a specific shape.
-However, there is an emerging demand for tabletop-orientated systems
-to be capable of handling a wide range of potential display shapes.
-In this paper, the design of software for use on a range of
-differently shaped tabletop displays is considered, proposing a novel
-but extensible technique that can be used to minimise the influence of
-the issues of using different display shapes.
-Observations on this technique explore how it can be used to adapt the
-layout of tabletop software to different display shapes, identifying a
-range of potential applications and research priorities.
+However, there is an emerging demand for tabletop-orientated systems to be capable of handling a wide range of potential display shapes.
+In this paper, the design of software for use on a range of differently shaped tabletop displays is considered, proposing a novel but extensible technique that can be used to minimise the influence of the issues of using different display shapes.
+Observations on an implementation of the technique explore how it can be used to adapt the layout of tabletop software to different display shapes, identifying a range of potential applications and research priorities.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -294,9 +287,9 @@ The remainder of this paper is structured as follows:
 The \nameref{sec:related} section outlines the current development and drive for non-traditional display shapes with tabletop systems;
 Tthe \nameref{sec:problem} section identifies the issues arising from the use of different display shapes on a system;
 A technique to minimise the influence of the identified issues is proposed in the \nameref{sec:solution} section;
-the implementation of the technique into a software framework is discussed in the \nameref{sec:study} section.
+the implementation of the technique into a software framework is discussed in the \nameref{sec:implementation} section.
 The \nameref{sec:observations} section discusses the implications that arise
-from the technique use, with future developments and our conclusions presented in the \nameref{sec:conclusion} section.
+from the technique's use, with future developments and our conclusions presented in the \nameref{sec:conclusion} section.
 
 %-------------------------------------------------------------------------
 \section*{Background}
@@ -555,9 +548,8 @@ After employing the two stages discussed, the resulting technique has the potent
 While the technique does has the ability to counter any \ac{DSDI}, it does have the drawback of requiring trade-offs in its implementation between which \acp{DSDI} it minimises the consequences of.
 
 %-------------------------------------------------------------------------
-% TODO Restructure Study to `Observations'
-\section*{Study}
-\label{sec:study}
+\section*{Implementation}
+\label{sec:implementation}
 
 The technique discussed in the \nameref{sec:solution} section was implemented into the 2.1 version of the {\emph{SynergyNet}} framework~\cite{McNaughton2017,AlAgha2010}, a multi-touch software framework intended for use with rectangular tabletop interfaces.
 The framework functions by rendering a range of content items, such as images, text and video, which can then be manipulated by users.
@@ -579,12 +571,11 @@ This means that, in addition to the initial positioning of content, the techniqu
 For example, if a new item is to be added to the `centre' of the visual content the technique would be applied to ensure it appears in the middle of the maximal rectangle, even if the item is added sometime after the application's initialisation.
 The technique does not need to be utilised for relative transformations, such as those used when adjusting an item's position, scale or rotation in response to a user gesture.
 
-% fig:study
+% fig:trial
 
 The {\emph{SynergyNet}} framework was adapted to apply a range of borders which would allow the display to emulate different shapes.
 These shapes were chosen after consultation with a furniture manufacturer who had experience with designing multi-touch tables.
-The manufacturer was in a strong industry position for making
-predictions concerning the likely design features of future multi-touch tabletops, including their display shapes; the shapes chosen are shown in Figure~\ref{fig:study}.
+The manufacturer was in a strong industry position for making predictions concerning the likely design features of future multi-touch tabletops, including their display shapes; the shapes chosen are shown in Figure~\ref{fig:trial}.
 
 Some of these shapes were derived from common table shapes which could be used with tabletop interfaces, such as the semi-circle design.
 This allows for users positioned around the display in various places to have an equal share of the interface which can be beneficial to collaboration.
@@ -593,11 +584,15 @@ The intersecting circles shape was designed to make further use of multi-touch's
 The larger circle of the display shape can be used for one activity such as displaying content items whereas the smaller circle could be used for another activity such as manipulating the items.
 The triangle was chosen because of its regular nature, meaning that all its sides and corners are congruent.
 
-With the technique implemented into the {\emph{SynergyNet}} framework four applications were used in conjunction with the range of different display shapes.
+%-------------------------------------------------------------------------
+\section*{Observations}
+\label{sec:observations}
+
+With the technique implemented into the {\emph{SynergyNet}} framework four applications were used in conjunction with the range of different display shapes to observe the impact of the technique.
 These applications were created by the primary author and other developers for previous studies in the {\emph{SynergyNet}} project~\cite{higgins2011}
 The applications were chosen because of their differing methods of organising their visual content items and the varying significance of the layout of their items.
 % TODO Explain applications chosen from those available in the SynergyNet framework.
-The four applications used in this study were:
+The four applications used were:
 
 \begin{itemize}
   \item \textbf{XML Puzzle}: 
@@ -630,14 +625,9 @@ The four applications used in this study were:
 
 % TODO Image with all the application in.
 The different display shapes were emulated by covering parts of the screen used.
-Figure~\ref{fig:study} shows some of the applications in use with the various display shapes applied.
+Figure~\ref{fig:trial} shows some of the applications in use with the various display shapes applied.
 In the next section, observations from the use of these applications were made on how the adaptation of their content to fit the new display shapes affected their initial usability.
-We focus on applications in which the layout of content was significant in some way.
-
-%-------------------------------------------------------------------------
-% TODO Restructure Study to `Discussion'
-\section*{Observations}
-\label{sec:observations}
+We focused on applications in which the layout of content was significant in some way.
 
 % TODO Drop any discussion of 'randomly positioned content' with the algorithm and refer to it as content whose layout has no significance (because it is random).
 
@@ -662,7 +652,7 @@ The position pulling stage of the technique can be seen in Figure~\ref{fig:gridA
 However, the layout of the content items is deformed as a result of this stage.
 While acceptable for the Grid application, this is problematic for software which cannot tolerate the influence of the {\emph{Layout \ac{DSDI}}}.
 
-It was observed during the study that developers may wish for some content items to be affected by it in different ways.
+It was observed from the impact of the technique that developers may wish for some content items to be affected by it in different ways.
 For example, a content item may be intended to act as a background to an application.
 If the implemented \ac{DSDI}-minimising technique a system uses to adapt to different display shapes is unaware of this, the item would be scaled with the virtual projection.
 This would have the effect of the background being constrained to a single region of the display, leaving other areas of the interface blank without a background.
@@ -909,7 +899,7 @@ SS was an author in the manuscript's original draft.
   % \includegraphics[width=0.95\textwidth]{ApplicationsInUse.png}
   \caption{\csentence{Applications In Use.}
   Several applications in use with different display shapes.}
-  \label{fig:study}
+  \label{fig:trial}
 \end{figure}
 
 \begin{figure}[h!] 
