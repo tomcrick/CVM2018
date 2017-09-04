@@ -471,8 +471,6 @@ This stage is referred to as {\em Position Pulling}.
 
 % TODO Trim discussion of this stage of the algorithm and cut algo:virtualProjection.
 
-% TODO Need to note in here somewhere that rotating content is not an issue because tabletop interfaces are by definition horizontal. 
-
 % fig:virtualRectangle
 
 For the first stage of the technique, the original shape of the software environment's visual output is treated as a single item.
@@ -501,6 +499,8 @@ This allows for the adaptation of any software environment which may not have or
 Therefore the technique can be used to adapt software originally designed for any specific display shape to other display shapes.
 As all the content items are translated, rotated and scaled by the same values their layout relations are preserved preventing the {\emph{Overlapping \ac{DSDI}}}.
 As no warping deformations are used in this technique there can be no occurrence of the {\emph{Warping \ac{DSDI}}}.
+It is important to note that because of the scope of this work is limited to tabletop displays, the rotation of the content is not considered an issue.
+By definition tabletop interfaces are horizontal allowing them to be accessed from any direction making the impact of orientation negligible.
 
 There is the potential for issues with the {\emph{Scaling \ac{DSDI}}}.
 If the virtual projection is significantly smaller than the initial
