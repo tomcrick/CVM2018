@@ -469,20 +469,11 @@ This stage is referred to as {\em Position Pulling}.
 \subsection*{Virtual Projection}
 \label{subsec:virtualprojection}
 
-% TODO Trim discussion of this stage of the algorithm and cut algo:virtualProjection.
-
 % fig:virtualRectangle
 
 For the first stage of the technique, the original shape of the software environment's visual output is treated as a single item.
 This item, referred to as the virtual projection, is translated, rotated and scaled so that it fits within the display shape being used.
 The transformations applied to the virtual projection are applied to any visual content items displayed in the software's original layout.
-
-% algo:virtualProjection
-
-Algorithm~\ref{algo:virtualProjection} shows how the virtual project transformation is applied to visual content items.
-The translation, scaling and rotation fed into the algorithm relate to the virtual projection.
-These can be obtained by either being recorded when the maximal rectangle is found, or calculated on the fly by comparing it to the maximal rectangle of a typical rectangular display.
-The algorithm is applied to each visual content item with the transformations being relative to the item's initial absolute positioning.
 
 This stage of the technique has the effect of keeping the visual content items aligned with the virtual projection.
 This ensures that visual contents will not incur occlusion from lying outside the borders of the new display shape.
@@ -982,17 +973,6 @@ SS was an author in the manuscript's original draft.
 %% Use of \listoftables is discouraged.
 \pagebreak
 \section*{Algorithms}
-
-\begin{algorithm}[h!]
-\caption{Applying virtual projection transformation.}
-\label{algo:virtualProjection}
-\begin{algorithmic}
-\STATE \textbf{virtualProjection}(item, $\overrightarrow{translation}$, rotation, scale)
-\INDSTATE[2]$item.rotateBy(rotation)$
-\INDSTATE[2]$item.translateBy(\overrightarrow{translation})$
-\INDSTATE[2]$item.scaleBy(scale)$
-\end{algorithmic}
-\end{algorithm}
 
 \begin{algorithm}[h!]
 \caption{Calculating the \lq pulling force\rq~vectors.}
