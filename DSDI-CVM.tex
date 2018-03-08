@@ -175,12 +175,12 @@ Figure~\ref{fig:dsdiFlow} groups the \acp{DSDI} into two groups: primary and sec
 {\emph{Secondary \acp{DSDI}}} are issues which can occur when performing modifications when displaying content intended for a particular display shape on a display of another shape, such as when attempting to resolve any primary \ac{DSDI}.
 Note that the numbering or ordering of the \acp{DSDI} holds no significance and is only use for identification purposes.
 
-\begin{figure}[h!]
+\begin{figure*}[h!]
  \centering
    \includegraphics[width=0.95\textwidth]{figures/DSDIFlowChart.jpeg}
    \caption{A flow chat mapping the causality of Display Shape Dependence Issues (DSDIs).}
    \label{fig:dsdiFlow}
-\end{figure}
+\end{figure*}
 
 \begin{quote}\emph{i) \textbf{Cropping \ac{DSDI}:} Content items appear cropped as regions of them become positioned outside the display area.}\end{quote}
 
@@ -400,12 +400,12 @@ This means that, in addition to the initial positioning of content, the techniqu
 For example, if a new item is to be added to the `centre' of the visual content the technique would be applied to ensure it appears in the middle of the maximal rectangle, even if the item is added sometime after the application's initialisation.
 The technique does not need to be utilised for relative transformations, such as those used when adjusting an item's position, scale or rotation in response to a user gesture.
 
-\begin{figure}[h!] 
+\begin{figure*}[h!] 
  \centering
   \includegraphics[width=0.95\textwidth]{figures/ApplicationsInUse.jpeg}
   \caption{Several applications in use with different display shapes.}
   \label{fig:trial}
-\end{figure}
+\end{figure*}
 
 The {\emph{SynergyNet}} framework was adapted to apply a range of borders which would allow the display to emulate different shapes.
 These shapes were chosen after consultation with a furniture manufacturer who had experience with designing multi-touch tables.
@@ -456,12 +456,12 @@ The four applications used were:\\
   \end{itemize}
 \end{itemize}
 
-\begin{figure}[h!] 
+\begin{figure*}[h!] 
  \centering
   \includegraphics[width=0.95\textwidth]{figures/Applications.jpeg}
   \caption{The applications chosen for observation, from left to right: {\emph{XML Puzzle}}, {\emph{Collage}}, {\emph{Grid}} and {\emph{Simple Map}}.}
   \label{fig:apps}
-\end{figure}
+\end{figure*}
 
 The different display shapes were emulated by covering parts of the screen used.
 Figure~\ref{fig:apps} shows all of the applications chosen to be used with the technique for observation.
@@ -478,12 +478,12 @@ contents highlighted a number of complexities to applying the technique; these w
 The complexities arising from these two applications are important to consider due to the fact that the {\emph{Grid}} and {\emph{Simple Map}} applications bear the strongest similarities to the majority of legacy software.
 The entirety of the contents of these two applications are specifically positioned, much like how the contents of traditional GUIs in legacy software are.
 
-\begin{figure}[h!] 
+\begin{figure*}[h!] 
  \centering
   \includegraphics[width=0.95\textwidth]{figures/GridApplication.jpeg}
   \caption{Influence of the implemented technique on {\emph{SynergyNet}}'s {\emph{Grid}} application.}
   \label{fig:gridApp}
-\end{figure}
+\end{figure*}
 
 As can be seen in Figure~\ref{fig:gridApp}, all the items are visible and there is no cropping in the initial layout.
 However, when any of the four example display shapes are applied, several content items are occluded to varying extents.
@@ -500,12 +500,12 @@ If the implemented \ac{DSDI}-minimising technique a system uses to adapt to diff
 This would have the effect of the background being constrained to a single region of the display, leaving other areas of the interface blank without a background.
 In the implemented system, a method of making content item exempt from the influence of specific stages of the technique was made available.
 
-\begin{figure}[h!] 
+\begin{figure*}[h!] 
  \centering
   \includegraphics[width=0.95\textwidth]{figures/MapApplication.jpeg}
   \caption{Influence of the implemented technique on {\emph{SynergyNet}}'s {\emph{Simple Map}} application.}
   \label{fig:mapApp}
-\end{figure}
+\end{figure*}
 
 In Figure~\ref{fig:mapApp}, the map was made exempt from the influence of the position pulling stage of the technique.
 If the map item was made exempt from both stages of the technique, the map would remain in the same position for all display shapes.
@@ -514,13 +514,6 @@ Therefore, the map item was made to adhere to the virtual projection stage of th
 As a result of this, the map effectively represents the virtual projection on each display shape.
 The placement of the virtual projection on the circle and intersecting circles display highlights how the contents may be rotated to fit the display shape.
 Since the software is intended for use on a tabletop display this is not an issue, because the horizontal nature of the display signifies that there is no single vantage point that the interface will be viewed from.
-
-\begin{figure}[h!] 
- \centering
-   \includegraphics[width=0.95\textwidth]{figures/TechniqueFlowchart.jpeg}
-   \caption{Flowchart demonstrating navigation of the technique.}
-   \label{fig:flowchart}
-\end{figure}
 
 Figure~\ref{fig:mapApp} demonstrates the importance of the layout of content items.
 Up to the virtual projection stage of the technique, the flag items correctly align with the countries on the map; however, the position pulling stage deforms the layout of the flags in such a way that disengages this alignment.
@@ -547,6 +540,13 @@ For example, if a developer wishes a content item to act as the background to th
 For content items not set aside to be background images, developers can choose whether or not to apply the position pulling stage of the technique.
 If applied, the content items will maximise the use of the display shape's real estate by being pulled into previously unused areas of the display.
 However, if the layout of the content items is of a greater importance than the maximisation of display usage, the developer can choose to disregard the position pulling stage for any content items in the layout.
+
+\begin{figure*}[h!] 
+ \centering
+   \includegraphics[width=0.95\textwidth]{figures/TechniqueFlowchart.jpeg}
+   \caption{Flowchart demonstrating navigation of the technique.}
+   \label{fig:flowchart}
+\end{figure*}
 
 In the {\emph{SynergyNet}} implementation, both stages of the technique are, by default, applied to content items whenever they are transformed using absolute values.
 However, application developers using the framework have the option to override this for specific content items.
@@ -676,7 +676,5 @@ The source code for the technique's implementation discussed in this manuscript 
 {Introduction \\ \\ \\ \\ \\ \\ \\ \\ \\} 
 
 % TODO Bios
-
-% TODO Fix image overlaps.
 
 \end{document}
