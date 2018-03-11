@@ -1,10 +1,10 @@
-targets = DifferentDisplayShapesPaper.pdf
+targets = DSDI-CVM.pdf
 
 all: $(targets)
 
 pdflatex = pdflatex -interaction=errorstopmode -halt-on-error
 
-%.pdf: %.tex DifferentDisplayShapesReferences.bib
+%.pdf: %.tex DSDI-CVM.bib
 	$(pdflatex) $<
 	bibtex $*
 	$(pdflatex) $<
