@@ -52,6 +52,10 @@
 
 \headevenname{{James McNaughton \etal} }
 
+% TODO Add annotations to images. (Issue 46)
+
+% TODO Shorten sections (Issue 42)
+
 
 \begin{document}
 
@@ -71,6 +75,9 @@ Furthermore, we present observations on an implementation of the technique to ex
 %-------------------------------------------------------------------------
 \section{Introduction}
 \label{sec:intro}
+
+% TODO Make intro more concise. (Issues 44, 43, 41, 40, 39, 34)
+% Clearly note the contribution is the technique.
 
 The majority of tabletop software systems that provide visual feedback to a user are normally designed to do so with a particular display shape, with the most common of these shapes being rectangular.
 However, adapting displays to different shapes has always been possible through covering regions of a display~\cite{Dietz2004}.
@@ -244,6 +251,8 @@ In the next section, using this list of \acp{DSDI}, we present a technique to ad
 \section{Minimising Display Shape Dependence Issues}
 \label{sec:solution}
 
+% TODO Need to make it clear this is for 2D displays and in such a way that allows interventions at different points in the technique depending on the content. The additional control given developers results in a technique which uses only linear transformations - more complex transformations wouldn't allow for similar interventions. (Issue 36)
+
 A novel technique was developed that would resolve the {\emph{Cropping \ac{DSDI}}} and would minimise the effect of any secondary \acp{DSDI}.
 This technique is a method of adapting visual content items dynamically to different display shapes and comprises of two stages.
 The first stage of the technique is built on the concept of taking the original visual output of the software and transforming it to fit within the borders of a new display shape.
@@ -375,6 +384,15 @@ Vector addition between each of these vectors representing the \lq pulling force
 
 After employing the two stages discussed, the resulting technique has the potential to minimise the \acp{DSDI} identified, when different display shapes are utilised by a system. 
 While the technique does has the ability to counter any \ac{DSDI}, it does have the drawback of requiring trade-offs in its implementation of which \acp{DSDI} it minimises the consequences.
+
+
+% TODO Restructure to have Study + Results sections instead of discussion and observations. (Issues 47, 44, 40, 37, 33)
+
+% TODO Use metrics in study. (Issues 45, 43, 38, 37, 35)
+% - % Change in items' visibility
+% - Change in layout scale
+% - Total distance items are moved by the pull technique (perhaps relative to the layout scale).
+
 
 %-------------------------------------------------------------------------
 \section{Implementation}
