@@ -243,8 +243,6 @@ In the next section, using this list of \acp{DSDI}, we present a technique to ad
 \section{Minimising Display Shape Dependence Issues}
 \label{sec:solution}
 
-% TODO Need to make it clear this is for 2D displays and in such a way that allows interventions at different points in the technique depending on the content. The additional control given developers results in a technique which uses only linear transformations - more complex transformations wouldn't allow for similar interventions. (Issue 36)
-
 A novel technique was developed that would resolve the {\emph{Cropping \ac{DSDI}}} and would minimise the effect of any secondary \acp{DSDI}.
 This technique is a method of adapting visual content items dynamically to different display shapes and comprises of two stages.
 The first stage of the technique is built on the concept of taking the original visual output of the software and transforming it to fit within the borders of a new display shape.
@@ -374,8 +372,14 @@ The virtual projection stage can easily adapt to this through using the maximal 
 For the position pulling stage to utilise content intended for a non-rectangular display, a vector representing the \lq pulling force\rq\ for every unique edge of the virtual projection would need to be created.
 Vector addition between each of these vectors representing the \lq pulling forces\rq\ then creates a single vector which can be used to translate a content item.
 
-After employing the two stages discussed, the resulting technique has the potential to minimise the \acp{DSDI} identified, when different display shapes are utilised by a system. 
-While the technique does has the ability to counter any \ac{DSDI}, it does have the drawback of requiring trade-offs in its implementation of which \acp{DSDI} it minimises the consequences.
+\subsection{Technique Observations}
+\label{subsec:techniqueobservations} 
+
+After employing the two stages discussed, the resulting technique has the potential to minimise any of the \acp{DSDI} identified. 
+Due to the development of this technique for use on tabletop displays it is limited to use on two-dimensional displays which are positioned horizontally.
+The technique allows for interventions at different points which can depend on how content should be treated.
+This gives developers greater control over the influence and impact of the technique.
+This, in addition to the fact that the technique uses only linear transformations resulting in a simple to implement piece of functionality, makes the presented technique a promising approach to handling different display shapes on tabletops in real-world applications.
 
 
 % TODO Restructure to have Study + Results sections instead of discussion and observations. (Issues 47, 44, 40, 37, 33)
