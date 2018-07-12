@@ -382,17 +382,11 @@ This gives developers greater control over the influence and impact of the techn
 This, in addition to the fact that the technique uses only linear transformations resulting in a simple to implement piece of functionality, makes the presented technique a promising approach to handling different display shapes on tabletops in real-world applications.
 
 
-% TODO Restructure to have Study + Results sections instead of discussion and observations. (Issues 47, 44, 40, 37, 33)
-
-% TODO Use metrics in study. (Issues 45, 43, 38, 37, 35)
-% - % Change in items' visibility
-% - Change in layout scale
-% - Total distance items are moved by the pull technique (perhaps relative to the layout scale).
-
-
 %-------------------------------------------------------------------------
-\section{Implementation}
-\label{sec:implementation}
+\section{Study}
+\label{sec:study}
+
+% TODO Restructure to be Study (Issues 47, 44, 40, 37, 33)
 
 The technique discussed in the previous section was implemented into version 2.1 of the {\emph{SynergyNet}} framework~\cite{McNaughton2017,AlAgha2010}, a multi-touch software framework intended for use with rectangular tabletop interfaces.
 The framework functions by rendering a range of content items, such as images, text and video, which can then be manipulated by users.
@@ -432,9 +426,20 @@ The intersecting circles shape was designed to make further use of multi-touch's
 The larger circle of the display shape can be used for one activity such as displaying content items whereas the smaller circle could be used for another activity such as manipulating the items.
 The triangle was chosen because of its regular nature, meaning that all its sides and corners are congruent.
 
+\subsection{Data Analysis}
+\label{subsec:dataanalysis} 
+
+% TODO Add Data Analysis approach sub-section (Issues 45, 43, 38, 37, 35)
+% Use metrics in study:
+% - % Change in items' visibility
+% - Change in layout scale
+% - Total distance items are moved by the pull technique (perhaps relative to the layout scale).
+
 %-------------------------------------------------------------------------
-\section{Observations}
-\label{sec:observations}
+\section{Results}
+\label{sec:results}
+
+% TODO Restructure to be Results (Issues 47, 44, 40, 37, 33)
 
 With the technique implemented into the {\emph{SynergyNet}} framework four applications were used in conjunction with the range of different display shapes to observe the impact of the technique.
 These applications were created by the primary author and other developers for previous studies in the {\emph{SynergyNet}} project~\cite{higgins2011}
