@@ -63,10 +63,10 @@
 
 \MakeAbstract{
 Advances in display technologies are transforming the capabilities -- and potential applications -- of system interfaces.
-Previously, the overwhelming majority of systems have utilised rectangular displays; this may soon change with the ubiquitous and pervasive nature of digital devices that facilitate human interaction.
+Previously, the overwhelming majority of systems have utilised rectangular displays; this may soon change with the increasing nature of digital devices to be ubiquitous and pervasive to facilitate human interaction.
 At present, software is usually designed assuming it will be used with a display of a specific shape; however, there is an emerging demand for tabletop-orientated systems to be capable of handling a wide range of potential display shapes.
 In this paper, the design of software for use on a range of differently shaped tabletop displays is considered, proposing a novel but extensible technique that can be used to minimise the influence of the issues of using different display shapes.
-Furthermore, we present observations on an implementation of the technique to explore how it can be used to adapt the layout of tabletop software to different display shapes, identifying a range of potential applications and research priorities.
+Furthermore, we present a study focussed on applying the technique to adapt several software applications to several different display shapes.
 }
 
 \MakeKeywords{Visual content management, irregular displays, screen design, multi-touch surfaces, tabletop displays, ubiquitous computing}
@@ -76,19 +76,11 @@ Furthermore, we present observations on an implementation of the technique to ex
 \section{Introduction}
 \label{sec:intro}
 
-% TODO Make intro more concise. (Issues 44, 43, 41, 40, 39, 34)
-% Clearly note the contribution is the technique.
-
 The majority of tabletop software systems that provide visual feedback to a user are normally designed to do so with a particular display shape, with the most common of these shapes being rectangular.
 However, adapting displays to different shapes has always been possible through covering regions of a display~\cite{Dietz2004}.
 This, in addition to new technologies such as circular liquid crystal displays~\cite{Boyd2007,Finney2009}, allows the potential for different display shapes to be used in tabletop systems. 
 Developers thus need to consider how to make their software agile enough to adapt to not only displays of varying sizes and aspect ratios, but also to displays of varying shape.
-The work presented in this paper explores a novel technique that would allow developers to adapt tabletop software to different display shapes.
-
-The remainder of this paper is structured as follows: Section~\ref{sec:related} outlines the current development and drive for non-traditional display shapes with tabletop systems; Section~\ref{sec:problem} identifies the issues arising from the use of different display shapes on a system;
-A technique to minimise the influence of the identified issues is proposed in the \secref{sec:solution} section; in Section~\ref{sec:implementation} we present the development of the technique into a software framework.
-Section~\ref{sec:observations} discusses the implications that arise
-from the technique's use, with future developments and our conclusions presented in Section~\ref{sec:conclusion}.
+The contribution detailed in this paper is a novel technique that allows developers to adapt tabletop software to different display shapes and a study evaluating its potential.
 
 %-------------------------------------------------------------------------
 \section{Background}
