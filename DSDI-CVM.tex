@@ -418,39 +418,28 @@ However, if the layout of the content items is of a greater importance than the 
 \subsection{Selection of Applications}
 \label{subsec:selectionofapplications} 
 
-The applications used in this study were created by several developers for previous studies in the {\emph{SynergyNet}} project~\cite{higgins2011}.
-These were chosen because of their differing methods of organising their visual content items and the varying significance of the layout of their items.
-This was important because the study intended to evaluate investigate how the technique would impact the arrangement of both items with and without a significant layout.
+With the technique implemented it was tested using a number of applications created by several developers for previous studies in the {\emph{SynergyNet}} project~\cite{higgins2011}.
+The study focused on two specific applications; the {\emph{Grid}} and {\emph{Simple Map} applications.
+These two were chosen because of the varying significance of their items' layout.
+This was important because the study intended to investigate how the technique would impact on the arrangement of items with a significant layout.
 
 \begin{figure*}[h!] 
  \centering
   \includegraphics[width=0.95\textwidth]{figures/Applications.jpeg}
-  \caption{The applications chosen for observation, from left to right:  {\emph{Grid}}, {\emph{XML Puzzle}}, {\emph{Collage}} and {\emph{Simple Map}}.}
+  \caption{The applications chosen for observation, from left to right:  {\emph{Grid}} and {\emph{Simple Map}}.}
   \label{fig:apps}
 \end{figure*}
 
-Figure~\ref{fig:apps} shows all four of the applications chosen to be used with the technique for observation.
-These four applications were:\\
+Figure~\ref{fig:apps} shows both of the applications chosen to be used with the technique for observation.
+These applications were:\\
 
 \begin{itemize}
-  \item \textbf{XML Puzzle}: 
-  Reads XML files to generate questions and answers that are randomly placed on screen which the user then has to pair up. 
-  \begin{itemize}
-    \item  All the content in this application is positioned randomly. 
-    \item There is no significance to the layout of any of the contents.
-  \end{itemize}
-  \item \textbf{Collage}: 
-  Users move visual content items about on top of a large background image to make a scrapbook-type collage of which they can then save a snapshot. 
-    \begin{itemize}
-    \item  All the content in this application is positioned randomly except for the background which is specifically located in the centre.
-    \item There is no significance to the layout of the contents other than the background which must be central.
-  \end{itemize}
   \item \textbf{Grid}: 
   Nine items are positioned in a grid layout which users can reposition, rotate and scale through multi-touch gestures.
   This is one of the applications supported by the {\emph{SynergyNet}} framework which help familiarise users to interacting with a large multi-touch interface. 
     \begin{itemize}
     \item  All the content in this application is specifically positioned.
-    \item The locational relation between all the items in this application is strong.
+    \item The locational relation between all the items in this application is very significant.
   \end{itemize}
     \item \textbf{Simple Map}: 
   Users supply countries in a configuration file and the application will show a world map when started with the specified countries' flags positioned on top of them; users can then move the flag items around the map.
@@ -499,7 +488,7 @@ The technique was implemented in such a way that it was applied to the initial l
 \end{figure*}
 
 The four different display shapes were emulated in the study by using a large rectangular display shape, then covering parts of the screen used to make the visible area of the shape match an intended display shape, as shown in Figure~\ref{fig:trial}.
-Each of the four applications of the technique were run with each of the four display shapes.
+Both of the applications of the study were run with each of the four display shapes.
 The framework was set up to capture screenshots taken at various points during the application of the technique; before applications, after the placement of the display shape's outline (blanking out anything that would not visible on the display),  after the virtual projection stage and after the position pulling stage.
 
 
@@ -507,10 +496,14 @@ The framework was set up to capture screenshots taken at various points during t
 \label{subsec:dataanalysis} 
 
 % TODO Add Data Analysis approach sub-section (Issues 45, 43, 38, 37, 35)
-% Use metrics in study:
-% - % Change in items' visibility
-% - Change in layout scale
-% - Total distance items are moved by the pull technique (perhaps relative to the layout scale).
+% Use metrics in study (after each stage of the technique) based on DSDIs:
+% - Cropping DSDI: % of Items suffering occlusion from display
+% - Overlapping DSDI: % of Items suffering occlusion from other items
+% - Layout DSDI: change in layout = total distance of items from where they'd expected to be with a layout of the same scale but no other deformations.
+% - Display use DSDI: % display shape unused - gathered by drawing a bound rectangle around the content. % area unused = display area outside rectangle / total display area 
+% - Scaling DSDI: absolute maximum change in scale of items
+% - Warping DSDI: % of items being deformed in a non-uniform manner.
+
 
 %-------------------------------------------------------------------------
 \section{Results}
@@ -518,19 +511,12 @@ The framework was set up to capture screenshots taken at various points during t
 
 
 % TODO Restructure to be Results (Issues 47, 44, 40, 37, 33)
-% Metric results.
-% Images of all apps.
 
 
-After the application of the technique, the {\emph{XML Puzzle}} and {\emph{Collage}} applications were able to be utilised as normal with the \acp{DSDI} totally resolved without any observable issues or additional complexities arising.
-This is likely because there is little-to-no significance to the layout of both applications' visual content items.
-The background image in the {\emph{Collage}} application was the only item with significant positioning in either.
-This background image effectively represented the maximal rectangle as only the virtual projection stage of the technique was applied to it.
+\subsection{Grid Application}
+\label{subsec:gridresults} 
 
-However, the two applications reliant on the layout of their visual
-contents highlighted a number of complexities to applying the technique; these were the {\emph{Grid}} and {\emph{Simple Map}} applications.
-The complexities arising from these two applications are important to consider due to the fact that the {\emph{Grid}} and {\emph{Simple Map}} applications bear the strongest similarities to the majority of legacy software.
-The entirety of the contents of these two applications are specifically positioned, much like how the contents of traditional GUIs in legacy software are.
+% TODO Metrics for Grid Application
 
 \begin{figure*}[h!] 
  \centering
@@ -553,6 +539,12 @@ For example, a content item may be intended to act as a background to an applica
 If the implemented \ac{DSDI}-minimising technique a system uses to adapt to different display shapes is unaware of this, the item would be scaled with the virtual projection.
 This would have the effect of the background being constrained to a single region of the display, leaving other areas of the interface blank without a background.
 In the implemented system, a method of making content item exempt from the influence of specific stages of the technique was made available.
+
+
+\subsection{Simple Map Application}
+\label{subsec:simplemapresults} 
+
+% TODO Metrics for Simple Map Application
 
 \begin{figure*}[h!] 
  \centering
