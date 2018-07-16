@@ -423,12 +423,12 @@ The study focused on two specific applications; the {\emph{Grid}} and {\emph{Sim
 These two were chosen because of the varying significance of their items' layout.
 This was important because the study intended to investigate how the technique would impact on the arrangement of items with a significant layout.
 
-\begin{figure*}[h!] 
+\begin{figure}[h!] 
  \centering
-  \includegraphics[width=0.95\textwidth]{figures/Applications.jpeg}
+  \includegraphics[width=0.45\textwidth]{figures/Applications.jpeg}
   \caption{The applications chosen for observation, from left to right:  {\emph{Grid}} and {\emph{Simple Map}}.}
   \label{fig:apps}
-\end{figure*}
+\end{figure}
 
 Figure~\ref{fig:apps} shows both of the applications chosen to be used with the technique for observation.
 These applications were:\\
@@ -453,16 +453,16 @@ These applications were:\\
 \subsection{Selection of Display shapes}
 \label{subsec:selectionofdisplayshapes} 
 
-The {\emph{SynergyNet}} framework was adapted to assume the use of a range of display shapes.
-These shapes were chosen after consultation with a furniture manufacturer who had experience with designing multi-touch tables.
-The manufacturer was in a strong industry position for making predictions concerning the likely design features of future multi-touch tabletops, including their display shapes; the shapes chosen are shown in Figure~\ref{fig:displayshapes}.
-
-\begin{figure*}[b!] 
+\begin{figure*}[h!] 
  \centering
   \includegraphics[width=0.95\textwidth]{figures/DisplayShapes.jpeg}
   \caption{The display shapes chosen for observation, from left to right:  {\emph{Circle}}, {\emph{Triangle}}, {\emph{Intersecting Circles}} and {\emph{Semi-circle}}.}
   \label{fig:displayshapes}
 \end{figure*}
+
+The {\emph{SynergyNet}} framework was adapted to assume the use of a range of display shapes.
+These shapes were chosen after consultation with a furniture manufacturer who had experience with designing multi-touch tables.
+The manufacturer was in a strong industry position for making predictions concerning the likely design features of future multi-touch tabletops, including their display shapes; the shapes chosen are shown in Figure~\ref{fig:displayshapes}.
 
 Some of these shapes were derived from common table shapes which could be used with tabletop interfaces, such as the semi-circle design.
 This allows for users positioned around the display in various places to have an equal share of the interface which can be beneficial to collaboration.
@@ -480,14 +480,7 @@ In the study, both stages of the technique were set to always be applied to the 
 No limitations were placed on the technique in the study either.
 The technique was implemented in such a way that it was applied to the initial layout of content in an application.
 
-\begin{figure*}[h!] 
- \centering
-  \includegraphics[width=0.95\textwidth]{figures/ApplicationsInUse.jpeg} 
-  \caption{Several applications in use with different display shapes.}
-  \label{fig:trial}
-\end{figure*}
-
-The four different display shapes were emulated in the study by using a large rectangular display shape, then covering parts of the screen used to make the visible area of the shape match an intended display shape, as shown in Figure~\ref{fig:trial}.
+The four different display shapes were emulated in the study by using a large rectangular display shape, then covering parts of the screen used to make the visible area of the shape match an intended display shape.
 Both of the applications of the study were run with each of the four display shapes.
 The framework was set up to capture screenshots taken at various points during the application of the technique; before applications, after the placement of the display shape's outline (blanking out anything that would not visible on the display),  after the virtual projection stage and after the position pulling stage.
 
@@ -495,14 +488,26 @@ The framework was set up to capture screenshots taken at various points during t
 \subsection{Data Analysis}
 \label{subsec:dataanalysis} 
 
-% TODO Add Data Analysis approach sub-section (Issues 45, 43, 38, 37, 35)
-% Use metrics in study (after each stage of the technique) based on DSDIs:
-% - Cropping DSDI: % of Items suffering occlusion from display
-% - Overlapping DSDI: % of Items suffering occlusion from other items
-% - Layout DSDI: change in layout = total distance of items from where they'd expected to be with a layout of the same scale but no other deformations.
-% - Display use DSDI: % display shape unused - gathered by drawing a bound rectangle around the content. % area unused = display area outside rectangle / total display area 
-% - Scaling DSDI: absolute maximum change in scale of items
-% - Warping DSDI: % of items being deformed in a non-uniform manner.
+The impact of the technique on the \acp{DSDI} was planned to be measured using the screenshots taken during the execution of the technique.
+For each combination of the two software applications and four display shapes, the presence of \acp{DSDI} can be ascertained.
+For each \ac{DSDI} a measurement was outlined which could be obtained from the screenshots.
+These measurements could be used to evaluate the impact of the various stages of the technique on the \acp{DSDI}.
+These measurements were as follows:
+\begin{itemize}
+  \item \textbf{Occluded Items (\%)}: 
+  To measure impact on the Cropping \ac{DSDI} the number of items suffering occlusion from the display shape expressed as a percentage is used.
+  \item \textbf{Overlapping Items (\%)}: 
+  To measure impact on the Overlapping \ac{DSDI} the number of items suffering occlusion from other items is used.  
+  \item \textbf{Change in layout}: 
+  To measure impact on the Layout \ac{DSDI} the total distance of items from where they were expected to be with a layout of the same scale but no other deformations.
+  \item \textbf{Display shape unused (\%)}: 
+  To measure impact on the Display Use \ac{DSDI} a minimal bounding rectangle is drawn around the visual content.
+  The area unused (i.e. are of the display outside the rectangle) divided by the total area of the display shape gives the area that goes unused as a percentage.
+  \item \textbf{Change in Scale}: 
+  To measure impact on the Scaling \ac{DSDI} the absolute maximum change in scale of all the item in the app is used.
+  \item \textbf{Deformed items (\%)}: 
+  To measure impact on the Scaling \ac{DSDI}  the number of items being deformed in a non-uniform manner expressed as a percentage is used.
+\end{itemize}
 
 
 %-------------------------------------------------------------------------
