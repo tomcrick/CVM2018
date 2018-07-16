@@ -386,66 +386,55 @@ This, in addition to the fact that the technique uses only linear transformation
 \section{Study}
 \label{sec:study}
 
-% TODO Restructure to be Study (Issues 47, 44, 40, 37, 33)
+A study was carried out where an implementation of the technique discussed  in the previous section was tried on several different software applications with several different display shapes.
 
-The technique discussed in the previous section was implemented into version 2.1 of the {\emph{SynergyNet}} framework~\cite{McNaughton2017,AlAgha2010}, a multi-touch software framework intended for use with rectangular tabletop interfaces.
+\subsection{Implementation of the Technique}
+\label{subsec:implementation} 
+
+The technique was implemented into version 2.1 of the {\emph{SynergyNet}} framework~\cite{McNaughton2017,AlAgha2010}, a multi-touch software framework intended for use with rectangular tabletop interfaces.
 The framework functions by rendering a range of content items, such as images, text and video, which can then be manipulated by users.
 {\emph{SynergyNet}} is built in Java, allowing it to be run across different operating systems and can accept a wide range of different multi-touch protocols such as TUIO~\cite{Kaltenbrunner2007}.
-This makes the framework capable of being used in a wide range of systems with different displays.
 The framework's ability to adapt to different systems makes it a suitable candidate for use with different display shapes.
-Another reason for this choice in framework was due to its easily accessed library of supported open-source applications.
-Since the applications are produced by a number of different developers for different purposes, there is a wide range of content items and layouts available.
-Being implemented at the framework level allows any of the supported applications to potentially utilise different display shapes.
 
-To utilise the technique the software needs to be informed of the dimensions of the display shape currently available.
-This is done through the creation of virtual counterparts to the display shapes utilised by the system.
-These virtual counterparts are represented as vector files which are loaded into applications through the framework's configuration interface.
-The approach of using virtual counterparts allows each display shape representation to store information on the positioning of their maximal rectangle, or polygon.
-The maximal rectangle can be used by the virtual projection stage of the technique because all the {\emph{SynergyNet}} applications are currently built using a rectangular environment.
+Another reason for the choice of the {\emph{SynergyNet}} framework was the range of applications written using it which are readily available.
+The technique was implemented into the framework which allowed any application written for this version of SynergyNet to potentially utilise different display shapes.
+The available applications are produced by a number of different developers for different purposes, allowing for the technique to be tried with a range of contents with not just differing layouts, but also differing significance to their layouts.
 
-The technique is implemented in such a way that it is always employed when an application attempts to transform a content item using absolute values.
-This means that, in addition to the initial positioning of content, the technique is employed when an application needs to transform an item to a specific position.
-For example, if a new item is to be added to the `centre' of the visual content the technique would be applied to ensure it appears in the middle of the maximal rectangle, even if the item is added sometime after the application's initialisation.
-The technique does not need to be utilised for relative transformations, such as those used when adjusting an item's position, scale or rotation in response to a user gesture.
+For the technique to work the software needs to be informed of the dimensions of the display shape currently available.
+This is done through the creation of files containing vectors which corresponding to a display shape which the framework can utilise.
+These vector files also include information on the display shape's maximal polygon (a rectangle is used as all previous {\emph{SynergyNet}} applications were built assuming a rectangular display).
 
 \begin{figure*}[h!] 
  \centering
-  \includegraphics[width=0.95\textwidth]{figures/ApplicationsInUse.jpeg}
-  \caption{Several applications in use with different display shapes.}
-  \label{fig:trial}
+   \includegraphics[width=0.95\textwidth]{figures/TechniqueFlowchart.jpeg}
+   \caption{Flowchart demonstrating navigation of the technique.}
+   \label{fig:flowchart}
 \end{figure*}
 
-The {\emph{SynergyNet}} framework was adapted to apply a range of borders which would allow the display to emulate different shapes.
-These shapes were chosen after consultation with a furniture manufacturer who had experience with designing multi-touch tables.
-The manufacturer was in a strong industry position for making predictions concerning the likely design features of future multi-touch tabletops, including their display shapes; the shapes chosen are shown in Figure~\ref{fig:trial}.
+Figure~\ref{fig:flowchart} shows the options available to applications developers utilising the technique.
+Choices made in its usage, such as which stages of the technique are employed and the constraints placed on these stages, can influence which \acp{DSDI} it prevents and counters.
+For example, if a developer wishes a content item to act as the background to the entire display, and its cropping is not an issue, then both stages of the technique can be circumvented.
+For content items not set aside to be background images, developers can choose whether or not to apply the position pulling stage of the technique.
+If applied, the content items will maximise the use of the display shape's real estate by being pulled into previously unused areas of the display.
+However, if the layout of the content items is of a greater importance than the maximisation of display usage, the developer can choose to disregard the position pulling stage for any content items in the layout.
 
-Some of these shapes were derived from common table shapes which could be used with tabletop interfaces, such as the semi-circle design.
-This allows for users positioned around the display in various places to have an equal share of the interface which can be beneficial to collaboration.
-The circle shape was also chosen for its ability to allow users to have equal shares of the display.
-The intersecting circles shape was designed to make further use of multi-touch's facilitation of collaboration by providing focal points and areas to share content items in.
-The larger circle of the display shape can be used for one activity such as displaying content items whereas the smaller circle could be used for another activity such as manipulating the items.
-The triangle was chosen because of its regular nature, meaning that all its sides and corners are congruent.
 
-\subsection{Data Analysis}
-\label{subsec:dataanalysis} 
+\subsection{Selection of Applications}
+\label{subsec:selectionofapplications} 
 
-% TODO Add Data Analysis approach sub-section (Issues 45, 43, 38, 37, 35)
-% Use metrics in study:
-% - % Change in items' visibility
-% - Change in layout scale
-% - Total distance items are moved by the pull technique (perhaps relative to the layout scale).
+The applications used in this study were created by several developers for previous studies in the {\emph{SynergyNet}} project~\cite{higgins2011}.
+These were chosen because of their differing methods of organising their visual content items and the varying significance of the layout of their items.
+This was important because the study intended to evaluate investigate how the technique would impact the arrangement of both items with and without a significant layout.
 
-%-------------------------------------------------------------------------
-\section{Results}
-\label{sec:results}
+\begin{figure*}[h!] 
+ \centering
+  \includegraphics[width=0.95\textwidth]{figures/Applications.jpeg} %TODO Better image (all in a row).
+  \caption{The applications chosen for observation, from left to right: {\emph{XML Puzzle}}, {\emph{Collage}}, {\emph{Grid}} and {\emph{Simple Map}}.}
+  \label{fig:apps}
+\end{figure*}
 
-% TODO Restructure to be Results (Issues 47, 44, 40, 37, 33)
-
-With the technique implemented into the {\emph{SynergyNet}} framework four applications were used in conjunction with the range of different display shapes to observe the impact of the technique.
-These applications were created by the primary author and other developers for previous studies in the {\emph{SynergyNet}} project~\cite{higgins2011}
-The applications were chosen because of their differing methods of organising their visual content items and the varying significance of the layout of their items.
-This was because the authors wish to investigate how the technique will impact the arrangement of both items with and without a significant layout.
-The four applications used were:\\
+Figure~\ref{fig:apps} shows all four of the applications chosen to be used with the technique for observation.
+These four applications were:\\
 
 \begin{itemize}
   \item \textbf{XML Puzzle}: 
@@ -475,17 +464,64 @@ The four applications used were:\\
   \end{itemize}
 \end{itemize}
 
+
+\subsection{Selection of Display shapes}
+\label{subsec:selectionofdisplayshapes} 
+
+The {\emph{SynergyNet}} framework was adapted to assume the use of a range of display shapes.
+These shapes were chosen after consultation with a furniture manufacturer who had experience with designing multi-touch tables.
+The manufacturer was in a strong industry position for making predictions concerning the likely design features of future multi-touch tabletops, including their display shapes; the shapes chosen are shown in Figure~\ref{fig:displayshapes}.
+
 \begin{figure*}[h!] 
  \centering
-  \includegraphics[width=0.95\textwidth]{figures/Applications.jpeg}
-  \caption{The applications chosen for observation, from left to right: {\emph{XML Puzzle}}, {\emph{Collage}}, {\emph{Grid}} and {\emph{Simple Map}}.}
-  \label{fig:apps}
+  \includegraphics[width=0.95\textwidth]{figures/DisplayShapes.jpeg} % TODO Better image (silhouettes all in a row).
+  \caption{The different display shapes used in the trial.}
+  \label{fig:displayshapes}
 \end{figure*}
 
-The different display shapes were emulated by covering parts of the screen used.
-Figure~\ref{fig:apps} shows all of the applications chosen to be used with the technique for observation.
-In the next section, observations from the use of these applications were made on how the adaptation of their content to fit the new display shapes affected their initial usability.
-The study focused on applications in which the layout of content was significant in some way.
+Some of these shapes were derived from common table shapes which could be used with tabletop interfaces, such as the semi-circle design.
+This allows for users positioned around the display in various places to have an equal share of the interface which can be beneficial to collaboration.
+The circle shape was also chosen for its ability to allow users to have equal shares of the display.
+The intersecting circles shape was designed to make further use of multi-touch's facilitation of collaboration by providing focal points and areas to share content items in.
+The larger circle of the display shape can be used for one activity such as displaying content items whereas the smaller circle could be used for another activity such as manipulating the items.
+The triangle was chosen because of its regular nature, meaning that all its sides and corners are congruent.
+
+
+\subsection{Approach}
+\label{subsec:approach} 
+
+In the study, both stages of the technique were set to always be applied to the content items to investigate the full impact of the technique.
+No limitations were placed on the technique in the study either.
+The technique was implemented in such a way that it was applied to the initial layout of content in an application.
+
+\begin{figure*}[h!] 
+ \centering
+  \includegraphics[width=0.95\textwidth]{figures/ApplicationsInUse.jpeg} 
+  \caption{Several applications in use with different display shapes.}
+  \label{fig:trial}
+\end{figure*}
+
+The four different display shapes were emulated in the study by using a large rectangular display shape, then covering parts of the screen used to make the visible area of the shape match an intended display shape, as shown in Figure~\ref{fig:trial}.
+Each of the four applications of the technique were run with each of the four display shapes.
+The framework was set up to capture screenshots taken at various points during the application of the technique; before applications, after the placement of the display shape's outline (blanking out anything that would not visible on the display),  after the virtual projection stage and after the position pulling stage.
+
+
+\subsection{Data Analysis}
+\label{subsec:dataanalysis} 
+
+% TODO Add Data Analysis approach sub-section (Issues 45, 43, 38, 37, 35)
+% Use metrics in study:
+% - % Change in items' visibility
+% - Change in layout scale
+% - Total distance items are moved by the pull technique (perhaps relative to the layout scale).
+
+%-------------------------------------------------------------------------
+\section{Results}
+\label{sec:results}
+
+
+% TODO Restructure to be Results (Issues 47, 44, 40, 37, 33)
+
 
 After the application of the technique, the {\emph{XML Puzzle}} and {\emph{Collage}} applications were able to be utilised as normal with the \acp{DSDI} totally resolved without any observable issues or additional complexities arising.
 This is likely because there is little-to-no significance to the layout of both applications' visual content items.
@@ -553,27 +589,8 @@ By discarding the unused regions of the original display surrounding the content
 Therefore, the scaling required to fit the virtual projection into a new display shape will be reduced.
 This diminishes the likelihood of content items and their layout being scaled to beyond their limits. 
 
-Figure~\ref{fig:flowchart} shows the options available to developers utilising the technique.
-Choices made in its implementation, such as which stages of the technique are employed and the constraints placed on these stages, can influence which \acp{DSDI} it prevents and counters.
-For example, if a developer wishes a content item to act as the background to the entire display, and its cropping is not an issue, then both stages of the technique can be circumvented.
-For content items not set aside to be background images, developers can choose whether or not to apply the position pulling stage of the technique.
-If applied, the content items will maximise the use of the display shape's real estate by being pulled into previously unused areas of the display.
-However, if the layout of the content items is of a greater importance than the maximisation of display usage, the developer can choose to disregard the position pulling stage for any content items in the layout.
 
-\begin{figure*}[h!] 
- \centering
-   \includegraphics[width=0.95\textwidth]{figures/TechniqueFlowchart.jpeg}
-   \caption{Flowchart demonstrating navigation of the technique.}
-   \label{fig:flowchart}
-\end{figure*}
 
-In the {\emph{SynergyNet}} implementation, both stages of the technique are, by default, applied to content items whenever they are transformed using absolute values.
-However, application developers using the framework have the option to override this for specific content items.
-For example, they can apply changes to the technique, such as applying scale limits to the virtual projection, to all content in an application or to individual items.
-The ability to choose which stages of the technique affect a content item gives developers control over its influence.
-Without this ability there is still a danger of unacceptable \acp{DSDI} occurring in software despite the presence of the implemented technique.
-This highlights the importance of any technique intended to minimise the influence of the potential \acp{DSDI} in a system not only to be capable of adapting to different display shapes, but to be also capable of adapting to the needs of the developer. 
-This allows developers to make informed, user-centric design and implementation decisions on how content should be displayed.
 
 %-------------------------------------------------------------------------
 \section{Conclusions and Future Work}
@@ -588,7 +605,15 @@ Developers must consider the implementation of any proposed method of countering
 The identification, or creation of, an adequate \ac{DSDI}-minimising technique which allows a particular system to adapt to different display shapes could form part of design guidelines for emerging technologies.
 It is important to note that not only the list of \acp{DSDI} for a system should influence the design of a \ac{DSDI}-minimising technique; the need for applications to control the magnitude of a \ac{DSDI}-minimising technique's influence is also important to consider.
 
-Furthermore, it is important to note that although the technique presented in this work is a solution to the \acp{DSDI} of tabletop interfaces, it is not always guaranteed to be the best solution.
+In the study all stages of the technique were applied to investigate its impact.
+In typical usage an application developer using the framework would have the option to override this for specific content items.
+For example, they could apply scale limits to the virtual projection forll content in an application or to individual items.
+The ability to choose which stages of the technique affect a content item gives developers control over its influence.
+Without this ability there is still a danger of unacceptable \acp{DSDI} occurring in software despite the presence of the implemented technique.
+This highlights the importance of any technique intended to minimise the influence of the potential \acp{DSDI} in a system not only to be capable of adapting to different display shapes, but to be also capable of adapting to the needs of the developer. 
+This allows developers to make informed, user-centric design and implementation decisions on how content should be displayed.
+
+It is important to note that although the technique presented in this work is a solution to the \acp{DSDI} of tabletop interfaces, it is not always guaranteed to be the best solution.
 It may be possible in many combinations of content and display shapes to find solutions where the impact of the steps taken to avoid \acp{DSDI} is less than the impact of the presented technique.
 The solution of less impact may be preferable for developers, as it will allow content to appear more consistent across different displays, allowing for the software to appear more intuitive and familiar for users across devices.
 Identifying what solution is best suited for a given situation should be at the centre of any future research involving this topic.
