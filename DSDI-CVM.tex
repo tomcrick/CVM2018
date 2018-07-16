@@ -52,10 +52,6 @@
 
 \headevenname{{James McNaughton \etal} }
 
-% TODO Add annotations to images. (Issue 46)
-
-% TODO Shorten sections (Issue 42)
-
 
 \begin{document}
 
@@ -396,6 +392,13 @@ The framework functions by rendering a range of content items, such as images, t
 {\emph{SynergyNet}} is built in Java, allowing it to be run across different operating systems and can accept a wide range of different multi-touch protocols such as TUIO~\cite{Kaltenbrunner2007}.
 The framework's ability to adapt to different systems makes it a suitable candidate for use with different display shapes.
 
+\begin{figure*}[h!] 
+ \centering
+   \includegraphics[width=0.95\textwidth]{figures/TechniqueFlowchart.jpeg}
+   \caption{Flowchart demonstrating navigation of the technique.}
+   \label{fig:flowchart}
+\end{figure*}
+
 Another reason for the choice of the {\emph{SynergyNet}} framework was the range of applications written using it which are readily available.
 The technique was implemented into the framework which allowed any application written for this version of SynergyNet to potentially utilise different display shapes.
 The available applications are produced by a number of different developers for different purposes, allowing for the technique to be tried with a range of contents with not just differing layouts, but also differing significance to their layouts.
@@ -403,13 +406,6 @@ The available applications are produced by a number of different developers for 
 For the technique to work the software needs to be informed of the dimensions of the display shape currently available.
 This is done through the creation of files containing vectors which corresponding to a display shape which the framework can utilise.
 These vector files also include information on the display shape's maximal polygon (a rectangle is used as all previous {\emph{SynergyNet}} applications were built assuming a rectangular display).
-
-\begin{figure*}[h!] 
- \centering
-   \includegraphics[width=0.95\textwidth]{figures/TechniqueFlowchart.jpeg}
-   \caption{Flowchart demonstrating navigation of the technique.}
-   \label{fig:flowchart}
-\end{figure*}
 
 Figure~\ref{fig:flowchart} shows the options available to applications developers utilising the technique.
 Choices made in its usage, such as which stages of the technique are employed and the constraints placed on these stages, can influence which \acp{DSDI} it prevents and counters.
@@ -428,8 +424,8 @@ This was important because the study intended to evaluate investigate how the te
 
 \begin{figure*}[h!] 
  \centering
-  \includegraphics[width=0.95\textwidth]{figures/Applications.jpeg} %TODO Better image (all in a row).
-  \caption{The applications chosen for observation, from left to right: {\emph{XML Puzzle}}, {\emph{Collage}}, {\emph{Grid}} and {\emph{Simple Map}}.}
+  \includegraphics[width=0.95\textwidth]{figures/Applications.jpeg}
+  \caption{The applications chosen for observation, from left to right:  {\emph{Grid}}, {\emph{XML Puzzle}}, {\emph{Collage}} and {\emph{Simple Map}}.}
   \label{fig:apps}
 \end{figure*}
 
@@ -472,19 +468,20 @@ The {\emph{SynergyNet}} framework was adapted to assume the use of a range of di
 These shapes were chosen after consultation with a furniture manufacturer who had experience with designing multi-touch tables.
 The manufacturer was in a strong industry position for making predictions concerning the likely design features of future multi-touch tabletops, including their display shapes; the shapes chosen are shown in Figure~\ref{fig:displayshapes}.
 
-\begin{figure*}[h!] 
+\begin{figure*}[b!] 
  \centering
-  \includegraphics[width=0.95\textwidth]{figures/DisplayShapes.jpeg} % TODO Better image (silhouettes all in a row).
-  \caption{The different display shapes used in the trial.}
+  \includegraphics[width=0.95\textwidth]{figures/DisplayShapes.jpeg}
+  \caption{The display shapes chosen for observation, from left to right:  {\emph{Circle}}, {\emph{Triangle}}, {\emph{Intersecting Circles}} and {\emph{Semi-circle}}.}
   \label{fig:displayshapes}
 \end{figure*}
 
 Some of these shapes were derived from common table shapes which could be used with tabletop interfaces, such as the semi-circle design.
 This allows for users positioned around the display in various places to have an equal share of the interface which can be beneficial to collaboration.
 The circle shape was also chosen for its ability to allow users to have equal shares of the display.
+The triangle was chosen because of its regular nature, meaning that all its sides and corners are congruent.
 The intersecting circles shape was designed to make further use of multi-touch's facilitation of collaboration by providing focal points and areas to share content items in.
 The larger circle of the display shape can be used for one activity such as displaying content items whereas the smaller circle could be used for another activity such as manipulating the items.
-The triangle was chosen because of its regular nature, meaning that all its sides and corners are congruent.
+The semi-circle was selected due to the common usage of the shape for tables.
 
 
 \subsection{Approach}
@@ -521,6 +518,8 @@ The framework was set up to capture screenshots taken at various points during t
 
 
 % TODO Restructure to be Results (Issues 47, 44, 40, 37, 33)
+% Metric results.
+% Images of all apps.
 
 
 After the application of the technique, the {\emph{XML Puzzle}} and {\emph{Collage}} applications were able to be utilised as normal with the \acp{DSDI} totally resolved without any observable issues or additional complexities arising.
@@ -588,8 +587,6 @@ This variation of the technique could be used with any software where the distan
 By discarding the unused regions of the original display surrounding the content items, the virtual projection is likely to be smaller.
 Therefore, the scaling required to fit the virtual projection into a new display shape will be reduced.
 This diminishes the likelihood of content items and their layout being scaled to beyond their limits. 
-
-
 
 
 %-------------------------------------------------------------------------
@@ -696,6 +693,7 @@ In summary, the techniques presented in this paper are capable of minimising the
 Developers using the technique must decide which \acp{DSDI} could not be tolerated by their software and must adapt the technique according.
 Future tabletop software development would benefit greatly from the creation of guidelines to be followed when adapting software to become display shape independent.
 The technique produced in this paper, or another similar \ac{DSDI}-minimising technique, should form part of these guidelines.
+
 
 %============================================%
 
