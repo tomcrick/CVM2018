@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage[printonlyused]{acronym}
 \usepackage{tabularx}
+\usepackage{colortbl}
 \usepackage{multirow}
 \usepackage{gensymb}
 
@@ -17,6 +18,8 @@
   \addtocounter{footnote}{-1}%
   \endgroup
 }
+
+\newcommand{\smallline}{\arrayrulecolor{lightgray} \cline{2-8} \arrayrulecolor{black}}
 
 \newenvironment{Algorithm}[1]{\begin{minipage}{1\textwidth}\centering\begin{minipage}{#1}\begin{algorithm}[H]}
 {\end{algorithm}\vspace{0.1cm}\end{minipage}\end{minipage}}
@@ -499,15 +502,15 @@ These measurements were as follows:
   To measure impact on the Cropping \ac{DSDI} the number of items suffering occlusion from the display shape expressed as a percentage is used.
   \item \textbf{Overlapping Items}: 
   To measure impact on the Overlapping \ac{DSDI} the number of items suffering occlusion from other items is used.  
-  \item \textbf{Change in layout}: 
+  \item \textbf{Change in Layout}: 
   To measure impact on the Layout \ac{DSDI} the distance of items from where they were expected to be with a layout of the same scale and orientation (but no other deformations) is measured.
   This average of these value, expressed as a percentage of the width of the the layout's minimal bounding rectangle is used.
-  \item \textbf{Display shape unused}: 
+  \item \textbf{Display Shape Unused}: 
   To measure impact on the Display Use \ac{DSDI} a minimal bounding rectangle is drawn around the visual content.
   The area unused (i.e. are of the display outside the rectangle) divided by the total area of the display shape gives the area that goes unused as a percentage.
   \item \textbf{Change in Scale}: 
   To measure impact on the Scaling \ac{DSDI} the absolute maximum change in scale of all the item in the app expressed as a percentage of the item's original scale is used.
-  \item \textbf{Deformed items}: 
+  \item \textbf{Deformed Items}: 
   To measure impact on the Scaling \ac{DSDI}  the number of items being deformed in a non-uniform manner expressed as a percentage is used.
 \end{itemize}
 
@@ -519,11 +522,15 @@ These measurements were as follows:
 
 % TODO Restructure to be Results (Issues 47, 44, 40, 37, 33)
 
+% TODO Explain `Phases'
+% 0 = When the app is first started.
+% 1 = After the display shape borders are applied.
+% 2 = After the virtual projection stage of the app is completed.
+% 3 = After the pull positions stage of the app is completed.
+
 
 \subsection{Grid Application}
 \label{subsec:gridresults} 
-
-% TODO Metrics for Grid Application
 
 \begin{figure*}[h!] 
  \centering
@@ -547,11 +554,43 @@ If the implemented \ac{DSDI}-minimising technique a system uses to adapt to diff
 This would have the effect of the background being constrained to a single region of the display, leaving other areas of the interface blank without a background.
 In the implemented system, a method of making content item exempt from the influence of specific stages of the technique was made available.
 
+\begin{table*}[t]
+\centering
+	\begin{tabular}{ | l | c | c | c | c | c | c | c | }	
+	\hline
+	& & \multicolumn{6}{c|}{\textbf{\ac{DSDI} Measurements}} \\
+	\cline{3-8}
+		& & & & \textbf{Change} & & \textbf{Change} & \\
+		& & \textbf{Occluded} & \textbf{Overlapping} & \textbf{in} & \textbf{Display Shape} & \textbf{in} & \textbf{Deformed} \\
+		\textbf{Shape} & \textbf{Phase} & \textbf{Items} & \textbf{Items} & \textbf{Layout} & \textbf{Unused} & \textbf{Scale} & \textbf{Items} \\ 
+	\hline
+		Rectangle & 0 & 0\% & 0\% & 0\% & 0\% & 0\% & 0\% \\  
+	\hline
+		\multirow{3}{*}{Circle} & 1 & 66.7\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
+		& 2 & 0\% & 0\% & 0\% & 35.8\% & 39.5\% & 0\% \\ \smallline
+		& 3 & 0\% & 0\% & 6.4\% & 20.9\% & 39.5\% & 0\% \\
+	\hline
+		\multirow{3}{*}{Triangle} & 1 & 77.8\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
+		& 2 & 0\% & 0\% & 0\% & 50.1\% & 48.8\% & 0\% \\ \smallline
+		& 3 & 0\% & 0\% & 20.7\% & 7.6\% & 48.8\% & 0\% \\
+	\hline
+		\multirow{3}{*}{Intersecting Circles} & 1 & 66.7\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
+		& 2 & 0\% & 0\% & 0\% & 56.9\% & 44.2\% & 0\% \\ \smallline
+		& 3 & 0\% & 0\% & 27.4\% & 14.6\% & 44.2\% & 0\% \\
+	\hline
+		\multirow{3}{*}{Semi-circle} & 1 & 88.9\% & 0\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
+		& 2 & 0\% & 0\% & 0\% & 40.9\% & 44.2\% & 0\% \\ \smallline
+		& 3 & 0\% & 0\% & 11.9\% & 13\% & 44.2\% & 0\% \\ 
+	\hline
+	\end{tabular}
+	\caption{The \ac{DSDI} measurements from the study in {\emph{SynergyNet}}'s {\emph{Grid}} application.}
+	\label{tab:gridApp}
+\end{table*}
+
+% TODO Dicuss metrics for Grid Application
 
 \subsection{Simple Map Application}
 \label{subsec:simplemapresults} 
-
-% TODO Metrics for Simple Map Application
 
 \begin{figure*}[h!] 
  \centering
@@ -586,6 +625,41 @@ This variation of the technique could be used with any software where the distan
 By discarding the unused regions of the original display surrounding the content items, the virtual projection is likely to be smaller.
 Therefore, the scaling required to fit the virtual projection into a new display shape will be reduced.
 This diminishes the likelihood of content items and their layout being scaled to beyond their limits. 
+
+\begin{table*}[t]
+\centering
+	\begin{tabular}{ | l | c | c | c | c | c | c | c | }	
+	\hline
+	& & \multicolumn{6}{c|}{\textbf{\ac{DSDI} Measurements}} \\
+	\cline{3-8}
+		& & & & \textbf{Change} & & \textbf{Change} & \\
+		& & \textbf{Occluded} & \textbf{Overlapping} & \textbf{in} & \textbf{Display Shape} & \textbf{in} & \textbf{Deformed} \\
+		\textbf{Shape} & \textbf{Phase} & \textbf{Items} & \textbf{Items} & \textbf{Layout} & \textbf{Unused} & \textbf{Scale} & \textbf{Items} \\ 
+	\hline
+		Rectangle & 0 & 0\% & 20\% & 0\% & 0\% & 0\% & 0\% \\  
+	\hline
+		\multirow{3}{*}{Circle} & 1 & 60\% & 20\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
+		& 2 & 0\% & 20\% & 0\% & 37.9\% & 42\% & 0\% \\ \smallline
+		& 3 & 0\% & 20\% & 5.2\% & 37.1\% & 42\% & 0\% \\
+	\hline
+		\multirow{3}{*}{Triangle} & 1 & 100\% & 20\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
+		& 2 & 0\% & 20\% & 0\% & 50.2\% & 50\% & 0\% \\ \smallline
+		& 3 & 0\% & 20\% & 17.6\% & 22.7\% & 50\% & 0\% \\
+	\hline
+		\multirow{3}{*}{Intersecting Circles} & 1 & 80\% & 20\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
+		& 2 & 0\% & 20\% & 0\% & 58.1\% & 48.2\% & 0\% \\ \smallline
+		& 3 & 0\% & 20\% & 16.4\% & 42\% & 48.2\% & 0\% \\
+	\hline
+		\multirow{3}{*}{Semi-circle} & 1 & 80\% & 20\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
+		& 2 & 0\% & 20\% & 0\% & 40.3\% & 44.6\% & 0\% \\ \smallline
+		& 3 & 0\% & 20\% & 9.9\% & 28.2\% & 44.6\% & 0\% \\ 
+	\hline
+	\end{tabular}
+	\caption{The \ac{DSDI} measurements from the study in {\emph{SynergyNet}}'s {\emph{Simple Map}} application.}
+	\label{tab:mapApp}
+\end{table*}
+
+% TODO Dicuss metrics for Grid Application
 
 
 %-------------------------------------------------------------------------
