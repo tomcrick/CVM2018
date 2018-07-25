@@ -522,41 +522,24 @@ These measurements were as follows:
 
 % TODO Restructure to be Results (Issues 47, 44, 40, 37, 33)
 
-% TODO Explain `Phases'
-% 0 = When the app is first started.
-% 1 = After the display shape borders are applied.
-% 2 = After the virtual projection stage of the app is completed.
-% 3 = After the pull positions stage of the app is completed.
+The results are summarised for each app per shape and phase in Tables \ref{tab:gridApp} and \ref{tab:mapApp}.
+The phases used in the tables represent the following stages of the execution of the technique as follows:
+\begin{itemize}
+  \item \textbf{Phase 0}: 
+  When the application is first started before the execution of the technique starts.
+  \item \textbf{Phase 1}: 
+  After the display shape borders are applied to the application.
+  \item \textbf{Phase 2}: 
+  After the virtual projection stage of the technique is carried out.
+  \item \textbf{Phase 3}: 
+  After the pull positions stage of the technique is completed.
+\end{itemize}
 
-
-\subsection{Grid Application}
-\label{subsec:gridresults} 
-
-\begin{figure*}[h!] 
- \centering
-  \includegraphics[width=0.95\textwidth]{figures/GridApplication.jpeg}
-  \caption{Influence of the implemented technique on {\emph{SynergyNet}}'s {\emph{Grid}} application.}
-  \label{fig:gridApp}
-\end{figure*}
-
-As can be seen in Figure~\ref{fig:gridApp}, all the items are visible and there is no cropping in the initial layout.
-However, when any of the four example display shapes are applied, several content items are occluded to varying extents.
-When the virtual projection stage of the technique is applied the cropping is resolved.
-At this stage of the technique, the {\emph{Display Use \ac{DSDI}}} can be observed due to the presence of unused regions of the display.
-
-The position pulling stage of the technique can be seen in Figure~\ref{fig:gridApp} to pull the content out into these previously unused regions of the display.
-However, the layout of the content items is deformed as a result of this stage.
-While acceptable for the {\emph{Grid}} application, this is problematic for software which cannot tolerate the influence of the {\emph{Layout \ac{DSDI}}}.
-
-It was observed from the impact of the technique that developers may wish for some content items to be affected by it in different ways.
-For example, a content item may be intended to act as a background to an application.
-If the implemented \ac{DSDI}-minimising technique a system uses to adapt to different display shapes is unaware of this, the item would be scaled with the virtual projection.
-This would have the effect of the background being constrained to a single region of the display, leaving other areas of the interface blank without a background.
-In the implemented system, a method of making content item exempt from the influence of specific stages of the technique was made available.
-
-\begin{table*}[t]
-\centering
+\begin{table*}
+	\centering
 	\begin{tabular}{ | l | c | c | c | c | c | c | c | }	
+	\hline
+	\multicolumn{8}{|c|}{\textbf{Grid Application}} \\
 	\hline
 	& & \multicolumn{6}{c|}{\textbf{\ac{DSDI} Measurements}} \\
 	\cline{3-8}
@@ -585,7 +568,65 @@ In the implemented system, a method of making content item exempt from the influ
 	\end{tabular}
 	\caption{The \ac{DSDI} measurements from the study in {\emph{SynergyNet}}'s {\emph{Grid}} application.}
 	\label{tab:gridApp}
+
+	\begin{tabular}{ | l | c | c | c | c | c | c | c | }	
+	\multicolumn{8}{c}{ } \\
+	\hline
+	\multicolumn{8}{|c|}{\textbf{Simple Map Application}} \\
+	\hline
+	& & \multicolumn{6}{c|}{\textbf{\ac{DSDI} Measurements}} \\
+	\cline{3-8}
+		& & & & \textbf{Change} & & \textbf{Change} & \\
+		& & \textbf{Occluded} & \textbf{Overlapping} & \textbf{in} & \textbf{Display Shape} & \textbf{in} & \textbf{Deformed} \\
+		\textbf{Shape} & \textbf{Phase} & \textbf{Items} & \textbf{Items} & \textbf{Layout} & \textbf{Unused} & \textbf{Scale} & \textbf{Items} \\ 
+	\hline
+		Rectangle & 0 & 0\% & 20\% & 0\% & 0\% & 0\% & 0\% \\  
+	\hline
+		\multirow{3}{*}{Circle} & 1 & 60\% & 20\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
+		& 2 & 0\% & 20\% & 0\% & 37.9\% & 42\% & 0\% \\ \smallline
+		& 3 & 0\% & 20\% & 5.2\% & 37.1\% & 42\% & 0\% \\
+	\hline
+		\multirow{3}{*}{Triangle} & 1 & 100\% & 20\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
+		& 2 & 0\% & 20\% & 0\% & 50.2\% & 50\% & 0\% \\ \smallline
+		& 3 & 0\% & 20\% & 17.6\% & 22.7\% & 50\% & 0\% \\
+	\hline
+		\multirow{3}{*}{Intersecting Circles} & 1 & 80\% & 20\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
+		& 2 & 0\% & 20\% & 0\% & 58.1\% & 48.2\% & 0\% \\ \smallline
+		& 3 & 0\% & 20\% & 16.4\% & 42\% & 48.2\% & 0\% \\
+	\hline
+		\multirow{3}{*}{Semi-circle} & 1 & 80\% & 20\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
+		& 2 & 0\% & 20\% & 0\% & 40.3\% & 44.6\% & 0\% \\ \smallline
+		& 3 & 0\% & 20\% & 9.9\% & 28.2\% & 44.6\% & 0\% \\ 
+	\hline
+	\end{tabular}
+	\caption{The \ac{DSDI} measurements from the study in {\emph{SynergyNet}}'s {\emph{Simple Map}} application.}
+	\label{tab:mapApp}
 \end{table*}
+
+\subsection{Grid Application}
+\label{subsec:gridresults} 
+
+\begin{figure*}[h!] 
+ \centering
+  \includegraphics[width=0.95\textwidth]{figures/GridApplication.jpeg}
+  \caption{Influence of the implemented technique on {\emph{SynergyNet}}'s {\emph{Grid}} application.}
+  \label{fig:gridApp}
+\end{figure*}
+
+As can be seen in Figure~\ref{fig:gridApp}, all the items are visible and there is no cropping in the initial layout.
+However, when any of the four example display shapes are applied, several content items are occluded to varying extents.
+When the virtual projection stage of the technique is applied the cropping is resolved.
+At this stage of the technique, the {\emph{Display Use \ac{DSDI}}} can be observed due to the presence of unused regions of the display.
+
+The position pulling stage of the technique can be seen in Figure~\ref{fig:gridApp} to pull the content out into these previously unused regions of the display.
+However, the layout of the content items is deformed as a result of this stage.
+While acceptable for the {\emph{Grid}} application, this is problematic for software which cannot tolerate the influence of the {\emph{Layout \ac{DSDI}}}.
+
+It was observed from the impact of the technique that developers may wish for some content items to be affected by it in different ways.
+For example, a content item may be intended to act as a background to an application.
+If the implemented \ac{DSDI}-minimising technique a system uses to adapt to different display shapes is unaware of this, the item would be scaled with the virtual projection.
+This would have the effect of the background being constrained to a single region of the display, leaving other areas of the interface blank without a background.
+In the implemented system, a method of making content item exempt from the influence of specific stages of the technique was made available.
 
 % TODO Dicuss metrics for Grid Application
 
@@ -625,39 +666,6 @@ This variation of the technique could be used with any software where the distan
 By discarding the unused regions of the original display surrounding the content items, the virtual projection is likely to be smaller.
 Therefore, the scaling required to fit the virtual projection into a new display shape will be reduced.
 This diminishes the likelihood of content items and their layout being scaled to beyond their limits. 
-
-\begin{table*}[t]
-\centering
-	\begin{tabular}{ | l | c | c | c | c | c | c | c | }	
-	\hline
-	& & \multicolumn{6}{c|}{\textbf{\ac{DSDI} Measurements}} \\
-	\cline{3-8}
-		& & & & \textbf{Change} & & \textbf{Change} & \\
-		& & \textbf{Occluded} & \textbf{Overlapping} & \textbf{in} & \textbf{Display Shape} & \textbf{in} & \textbf{Deformed} \\
-		\textbf{Shape} & \textbf{Phase} & \textbf{Items} & \textbf{Items} & \textbf{Layout} & \textbf{Unused} & \textbf{Scale} & \textbf{Items} \\ 
-	\hline
-		Rectangle & 0 & 0\% & 20\% & 0\% & 0\% & 0\% & 0\% \\  
-	\hline
-		\multirow{3}{*}{Circle} & 1 & 60\% & 20\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
-		& 2 & 0\% & 20\% & 0\% & 37.9\% & 42\% & 0\% \\ \smallline
-		& 3 & 0\% & 20\% & 5.2\% & 37.1\% & 42\% & 0\% \\
-	\hline
-		\multirow{3}{*}{Triangle} & 1 & 100\% & 20\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
-		& 2 & 0\% & 20\% & 0\% & 50.2\% & 50\% & 0\% \\ \smallline
-		& 3 & 0\% & 20\% & 17.6\% & 22.7\% & 50\% & 0\% \\
-	\hline
-		\multirow{3}{*}{Intersecting Circles} & 1 & 80\% & 20\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
-		& 2 & 0\% & 20\% & 0\% & 58.1\% & 48.2\% & 0\% \\ \smallline
-		& 3 & 0\% & 20\% & 16.4\% & 42\% & 48.2\% & 0\% \\
-	\hline
-		\multirow{3}{*}{Semi-circle} & 1 & 80\% & 20\% & 0\% & 0\% & 0\% & 0\% \\ \smallline
-		& 2 & 0\% & 20\% & 0\% & 40.3\% & 44.6\% & 0\% \\ \smallline
-		& 3 & 0\% & 20\% & 9.9\% & 28.2\% & 44.6\% & 0\% \\ 
-	\hline
-	\end{tabular}
-	\caption{The \ac{DSDI} measurements from the study in {\emph{SynergyNet}}'s {\emph{Simple Map}} application.}
-	\label{tab:mapApp}
-\end{table*}
 
 % TODO Dicuss metrics for Grid Application
 
