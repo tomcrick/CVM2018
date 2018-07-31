@@ -535,7 +535,17 @@ The phases used in the tables represent the following stages of the execution of
   After the pull positions stage of the technique is completed.
 \end{itemize}
 
-\begin{table*}
+\subsection{Grid Application}
+\label{subsec:gridresults} 
+
+\begin{figure*}[p]
+ \centering
+  \includegraphics[width=0.9\textwidth]{figures/GridApplication.jpeg}
+  \caption{Influence of the implemented technique on {\emph{SynergyNet}}'s {\emph{Grid}} application.}
+  \label{fig:gridApp}
+\end{figure*}
+
+\begin{table*}[p]
 	\centering
 	\begin{tabular}{ | l | c | c | c | c | c | c | c | }	
 	\hline
@@ -568,7 +578,36 @@ The phases used in the tables represent the following stages of the execution of
 	\end{tabular}
 	\caption{The \ac{DSDI} measurements from the study in {\emph{SynergyNet}}'s {\emph{Grid}} application.}
 	\label{tab:gridApp}
+\end{table*}
 
+As can be seen in Figure~\ref{fig:gridApp}, all the items are visible and there is no cropping in the initial layout.
+However, when any of the four example display shapes are applied, several content items are occluded to varying extents.
+When the virtual projection stage of the technique is applied the cropping is resolved.
+At this stage of the technique, the {\emph{Display Use \ac{DSDI}}} can be observed due to the presence of unused regions of the display.
+
+The position pulling stage of the technique can be seen in Figure~\ref{fig:gridApp} to pull the content out into these previously unused regions of the display.
+However, the layout of the content items is deformed as a result of this stage.
+While acceptable for the {\emph{Grid}} application, this is problematic for software which cannot tolerate the influence of the {\emph{Layout \ac{DSDI}}}.
+
+It was observed from the impact of the technique that developers may wish for some content items to be affected by it in different ways.
+For example, a content item may be intended to act as a background to an application.
+If the implemented \ac{DSDI}-minimising technique a system uses to adapt to different display shapes is unaware of this, the item would be scaled with the virtual projection.
+This would have the effect of the background being constrained to a single region of the display, leaving other areas of the interface blank without a background.
+In the implemented system, a method of making content item exempt from the influence of specific stages of the technique was made available.
+
+% TODO Dicuss metrics for Grid Application
+
+\subsection{Simple Map Application}
+\label{subsec:simplemapresults} 
+
+\begin{figure*}[p]
+ \centering
+  \includegraphics[width=0.9\textwidth]{figures/MapApplication.jpeg}
+  \caption{Influence of the implemented technique on {\emph{SynergyNet}}'s {\emph{Simple Map}} application.}
+  \label{fig:mapApp}
+\end{figure*}
+
+\begin{table*}[p]
 	\begin{tabular}{ | l | c | c | c | c | c | c | c | }	
 	\multicolumn{8}{c}{ } \\
 	\hline
@@ -602,43 +641,6 @@ The phases used in the tables represent the following stages of the execution of
 	\caption{The \ac{DSDI} measurements from the study in {\emph{SynergyNet}}'s {\emph{Simple Map}} application.}
 	\label{tab:mapApp}
 \end{table*}
-
-\subsection{Grid Application}
-\label{subsec:gridresults} 
-
-\begin{figure*}[h!] 
- \centering
-  \includegraphics[width=0.95\textwidth]{figures/GridApplication.jpeg}
-  \caption{Influence of the implemented technique on {\emph{SynergyNet}}'s {\emph{Grid}} application.}
-  \label{fig:gridApp}
-\end{figure*}
-
-As can be seen in Figure~\ref{fig:gridApp}, all the items are visible and there is no cropping in the initial layout.
-However, when any of the four example display shapes are applied, several content items are occluded to varying extents.
-When the virtual projection stage of the technique is applied the cropping is resolved.
-At this stage of the technique, the {\emph{Display Use \ac{DSDI}}} can be observed due to the presence of unused regions of the display.
-
-The position pulling stage of the technique can be seen in Figure~\ref{fig:gridApp} to pull the content out into these previously unused regions of the display.
-However, the layout of the content items is deformed as a result of this stage.
-While acceptable for the {\emph{Grid}} application, this is problematic for software which cannot tolerate the influence of the {\emph{Layout \ac{DSDI}}}.
-
-It was observed from the impact of the technique that developers may wish for some content items to be affected by it in different ways.
-For example, a content item may be intended to act as a background to an application.
-If the implemented \ac{DSDI}-minimising technique a system uses to adapt to different display shapes is unaware of this, the item would be scaled with the virtual projection.
-This would have the effect of the background being constrained to a single region of the display, leaving other areas of the interface blank without a background.
-In the implemented system, a method of making content item exempt from the influence of specific stages of the technique was made available.
-
-% TODO Dicuss metrics for Grid Application
-
-\subsection{Simple Map Application}
-\label{subsec:simplemapresults} 
-
-\begin{figure*}[h!] 
- \centering
-  \includegraphics[width=0.95\textwidth]{figures/MapApplication.jpeg}
-  \caption{Influence of the implemented technique on {\emph{SynergyNet}}'s {\emph{Simple Map}} application.}
-  \label{fig:mapApp}
-\end{figure*}
 
 In Figure~\ref{fig:mapApp}, the map was made exempt from the influence of the position pulling stage of the technique.
 If the map item was made exempt from both stages of the technique, the map would remain in the same position for all display shapes.
