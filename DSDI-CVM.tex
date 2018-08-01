@@ -519,9 +519,6 @@ These measurements were as follows:
 \section{Results}
 \label{sec:results}
 
-
-% TODO Restructure to be Results (Issues 47, 44, 40, 37, 33)
-
 The results are summarised for each app per shape and phase in Tables \ref{tab:gridApp} and \ref{tab:mapApp}.
 The phases used in the tables represent the following stages of the execution of the technique as follows:
 \begin{itemize}
@@ -537,13 +534,6 @@ The phases used in the tables represent the following stages of the execution of
 
 \subsection{Grid Application}
 \label{subsec:gridresults} 
-
-\begin{figure*}[p]
- \centering
-  \includegraphics[width=0.9\textwidth]{figures/GridApplication.jpeg}
-  \caption{Influence of the implemented technique on {\emph{SynergyNet}}'s {\emph{Grid}} application.}
-  \label{fig:gridApp}
-\end{figure*}
 
 \begin{table*}[p]
 	\centering
@@ -580,32 +570,21 @@ The phases used in the tables represent the following stages of the execution of
 	\label{tab:gridApp}
 \end{table*}
 
-As can be seen in Figure~\ref{fig:gridApp}, all the items are visible and there is no cropping in the initial layout.
-However, when any of the four example display shapes are applied, several content items are occluded to varying extents.
-When the virtual projection stage of the technique is applied the cropping is resolved.
-At this stage of the technique, the {\emph{Display Use \ac{DSDI}}} can be observed due to the presence of unused regions of the display.
+\begin{figure*}[p]
+ \centering
+  \includegraphics[width=0.9\textwidth]{figures/GridApplication.jpeg}
+  \caption{Influence of the implemented technique on {\emph{SynergyNet}}'s {\emph{Grid}} application.}
+  \label{fig:gridApp}
+\end{figure*}
 
-The position pulling stage of the technique can be seen in Figure~\ref{fig:gridApp} to pull the content out into these previously unused regions of the display.
-However, the layout of the content items is deformed as a result of this stage.
-While acceptable for the {\emph{Grid}} application, this is problematic for software which cannot tolerate the influence of the {\emph{Layout \ac{DSDI}}}.
+Table~\ref{tab:gridApp} shows that the technique reduced the initial occlusion for all shapes without incurring any occlusion from overlapping items or deformation of items throughout its execution.
+However, the virtual projection stage did increase the change in scale and the amount of the display shape which went unused.
+The pull positions stage of the technique did reduce the amount of the display shape which went unused quite significantly for some shapes but did increase the change in layout.
+The change in layout for some of the display shapes was quite significant, for example the triangle as shown in Figure~\ref{fig:gridApp} where the grid layout becomes nearly unrecognisable.
 
-It was observed from the impact of the technique that developers may wish for some content items to be affected by it in different ways.
-For example, a content item may be intended to act as a background to an application.
-If the implemented \ac{DSDI}-minimising technique a system uses to adapt to different display shapes is unaware of this, the item would be scaled with the virtual projection.
-This would have the effect of the background being constrained to a single region of the display, leaving other areas of the interface blank without a background.
-In the implemented system, a method of making content item exempt from the influence of specific stages of the technique was made available.
-
-% TODO Dicuss metrics for Grid Application
 
 \subsection{Simple Map Application}
 \label{subsec:simplemapresults} 
-
-\begin{figure*}[p]
- \centering
-  \includegraphics[width=0.9\textwidth]{figures/MapApplication.jpeg}
-  \caption{Influence of the implemented technique on {\emph{SynergyNet}}'s {\emph{Simple Map}} application.}
-  \label{fig:mapApp}
-\end{figure*}
 
 \begin{table*}[p]
 	\begin{tabular}{ | l | c | c | c | c | c | c | c | }	
@@ -642,34 +621,28 @@ In the implemented system, a method of making content item exempt from the influ
 	\label{tab:mapApp}
 \end{table*}
 
-In Figure~\ref{fig:mapApp}, the map was made exempt from the influence of the position pulling stage of the technique.
-If the map item was made exempt from both stages of the technique, the map would remain in the same position for all display shapes.
-Though this would guarantee that the map would remain a background to the entire display, areas of it would be occluded which may not be desirable.
-Therefore, the map item was made to adhere to the virtual projection stage of the technique, but not the position pulling stage.
-As a result of this, the map effectively represents the virtual projection on each display shape.
-The placement of the virtual projection on the circle and intersecting circles display highlights how the contents may be rotated to fit the display shape.
-Since the software is intended for use on a tabletop display this is not an issue, because the horizontal nature of the display signifies that there is no single vantage point that the interface will be viewed from.
+\begin{figure*}[p]
+ \centering
+  \includegraphics[width=0.9\textwidth]{figures/MapApplication.jpeg}
+  \caption{Influence of the implemented technique on {\emph{SynergyNet}}'s {\emph{Simple Map}} application.}
+  \label{fig:mapApp}
+\end{figure*}
+
+In the map application, the large item displaying the map was made exempt from the influence of the position pulling stage of the technique.
+
+Table~\ref{tab:mapApp} shows that the technique reduced the initial occlusion for all shapes without incurring any additional occlusion from overlapping items or deformation of items throughout its execution.
+However, the virtual projection stage did increase the change in scale and the amount of the display shape which went unused.
+The pull positions stage of the technique did reduce the amount of the display shape which went unused quite significantly for some shapes but did increase the change in layout.
+The change in layout for some of the display shapes was quite significant similar to the grid app implying that the display shape has a large influence on the impact of the technique, not just the content.
 
 Figure~\ref{fig:mapApp} demonstrates the importance of the layout of content items.
 Up to the virtual projection stage of the technique, the flag items correctly align with the countries on the map; however, the position pulling stage deforms the layout of the flags in such a way that disengages this alignment.
 If it is important for this alignment to be kept then it is best if the flags are made exempt from the position pulling stage of the technique.
 As a consequence of this, however, areas of the display will be left unused by the layout.
 It therefore becomes a choice developers must make between whether to preserve the layout of content items or to maximise the usage of the display's real estate.
-A clear example of this choice can be seen in the technique's influence on the {\emph{Intersecting Circles}} display shape in Figure~\ref{fig:mapApp} -- without the influence of the position pulling stage of the technique, a large region of the display is left unused by the initial layout, resulting in the {\emph{Display Use \ac{DSDI}}} occurring.
+A clear example of this choice can be seen in the technique's influence on the {\emph{Intersecting Circles}} display shape in Figure~\ref{fig:mapApp}.
+Without the influence of the position pulling stage of the technique, a large region of the display is left unused by the initial layout, resulting in the {\emph{Display Use \ac{DSDI}}} occurring.
 However, with the influence of the position pulling stage of the technique, several of the flag items appear off the map, away from their respective positions, indicating the {\emph{Layout \ac{DSDI}}} has occurred.
-
-From the use of the implemented technique it was noted that in certain scenarios the limits imposed on the scaling of content items by the technique could cause the {\emph{Overlapping \ac{DSDI}}} to occur.
-If content items positioned close to each other are scaled to their predetermined limits but the virtual projection, and therefore their layout, is scaled beyond this then occlusion may occur.
-This occlusion is caused by the content items overlapping.
-A potential adaptation of the virtual projection stage of the technique could resolve this.  
-This adaptation makes use of the smallest box possible which encloses the content items, rather than using the shape of the entire original environment.
-Any unused regions of the original display between the content items and the display's edges are ignored.
-This variation of the technique could be used with any software where the distance between content items and the display edges does not need to be preserved.
-By discarding the unused regions of the original display surrounding the content items, the virtual projection is likely to be smaller.
-Therefore, the scaling required to fit the virtual projection into a new display shape will be reduced.
-This diminishes the likelihood of content items and their layout being scaled to beyond their limits. 
-
-% TODO Dicuss metrics for Grid Application
 
 
 %-------------------------------------------------------------------------
@@ -710,7 +683,7 @@ Being able to change the display shape of a system would aid in achieving this.
    \label{fig:prototypeTabletop}
 \end{figure}
 
-The examples of non-rectangular displays discussed in Section~\ref{sec:related}  reinforces the need for their support.
+The examples of non-rectangular displays discussed in Section~\ref{sec:related} reinforces the need for their support.
 In addition to these, many devices brought to market in the recent growth of wearable devices utilise non-rectangular displays, specifically smart watches~\cite{Jung2016}.
 Figure~\ref{fig:prototypeTabletop} shows a prototype built by a leasing furniture manufacturer featuring a circular tabletop interface intended for use as an interactive kiosk for public spaces.
 The lack of readily available software for the interface's circular display meant that if the tabletop was to be used then bespoke software would need to be commissioned at a significant cost to the manufacturer rather than using any of the readily available off-the-shelf products intended for interactive kiosks.
