@@ -86,7 +86,7 @@ This paper thus presents a novel technique that allows developers to adapt table
 \label{sec:related}
 
 Traditional displays used in digital systems are overwhelmingly rectangular.
-However, an increasing number of non-rectangular displays are becoming available, for a variety of real-world applications.
+However, an increasing number of non-rectangular displays are becoming available, for a variety of real-world applications, with patents appearing from the early 2000s~\cite{Battersby2002}.
 One such instance of a non-rectangular display is Toshiba's circular
 thin film transistor liquid crystal display~\cite{Boyd2007}; this display is typically employed in vehicles to show dashboard and operating information.
 The display is designed to look similar to a typical dial on a car dashboard, thus requiring the display to be circular.
@@ -107,8 +107,7 @@ Using the framework's features, the applications are able to appropriately arran
 However, this adaptive ability is limited to only two regular display shapes: rectangular and circular.
 
 The circular dashboard liquid crystal display~\cite{Boyd2007} is a typical example of a technology designed with the intention of supporting ubiquitous computing~\cite{Weiser1999}.
-In an era of ubiquitous and pervasive computing, more systems are being designed to fit naturally into their surroundings~\cite{Greenfield2006}.
-Thus, for computer systems to be ubiquitous they are required to be designed around typical user environments, not vice versa.
+In an era of ubiquitous and pervasive computing, systems are being designed to fit naturally into their surroundings~\cite{Greenfield2006}; thus, for computer systems to be ubiquitous they are required to be designed around typical user environments, not vice versa.
 The implication of this is that many previous standard elements of typical computing systems need to be reconsidered, such as the shape of a system's interface.
 One of the strengths of tabletop systems are their ubiquitous nature~\cite{Smith2012}; the ability for a tabletop system to manage different display shapes enhances this strength, allowing interfaces to better fit their environment.
 
@@ -122,9 +121,8 @@ This is the approach used with the software systems discussed thus far~\cite{Han
 
 The structured literature review~\cite{Kitchenham2004} that informed this research project highlighted that there has been little innovation in utilising different display shapes in the past.
 This is likely due to the cyclical nature of dependency between display technology and its supporting software.
-However, recently the research activity in this area has started to increase, with research appearing that details investigations on adapting text to non-rectangular displays~\cite{Serrano2016} and how visual content is best presented on legacy interfaces~\cite{Serrano2017}.
-The outcomes from these pieces of research are a set of guidelines which should be followed to make sure content can fit different display shapes.
-These guidelines can be restrictive and  place additional responsibilities on software developers and content designers.
+However, the research activity in this area has increased, with recent research detailing investigations on adapting text to non-rectangular displays~\cite{Serrano2016} and how visual content is best presented on legacy interfaces~\cite{Serrano2017}.
+The outcomes from these two projects are a set of guidelines which should be followed to make sure content can fit different display shapes; however, these guidelines can be restrictive and  place additional responsibilities on software developers and content designers.
 This, much like designing for unique content configurations for specific display shapes, will result in potentially significant additional development and design work.
 
 A potential method to reduce this would be to use a tool which can adapt the layout of visual contents to different platforms, such as GUMMY~\cite{Meskens2008}.
@@ -133,18 +131,17 @@ For example, the spacing of a predefined layout may be reduced by the tool when 
 By implementing a method which allows the tool to dynamically adapt a layout of content items to different display shapes, software developers could produce multiple layouts for a piece of software to use with different display shapes relatively easily.
 
 As opposed to using predefined layouts for each potential display shape, software could be designed to use a single layout which is adapted to fit different display shapes automatically.
-For example, SUPPLE~\cite{Gajos2004} is a system which can
-automatically adapt the layout of contents to fit the parameters of a display, with the content automatically arranged by the system to fit various display sizes and resolutions.
+For example, SUPPLE~\cite{Gajos2004} is a system which adapts the layout of contents to fit the parameters of a display, with the content automatically arranged by the system to fit various display sizes and resolutions.
 Furthermore, SUPPLE has the ability to adapt its visual contents based on input type.
 However, the system assumes that despite the changes in an interface's size, resolution, input type and colour support, it will always be rectangular.
 Changes to layout adapting systems, like SUPPLE, will be needed to allow them to adapt their layouts to non-rectangular displays.
 
-There exists initial research into software capable of adapting its visual contents to different display shapes.
+There also exists preliminary research into software capable of adapting its visual contents to different display shapes.
 Waldner et al.~\cite{Waldner2011} discuss work carried out concerning the development of a system which allows windows to be adapted to make use of unusual display shapes.
-The unusual display shapes discussed by Waldner et al. consist of a series of overlapping projections which form the system's output, with these overlapping projections not always forming a rectangular shape.
+The unusual display shapes presented by Waldner et al. consist of a series of overlapping projections which form the system's output, with these overlapping projections not always forming a rectangular shape.
 Therefore, it is important for the software used not to be dependent on a rectangular visual output.
 The technique presented works by automatically identifying the best location for new windows.
-An importance value is used for each pixel of the output and the magnitude of this value is used to assess its suitability to displaying a new window.
+An ``importance'' value is used for each pixel of the output and the magnitude of this value is used to assess its suitability to displaying a new window.
 The higher the value is, the less suitable the pixel is; pixels outside the output's shape are given a maximal importance value.
 This means that no window can be placed anywhere which will result in it occupying these pixels.
 This prevents content windows being placed where they may be partially occluded due to some of their regions existing outside the display area, ensuring that no visual content is obscured.
