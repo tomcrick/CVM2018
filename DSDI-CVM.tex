@@ -638,17 +638,16 @@ However, with the influence of the position pulling stage of the technique, seve
 \section{Conclusions and Future Work}
 \label{sec:conclusion}
 
+Developers must consider the implementation of any proposed method of countering the \acp{DSDI}.
+The identification, or creation of, an adequate \ac{DSDI}-minimising technique which allows a particular system to adapt to different display shapes could form part of design guidelines for emerging technologies.
+It is important to note that not only the list of \acp{DSDI} for a system should influence the design of a \ac{DSDI}-minimising technique; the need for applications to control the magnitude of a \ac{DSDI}-minimising technique's influence is also important to consider.
+
 The development of the techniques presented in Section~\ref{sec:solution} has shown that when designing software for use on differently shaped tabletop displays, the {\emph{Cropping \ac{DSDI}}} must be considered.
 In addition to this, secondary \acp{DSDI} which can result from attempts to resolve the initial cropping must also be addressed.
 Developers should also consider which \acp{DSDI} their software can tolerate and which must be handled by a \ac{DSDI}-minimising technique.
 Choices must be made between whether to preserve the layout of content items or to maximise the display usage.
 
-Developers must consider the implementation of any proposed method of countering the \acp{DSDI}.
-The identification, or creation of, an adequate \ac{DSDI}-minimising technique which allows a particular system to adapt to different display shapes could form part of design guidelines for emerging technologies.
-It is important to note that not only the list of \acp{DSDI} for a system should influence the design of a \ac{DSDI}-minimising technique; the need for applications to control the magnitude of a \ac{DSDI}-minimising technique's influence is also important to consider.
-
-In the study all stages of the technique were applied to investigate its impact.
-In typical usage an application developer using the framework would have the option to override this for specific content items.
+In the study, all stages of the technique were applied to investigate its impact; in typical usage, an application developer using the framework would have the option to override this for specific content items.
 For example, they could apply scale limits to the virtual projection forll content in an application or to individual items.
 The ability to choose which stages of the technique affect a content item gives developers control over its influence.
 Without this ability there is still a danger of unacceptable \acp{DSDI} occurring in software despite the presence of the implemented technique.
@@ -659,7 +658,7 @@ It is important to note that although the technique presented in this work is a 
 It may be possible in many combinations of content and display shapes to find solutions where the impact of the steps taken to avoid \acp{DSDI} is less than the impact of the presented technique.
 The solution of less impact may be preferable for developers, as it will allow content to appear more consistent across different displays, allowing for the software to appear more intuitive and familiar for users across devices.
 Identifying what solution is best suited for a given situation should be at the centre of any future research involving this topic.
-Despite no guarantee that the technique is the optimal solution for a given situation it still is a significant step forward for resolving \acp{DSDI} as it can (i) always supply an adequate solution to a wide-range of scenarios; (ii) be automated as part of an implementation as shown in this work; and (iii) allow developers some control over its execution.
+Despite no guarantee that the technique is the optimal solution for a given situation it still is a significant step forward for resolving \acp{DSDI} as it can {\emph{(i)}} always supply an adequate solution to a wide-range of scenarios; {\emph{(ii)}} be automated as part of an implementation as shown in this work; and {\emph{(iii)}} allow developers some control over its execution.
 
 There are a number of reasons why it is important that software becomes display shape independent.
 There is now a growing push for software systems to become ubiquitous with the increased availability of natural user interfaces; for a system to become ubiquitous it must fit its environment~\cite{Greenfield2006}.
@@ -679,11 +678,11 @@ The lack of readily available software for the interface's circular display mean
 This highlights the need for making it a simple as possible for software to support different display shapes.
 
 The technique presented in this paper can be adopted by developers to allow their content to fit different display shapes, much like the guidelines presented in the work of Serrano et al.~\cite{Serrano2016,Serrano2017}.
-However, this technique deviates from the guidelines to provide developers with greater freedom and flexibility.
+However, while our technique deviates from their guidelines, it provides developers with greater freedom and flexibility.
 Without encumbering software developers and content designers with additional restrictions the technique is able to resolve the \acp{DSDI} with minimal input.
 This allows for development time to be saved on adding support for different display shapes and also offers more freedom in the design of the content.
 
-Furthermore, the technique outlined in Section~\ref{sec:solution} could be used beyond tabletop systems.
+Furthermore, the technique outlined in Section~\ref{sec:solution} could also be used beyond tabletop systems.
 However, it is possible for the \acp{DSDI} in other systems to vary and differ from those presented in this work~\cite{Serrano2017}. 
 For example, attempts to resolve the initial {\emph{Cropping \ac{DSDI}}} may require content items to be rotated.
 If a user is viewing the display from a single perspective, such as with a vertical display, then any change in content item's orientation is undesirable.
@@ -695,8 +694,7 @@ Further research involving the technique could involve investigating how it func
 Although the shapes used in the implementation of the technique discussed in this study vary greatly and cover a wide range of what is likely to be used as tabletop display shapes, it is possible that shapes that vary from rectangular display in much more extreme ways could be desirable.
 Research utilising these extreme shapes could involve finding acceptable limits to place on parts of the technique such as maximum distances to pull content items.
 
-While this work details the use of an implementation of the technique, the next step should be a full study investigating how the technique works for both real-world developers and end users.
-A study similar to that carried out by Serrano et al.~\cite{Serrano2017} to review the impact of their proposed guidelines is likely to be a suitable approach.
+While this work details an implementation of the technique, the next step should be a full user study investigating how the technique works for both real-world developers and end users; for example, a study similar to that carried out by Serrano et al.~\cite{Serrano2017} to review the impact of their proposed guidelines is likely to be a suitable approach.
 By instructing developers to utilise the technique when building some software, it should be possible to find out the suitability of the technique in real-world scenarios.
 We can then review the impact of the technique in these implementations to find if the results are suitable for end-users.
 
@@ -706,8 +704,7 @@ This future work would likely focus on additional restrictions the technique wou
 Future work could also look at expanding the technique to resolve more than just \acp{DSDI} relating to the layout of visual content.
 Extra steps or adding limits to the transformations of elements within the technique may help improve usability and readability when applying content to a different display shape.
 
-The techniques presented in this paper can be used in several scenarios.
-One such use of the technique is its implementation into the application layer of a piece of software; this would allow a specific layout of visual content items to be dynamically adapted to different display shapes.
+The techniques presented in this paper can be used in various scenarios; one such use of the technique is its implementation into the application layer of a piece of software; this would allow a specific layout of visual content items to be dynamically adapted to different display shapes.
 As this implementation of the technique would be customised to the application's specific layout, it would ensure the best results.
 However, this does have the drawback that the technique would need to be redefined for every unique application.
 
@@ -734,7 +731,7 @@ These guidelines could then be formalised~\cite{Ngo2000}, allowing their applica
 This would aid with the technique's integration into frameworks and design tools.
 With the technique implemented in a tool used to design a wider range of software, its influence can be tested on a wider range of user interfaces with varying complexities in future studies, especially in educational contexts~\cite{McNaughton2017,jg-et-al:2017}.
 
-In summary, the techniques presented in this paper are capable of minimising the effect of the identified \acp{DSDI}, but require trade-offs.
+In summary, the techniques presented in this paper are capable of efficiently minimising the effect of the identified \acp{DSDI}, but require trade-offs.
 Developers using the technique must decide which \acp{DSDI} could not be tolerated by their software and must adapt the technique according.
 Future tabletop software development would benefit greatly from the creation of guidelines to be followed when adapting software to become display shape independent.
 The technique produced in this paper, or another similar \ac{DSDI}-minimising technique, should form part of these guidelines.
@@ -746,7 +743,7 @@ The technique produced in this paper, or another similar \ac{DSDI}-minimising te
 This work was partially funded under the UK's EPSRC/ERSC Teaching and Learning Research Programme (TLRP) {\emph{SynergyNet}} project (RES-139-25-0400).
 The authors would also like to thank Professor Liz Burd and Dr Andrew Hatch for their supervision of the primary author's master's degree from which this work originally stems.
 The authors would also like to thank the members of the Durham University Technology Enhanced Learning Special Interest Group for supporting the redrafting of this manuscript.
-The source code for the technique's implementation discussed in this manuscript is freely available here: \url{https://github.com/synergynet/synergynet2.1}.
+The source code for the technique's implementation presented in this manuscript is available here: \url{https://github.com/synergynet/synergynet2.1}.
 }
 
 \bibliographystyle{cvm}
