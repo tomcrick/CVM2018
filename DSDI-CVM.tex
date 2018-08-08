@@ -161,8 +161,7 @@ For tools which are used to design the layout of software~\cite{Meskens2008} or 
 \label{sec:problem}
 
 For developing a method of adapting visual content layouts to different display shapes, the effects of applying a new display shape to a system's visual output need to be considered.
-Issues can occur when a display shape which differs from the shape of a display assumed by the software is used.
-In this section we define six of these {\emph{\acp{DSDI}}}.
+Issues can occur when a display shape which differs from the shape of a display assumed by the software is used; thus, in this section we define six of these {\emph{\acp{DSDI}}}.
 
 The \acp{DSDI} presented in this work are entirely novel; they were derived from first-hand observations on attempts by the authors to manually fit visual contents to different display shapes and from observations discussed in related work of Serrano et al.~\cite{Serrano2016,Serrano2017}.
 Figure~\ref{fig:dsdiFlow} groups the \acp{DSDI} into two groups: primary and secondary.
@@ -196,36 +195,34 @@ Overlapping content items is not always an issue since the obscuring items could
 
 The changing of content item positions could be an issue in applications where layout is important; this is because the positioning of content items can imply their functional relations to the user~\cite{Constantine1999,mcnaughton-et-al:hcis2017}.
 For example, controls in an application may be placed next to the items they influence.
-If this layout relation is lost then it may become users what items the set of controls will influence. 
+If this layout relation is lost then it may confuse users what items the set of controls will influence. 
 The loss of layout may not make content unfit for purpose but could be highly undesirable for software where the layout is intended to aid the user.
 However, loss of layout is not always considered an issue meaning this \ac{DSDI} will only apply to specific content, tasks or applications.
 
 \begin{quote}\emph{iv) \textbf{Scaling \ac{DSDI}:} The scaling of visual content items to an extreme.}\end{quote}
 
-Scaling -- when a content item is resized while maintain its aspect ratio -- a visual element may be performed to avoid the cropping of content.
-If this scaling is performed to an excessive magnitude, the visual information displayed by a content item may become incommunicable.
-For example, if a content item displaying text is scaled down to an extreme value the characters it displays may become too small and be illegible to users.
+Scaling -- when a content item is resized whilst maintaining its aspect ratio -- a visual element may be performed to avoid the cropping of content.
+If this scaling is performed to an excessive degree, the visual information displayed by a content item may become incommunicable.
+For example, if a content item displaying text is excessively scaled down, the characters it displays may become too small and be illegible to users.
 
 \begin{quote}\emph{v) \textbf{Warping \ac{DSDI}:} The warping of visual content items.}\end{quote}
 
 Warping is where the contents of a system are stretched and/or squashed in a non-uniform manner~\cite{Milliron2002}.
-This could be applied to the entire visual output of a system to make it fit a particular display shape.
-However, this results in content items being stretched and squashed non-uniformly.
+This could be applied to the entire visual output of a system to make it fit a particular display shape; however, this results in content items being stretched and squashed non-uniformly.
 Even when the magnitude of this deformation is relatively small it can make any visual information a content item displays incommunicable to the user.
-However, this \ac{DSDI} may not apply in all circumstances; some visual content items may display visual information which is communicable to the user no matter how severely it is deformed.
+This \ac{DSDI} may not apply in all circumstances; some visual content items may display visual information which is communicable to the user no matter how severely it is deformed.
 For example, if a content item's visual information is its colour -- if the item can be seen then it is successfully communicating its visual information to the user.
 
 \begin{quote}\emph{vi) \textbf{Display Use \ac{DSDI}:} Display regions unused by the layout of visual content items.}\end{quote}
 
-As a result of attempting to resolve the initial cropping, visual content items can often be translated to the same regions of the display.
-This can leave large areas of an interface unused.
-While this may not make the software unfit for purpose it is not desirable for large tabletop interfaces.
+As a result of attempting to resolve the initial cropping, visual content items can often be translated to the same regions of the display, leaving large areas of an interface unused.
+While this may not make the software unfit for purpose, it is not desirable for large tabletop interfaces.
 This is due to the fact that on larger interfaces some regions of the display may be beyond a user's reach.
 If the display uses direct touch interaction, then items in these regions become isolated from the user's influence.
 There are solutions to this problem, such as users changing their positions around the interface or controls which can be used to indirectly manipulate out of reach items~\cite{Ryall2006a}.
 However, if all the content items are constrained to a single region of the display beyond a user's reach, the need to repeatedly use these solutions is undesirable.
 Changing positions to access remote content may not be possible in some environments due to the placement of the interface, for example, multi-touch interfaces may have several users positioned around them.
-Users interacting simultaneously with a single interface often have a tendency to establish territories~\cite{scott2004}.
+Users interacting simultaneously with a single interface often have a tendency to establish ``territories''~\cite{scott2004}.
 A user wishing to move with these types of interfaces may disrupt others interacting with the system.
 Solutions involving the remote control of out of reach content items result in users manipulating content items through a proxy~\cite{Smith11}.
 This means that their interaction would no longer be direct, which can be undesirable because it counteracts the benefits of direct touch interaction~\cite{Schoning2008}.
