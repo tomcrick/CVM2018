@@ -258,13 +258,12 @@ This item, referred to as the virtual projection, is translated, rotated and sca
 The transformations applied to the virtual projection are applied to any visual content items displayed in the software's original layout.
 
 This stage of the technique has the effect of keeping the visual content items aligned with the virtual projection.
-This ensures that visual contents will not incur occlusion from lying outside the borders of the new display shape.
-This is because the content items will all be contained within the virtual environment which fits inside the display.
+This ensures that visual contents will not incur occlusion from lying outside the borders of the new display shape, as the content items will all be contained within the virtual environment which fits inside the display.
 Figure~\ref{fig:virtualRectangle} demonstrates how the virtual projection and its contents are transformed together to fit a new display shape.
 
 As the original visual output of most current software is likely to be rectangular, the virtual projection for most systems can assumed to be a rectangle.
 Finding the largest rectangle which can be placed within the display is required for this technique to utilise as much of the display as possible.
-The concept of finding the largest rectangle inside a shape is a known as the \lq {\emph{largest empty rectangle problem}}\rq or the \lq {\emph{maximal rectangle problem}}\rq; there are several existing solutions to finding the maximal rectangle which can be utilised~\cite{Aggarwal1987,Naamad1984}.
+The concept of finding the largest rectangle inside a shape is a known as the {\emph{largest empty rectangle problem}} or the {\emph{maximal rectangle problem}}; there are several existing solutions to finding the maximal rectangle which can be utilised~\cite{Aggarwal1987,Naamad1984}.
 
 Methods also exist for finding the largest of any specific polygon in the display shape~\cite{Toussaint1983}.
 This allows for the adaptation of any software environment which may not have originally been rectangular.
@@ -272,16 +271,15 @@ Therefore the technique can be used to adapt software originally designed for an
 As all the content items are translated, rotated and scaled by the same values their layout relations are preserved preventing the {\emph{Overlapping \ac{DSDI}}}.
 As no warping deformations are used in this technique, there can be no occurrence of the {\emph{Warping \ac{DSDI}}}.
 It is important to note that because of the scope of this work is limited to tabletop displays, the rotation of the content is not considered an issue.
-By definition, tabletop interfaces are horizontal allowing them to be accessed from any direction making the impact of orientation negligible.
+By definition, tabletop interfaces are horizontal, allowing them to be accessed from any direction making the impact of orientation negligible.
 
-There is the potential for issues with the {\emph{Scaling \ac{DSDI}}}; if the virtual projection is significantly smaller than the initial
+However, there is the potential for issues with the {\emph{Scaling \ac{DSDI}}}; if the virtual projection is significantly smaller than the initial
 layout's environment, then the contained content items will be scaled to an extreme value.
 Indeed, it is possible that the content items may be scaled to an extent that they become unfit for purpose.
 To counter this, the virtual projection technique adheres to scaling limits.
 For systems where content items cannot be scaled to extremes, its content items should only be scaled to a predetermined limit.
 This may result in sections of the content items becoming occluded from overlapping each other or from the display edge because they cannot be made small enough.
-Without scale limits, the {\emph{Cropping}} and {\emph{Overlapping \acp{DSDI}}} are guaranteed not to occur but the {\emph{Scaling \ac{DSDI}}} remains a risk.
-With scale limits the potential risk of \acp{DSDI} are reversed.
+Without scale limits, the {\emph{Cropping}} and {\emph{Overlapping \acp{DSDI}}} are guaranteed not to occur but the {\emph{Scaling \ac{DSDI}}} remains a risk; with scale limits, the potential risk of \acp{DSDI} are reversed.
 When utilising this technique, developers must decide on \ac{DSDI} trade-offs in their software.
 
 This stage of the technique is similar to previously presented methods of dynamically adapting content to different displays which entails constricting the placement of content to a specific region of the displays used~\cite{Cotting2006,Raskar2003}.
@@ -349,7 +347,7 @@ Figure~\ref{fig:pullLayout}'s right hand side shows the translation of the conte
 
 Algorithm~\ref{algo:pullLayoutOne} shows how each vector representing the individual \lq pulling force\rq\ is calculated and made proportional to the item's proximity to the corresponding edge.
 Algorithm~\ref{algo:pullLayoutTwo} details how pulling force vectors are attained, where $\theta$ represents the orientation of the virtual projection.
-The existing values used in Algorithm~\ref{algo:pullLayoutOne} and Algorithm~\ref{algo:pullLayoutTwo} correspond to those shown in Figure~\ref{fig:pullLayoutExp}.
+The existing values used in Algorithm~\ref{algo:pullLayoutOne} and Algorithm~\ref{algo:pullLayoutTwo} correspond to those presented in Figure~\ref{fig:pullLayoutExp}.
 
 This stage of the technique effectively deforms the layout of the content items by warping it to fit the display shape.
 Though the layout is warped, the content items are not deformed in any way by this stage of the technique.
@@ -370,8 +368,7 @@ Vector addition between each of these vectors representing the \lq pulling force
 
 After employing the two stages discussed, the resulting technique has the potential to minimise any of the \acp{DSDI} identified. 
 Due to the development of this technique for use on tabletop displays it is limited to use on two-dimensional displays which are positioned horizontally.
-The technique allows for interventions at different points which can depend on how content should be treated.
-This gives developers greater control over the influence and impact of the technique.
+The technique allows for interventions at different points which can depend on how content should be treated, giving developers greater control over the influence and impact of the technique.
 This, in addition to the fact that the technique uses only linear transformations resulting in a simple to implement piece of functionality, makes the presented technique a promising approach to handling different display shapes on tabletops in real-world applications.
 
 
