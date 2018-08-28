@@ -178,6 +178,8 @@ Note that the numbering or ordering of the \acp{DSDI} holds no significance and 
 
 \begin{quote}\emph{i) \textbf{Cropping \ac{DSDI}:} Content items appear cropped as regions of them become positioned outside the display area.}\end{quote}
 
+% TODO We assume there is no technological implementation of an attempt to resolve DSDIs (i.e. no warping applied by a device's set-up or driver). The scope of the technique is limited to displays where the output displays a region of the rectangular output, such as when a rectangular display is partially covered up or a projection occluded to make the display shape. This is in keeping with the majority of approaches to making non-rectangular displays detailed in the background section.
+
 Cropping can have an effect of making the visual content items unfit for purpose; this is because the visual information they convey is lost.
 Users may also be unable to interact directly with cropped items.
 The cropping of visual content items outside the display area was also noted by Waldner et al. \cite{Waldner2011}.
@@ -653,6 +655,8 @@ The ability to choose which stages of the technique affect a content item gives 
 Without this ability there is still a danger of unacceptable \acp{DSDI} occurring in software despite the presence of the implemented technique.
 This highlights the importance of any technique intended to minimise the influence of the potential \acp{DSDI} in a system not only to be capable of adapting to different display shapes, but to be also capable of adapting to the needs of the developer. 
 This allows developers to make informed, user-centric design and implementation decisions on how content should be displayed.
+
+% TODO Add a paragraph highlighting the limitations of the technique - specifically that non-uniform backgrounds will need to be cropped or scaled (leaving blank regions of the background). This may be where warping comes in handy or context-aware filling (like filling the blank spaces with the average colour of the background image).
 
 It is important to note that although the technique presented in this work is a solution to the \acp{DSDI} of tabletop interfaces, it is not always guaranteed to be the best solution.
 It may be possible in many combinations of content and display shapes to find solutions where the impact of the steps taken to avoid \acp{DSDI} is less than the impact of the presented technique.
