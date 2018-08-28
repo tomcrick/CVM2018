@@ -656,7 +656,12 @@ Without this ability there is still a danger of unacceptable \acp{DSDI} occurrin
 This highlights the importance of any technique intended to minimise the influence of the potential \acp{DSDI} in a system not only to be capable of adapting to different display shapes, but to be also capable of adapting to the needs of the developer. 
 This allows developers to make informed, user-centric design and implementation decisions on how content should be displayed.
 
-% TODO Add a paragraph highlighting the limitations of the technique - specifically that non-uniform backgrounds will need to be cropped or scaled (leaving blank regions of the background). This may be where warping comes in handy or context-aware filling (like filling the blank spaces with the average colour of the background image).
+Developers must consider the limitations of the technique before adopting it.
+One such limitation relates to items providing backgrounds.
+Depending on what stages of the technique are applied to a background item the result will either be a partially occluded background or blank spaces left where the item is not present due to it being scaled to fit the maximal rectangle.
+Both of these outcomes may be undesirable in some scenarios.
+There are possible solutions which could be explored however, such as adding an extra step to the technique to apply warping to the background item or context-aware filling of the blank regions of the display.
+Another limitation is the assumption of there being no hardware-level attempt to fit the output to the display shape.
 
 It is important to note that although the technique presented in this work is a solution to the \acp{DSDI} of tabletop interfaces, it is not always guaranteed to be the best solution.
 It may be possible in many combinations of content and display shapes to find solutions where the impact of the steps taken to avoid \acp{DSDI} is less than the impact of the presented technique.
