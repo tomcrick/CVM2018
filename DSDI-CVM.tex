@@ -140,7 +140,7 @@ Waldner et al.~\cite{Waldner2011} discuss work carried out concerning the develo
 The unusual display shapes presented by Waldner et al. consist of a series of overlapping projections which form the system's output, with these overlapping projections not always forming a rectangular shape.
 Therefore, it is important for the software used not to be dependent on a rectangular visual output.
 The technique presented works by automatically identifying the best location for new windows.
-An ``importance'' value is used for each pixel of the output and the magnitude of this value is used to assess its suitability to displaying a new window.
+An `importance' value is used for each pixel of the output and the magnitude of this value is used to assess its suitability to displaying a new window.
 The higher the value is, the less suitable the pixel is; pixels outside the output's shape are given a maximal importance value.
 This means that no window can be placed anywhere which will result in it occupying these pixels.
 This prevents content windows being placed where they may be partially occluded due to some of their regions existing outside the display area, ensuring that no visual content is obscured.
@@ -198,7 +198,7 @@ Overlapping content items is not always an issue since the obscuring items could
 The changing of content item positions could be an issue in applications where layout is important; this is because the positioning of content items can imply their functional relations to the user~\cite{Constantine1999,mcnaughton-et-al:hcis2017}.
 For example, controls in an application may be placed next to the items they influence.
 If this layout relation is lost then it may confuse users what items the set of controls will influence. 
-The loss of layout may not make content unfit for purpose but could be highly undesirable for software where the layout is intended to aid the user.
+The loss of layout may not make content unfit for purpose, but could be highly undesirable for software where the layout is intended to aid the user.
 However, loss of layout is not always considered an issue meaning this \ac{DSDI} will only apply to specific content, tasks or applications.
 
 \begin{quote}\emph{iv) \textbf{Scaling \ac{DSDI}:} The scaling of visual content items to an extreme.}\end{quote}
@@ -211,8 +211,8 @@ For example, if a content item displaying text is excessively scaled down, the c
 
 Warping is where the contents of a system are stretched and/or squashed in a non-uniform manner~\cite{Milliron2002}.
 This could be applied to the entire visual output of a system to make it fit a particular display shape; however, this results in content items being stretched and squashed non-uniformly.
-Even when the magnitude of this deformation is relatively small it can make any visual information a content item displays incommunicable to the user.
-This \ac{DSDI} may not apply in all circumstances; some visual content items may display visual information which is communicable to the user no matter how severely it is deformed.
+Even when the magnitude of this deformation is relatively small it can make any visual information a content item displays incomprehensible to the user.
+This \ac{DSDI} may not apply in all circumstances; some visual content items may display visual information which is comprehensible to the user no matter how severely it is deformed.
 For example, if a content item's visual information is its colour -- if the item can be seen then it is successfully communicating its visual information to the user.
 
 \begin{quote}\emph{vi) \textbf{Display Use \ac{DSDI}:} Display regions unused by the layout of visual content items.}\end{quote}
@@ -224,7 +224,7 @@ If the display uses direct touch interaction, then items in these regions become
 There are solutions to this problem, such as users changing their positions around the interface or controls which can be used to indirectly manipulate out of reach items~\cite{Ryall2006a}.
 However, if all the content items are constrained to a single region of the display beyond a user's reach, the need to repeatedly use these solutions is undesirable.
 Changing positions to access remote content may not be possible in some environments due to the placement of the interface, for example, multi-touch interfaces may have several users positioned around them.
-Users interacting simultaneously with a single interface often have a tendency to establish ``territories''~\cite{scott2004}.
+Users interacting simultaneously with a single interface often have a tendency to establish `territories'~\cite{scott2004}.
 A user wishing to move with these types of interfaces may disrupt others interacting with the system.
 Solutions involving the remote control of out of reach content items result in users manipulating content items through a proxy~\cite{Smith11}.
 This means that their interaction would no longer be direct, which can be undesirable because it counteracts the benefits of direct touch interaction~\cite{Schoning2008}.
