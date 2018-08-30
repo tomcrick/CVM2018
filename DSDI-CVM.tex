@@ -88,27 +88,26 @@ In support of this aim, this paper presents a novel technique that allows develo
 Traditional displays used in digital systems are overwhelmingly rectangular.
 However, an increasing number of non-rectangular displays are becoming available, for a variety of real-world applications, with patents appearing from the early 2000s~\cite{Battersby2002}.
 One such instance of a non-rectangular display is Toshiba's circular
-thin film transistor liquid crystal display~\cite{Boyd2007}; this display is typically employed in vehicles to show dashboard and operating information.
+thin film transistor liquid crystal display (LCD)~\cite{Boyd2007}; this display is typically employed in vehicles to show dashboard and operating information.
 The display is designed to look similar to a typical dial on a car dashboard, thus requiring the display to be circular.
 The Motorola Aura~\cite{Finney2009} is a mobile phone that showcases another example of a non-rectangular (circular) display.
 
 A non-rectangular display is utilised in the PyMT -- A Multitouch Framework for Python~\cite{Hansen2009} project.
 A circular display is made by projecting the system's output onto a circular surface.
 The \lq {\emph{Puddle of Life}}\rq\ application is designed to tailor its visual output to this circular display shape; meaning that the software is constrained by the specifications of the hardware.
-This is also true for software built for circular dashboard~\cite{Boyd2007} and phone~\cite{Finney2009} displays.
+This is also true for software built for circular dashboards~\cite{Boyd2007} and phone~\cite{Finney2009} displays.
 As a result, such software could not be used easily with other non-traditional display shapes.
 Therefore, applications used with these circular displays would not be suitable for use with typical rectangular displays.
 
 The DiamondSpin framework~\cite{Shen2004} offers support for circular tabletop multi-touch displays.
 Instances of a circular display used by the framework are achieved through either projecting the system's visual output onto a circular surface or occluding sections of the output.
 DiamondSpin supports these displays through several applications which are designed specifically for use on a circular tabletop interface; the framework provides several features to support applications intended for circular interfaces, such as the ability to orientate items towards the nearest edge of the display.
-Some of the example applications for this framework can be used with both rectangular and circular interfaces.
-Using the framework's features, the applications are able to appropriately arrange the layout of content to the display shape used.
+Some of the example applications for this framework can be used with both rectangular and circular interfaces; using the framework's features, the applications are able to appropriately arrange the layout of content to the display shape used.
 However, this adaptive ability is limited to only two regular display shapes: rectangular and circular.
 
-The circular dashboard liquid crystal display~\cite{Boyd2007} is a typical example of a technology designed with the intention of supporting ubiquitous computing~\cite{Weiser1999}.
-In an era of ubiquitous and pervasive computing, systems are being designed to fit naturally into their surroundings~\cite{Greenfield2006}; thus, for computer systems to be ubiquitous they are required to be designed around typical user environments, not vice versa.
-The implication of this is that many previous standard elements of typical computing systems need to be reconsidered, such as the shape of a system's interface.
+The circular dashboard LCD~\cite{Boyd2007} is a typical example of a technology designed with the intention of supporting ubiquitous computing~\cite{Weiser1999}.
+We have entered an era of ubiquitous and pervasive digital systems being designed to fit naturally into their surroundings~\cite{Greenfield2006}; however, for this to be natural and intuitive, they are required to be designed around typical user environments, not vice versa.
+The implication is that many previous standard elements of typical computing systems need to be reconsidered, such as the shape of a system's interface.
 One of the strengths of tabletop systems are their ubiquitous nature~\cite{Smith2012}; the ability for a tabletop system to manage different display shapes enhances this strength, allowing interfaces to better fit their environment.
 
 Previous work that discusses the possible effects of displays with non-rectangular display shapes~\cite{Vernier2002} highlights the benefits it may offer; these benefits include potential improvements to collaboration around the display between users.
@@ -121,7 +120,7 @@ This is the approach used with the software systems discussed thus far~\cite{Han
 
 The structured literature review~\cite{Kitchenham2004} that informed this research project highlighted that there has been little innovation in utilising different display shapes in the past.
 This is likely due to the cyclical nature of dependency between display technology and its supporting software.
-However, the research activity in this area has increased, with recent research detailing investigations on adapting text to non-rectangular displays~\cite{Serrano2016} and how visual content is best presented on legacy interfaces~\cite{Serrano2017}.
+However, the research activity in this area is increasing, with recent research detailing investigations on adapting text to non-rectangular displays~\cite{Serrano2016} and how visual content is best presented on legacy interfaces~\cite{Serrano2017}.
 The outcomes from these two projects are a set of guidelines which should be followed to make sure content can fit different display shapes; however, these guidelines can be restrictive and  place additional responsibilities on software developers and content designers.
 This, much like designing for unique content configurations for specific display shapes, will result in potentially significant additional development and design work.
 
@@ -134,7 +133,7 @@ As opposed to using predefined layouts for each potential display shape, softwar
 For example, SUPPLE~\cite{Gajos2004} is a system which adapts the layout of contents to fit the parameters of a display, with the content automatically arranged by the system to fit various display sizes and resolutions.
 Furthermore, SUPPLE has the ability to adapt its visual contents based on input type.
 However, the system assumes that despite the changes in an interface's size, resolution, input type and colour support, it will always be rectangular.
-Changes to layout adapting systems, like SUPPLE, will be needed to allow them to adapt their layouts to non-rectangular displays.
+Significant changes to layout adapting systems, such as SUPPLE, will be needed to allow them to adapt their layouts to non-rectangular displays.
 
 There also exists preliminary research into software capable of adapting its visual contents to different display shapes.
 Waldner et al.~\cite{Waldner2011} discuss work carried out concerning the development of a system which allows windows to be adapted to make use of unusual display shapes.
@@ -147,14 +146,14 @@ This means that no window can be placed anywhere which will result in it occupyi
 This prevents content windows being placed where they may be partially occluded due to some of their regions existing outside the display area, ensuring that no visual content is obscured.
 
 Waldner et al.'s technique appears to be beneficial for use with windows which have no layout defined between each other.
-The technique could be employed in other systems to manage the placement of visual content items when used with different display shapes.
+The technique could thus be employed in other systems to manage the placement of visual content items when used with different display shapes.
 However, for visual content which may have a significant locational relation this technique could be considered unsuitable; for example, the order in which windows are created will influence where the technique positions them.
 Therefore, the technique currently has no method to accommodate for any locational relationship which are intended to exist between windows.
 If two visual content items are intended to be in close proximity to each other, there is no guarantee that the technique will position them together.
 As the positioning of content items can imply their functional relations to the user~\cite{Constantine1999}, the loss of these intended locational relations could be undesirable for some systems.
 
 The potential benefits~\cite{Greenfield2006,Vernier2002} and growing supporting technologies~\cite{Boyd2007,Finney2009} of non-rectangular displays indicate that there is an increasing demand for systems to support them; more specifically, there is a growing demand for these different display shapes in tabletop systems~\cite{Hansen2009,Shen2004}.
-For tools which are used to design the layout of software~\cite{Meskens2008} or systems which dynamically update the layout of visual content items~\cite{Gajos2004}, a method of adapting visual content layouts to different tabletop display shapes will be needed.
+For tools which are used to design the layout of software~\cite{Meskens2008} or systems which dynamically update the layout of visual content items~\cite{Gajos2004}, a new method of adapting visual content layouts to different tabletop display shapes is needed.
 
 %-------------------------------------------------------------------------
 \section{Identifying Display Shape Dependence Issues}
